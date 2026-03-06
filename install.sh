@@ -13,8 +13,9 @@ echo "Installing Pixel Council for Claude Code..."
 mkdir -p "$SKILL_DIR"
 mkdir -p "$CLAUDE_SKILLS"
 
-# Copy skill file and references
+# Copy skill file and references (clean old references first)
 cp "$SCRIPT_DIR/skill/SKILL.md" "$SKILL_DIR/SKILL.md"
+rm -rf "$SKILL_DIR/references"
 cp -r "$SCRIPT_DIR/references" "$SKILL_DIR/"
 
 # Create symlink (remove old one if exists)

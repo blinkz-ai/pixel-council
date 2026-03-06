@@ -22,9 +22,9 @@ Pixel Council encodes the real design principles, token systems, spacing scales,
 
 | Company | Source | Coverage |
 |---------|--------|----------|
-| Google | [Material Design 3](https://github.com/material-components/material-web) | 22 component specs, color tokens, typography scale, shape system, elevation, state layers |
-| Apple | [Human Interface Guidelines](https://github.com/6639835/apple-hig) | 13 component specs, semantic colors, SF Pro type scale, layout, motion, materials |
-| Blended | Best-of-both | 12 component specs combining Google's systematic tokens with Apple's refinement |
+| Google | [Material Design 3](https://github.com/material-components/material-web) | 22 component specs with complete HTML+CSS, 34 color roles (light+dark hex), typography scale, elevation box-shadows, state layers, motion easing |
+| Apple | [Human Interface Guidelines](https://github.com/6639835/apple-hig) | 13 component specs with complete HTML+CSS, 15 system colors (light+dark hex), SF Pro font stack, Liquid Glass CSS, shadow system, focus ring |
+| Blended | Best-of-both | 12 component specs with complete HTML+CSS combining Google's tokens with Apple's refinement |
 
 *More companies coming: Stripe, IBM, Microsoft, Linear, Vercel, Shopify...*
 
@@ -76,33 +76,35 @@ It also auto-triggers when you ask Claude to build any UI:
 | "Apple style" / "iOS style" | Pure Apple HIG specs |
 | "Combine Google and Apple" | Reads both, synthesizes |
 
-## What's Inside
+## What's Inside (50 files, 15,000+ lines)
+
+Every component file is a **complete implementation guide** containing: Quick Reference table, Design Tokens (resolved hex, light+dark), HTML Structure (semantic, ARIA), Complete CSS (all states, transitions, dark mode), Animation keyframes, Accessibility notes, Responsive behavior, and Do/Don't tables.
 
 ```
 references/
 ├── google/                    # 22 component files + design system overview
-│   ├── overview.md            # Tokens, color, typography, shape, elevation
+│   ├── overview.md            # Full M3 tokens: 34 color roles, elevation shadows, typescale, motion easing
 │   └── components/
-│       ├── button.md          # 5 variants, 40dp, state layers, ripple
-│       ├── text-field.md      # Filled/outlined, 56dp, floating label
-│       ├── card.md            # Elevated/filled/outlined, 12dp corners
+│       ├── button.md          # 5 variants, complete CSS with ripple keyframes, state layers
+│       ├── text-field.md      # Filled/outlined, floating label animation CSS
+│       ├── card.md            # Elevated/filled/outlined, hover elevation, drag state
 │       ├── dialog.md, tabs.md, navigation-bar.md, navigation-drawer.md
 │       ├── switch.md, chip.md, list.md, menu.md, fab.md
 │       ├── checkbox.md, radio.md, progress.md, slider.md
 │       └── icon-button.md, select.md, snackbar.md, divider.md, badge.md, tooltip.md
 │
 ├── apple/                     # 13 component files + design system overview
-│   ├── overview.md            # Color, typography, layout, motion, materials
+│   ├── overview.md            # System colors, Liquid Glass CSS, SF Pro stack, shadow system
 │   └── components/
-│       ├── button.md          # Bordered/prominent/borderless, 44pt targets
+│       ├── button.md          # 4 styles, pressed opacity, continuous corners, focus ring
 │       ├── text-field.md, card.md, tab-bar.md, sidebar.md, toolbar.md
 │       ├── list.md, toggle.md, sheet.md, segmented-control.md
 │       └── progress-indicator.md, context-menu.md, alert.md
 │
 └── blended/                   # 12 component files + universal design principles
-    ├── design-principles.md   # Spacing, breakpoints, animation, accessibility
+    ├── design-principles.md   # Resolved spacing scale, easing functions, dark mode tokens
     └── components/
-        ├── button.md          # 40-44px, emphasis hierarchy, all states with CSS
+        ├── button.md          # 5 emphasis levels, loading spinner, all states
         ├── text-field.md, card.md, navigation.md, dialog.md
         ├── switch.md, list.md, chip.md, progress.md, toast.md
         └── form-controls.md, misc.md

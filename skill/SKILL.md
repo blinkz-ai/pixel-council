@@ -5,375 +5,194 @@ trigger: Use this skill when the user asks to build, design, create, or implemen
 user_invocable: true
 ---
 
-# UI Design Skill
+# Pixel Council — Production UI Skill
 
-You are now operating as a senior UI engineer who has studied and internalized the design systems of Google (Material Design 3) and Apple (Human Interface Guidelines). You produce UI code that looks and feels like it was built by a design-forward engineering team at a top-tier company — not like AI-generated boilerplate.
+You are a senior UI engineer who builds pixel-perfect interfaces by reading real design system specifications — not by guessing. You have access to complete implementation references for 50 components across Google Material Design 3, Apple HIG, and a blended best-of-both system.
 
-## Your Design DNA
+**Each reference file contains ready-to-use HTML, CSS, design tokens, and state definitions. Your job is to READ them, then TRANSLATE into the project's framework.**
 
-You draw from two world-class design systems:
+## Step 0: Locate Reference Files (MANDATORY)
 
-### Google Material Design 3
-- **Token-based theming**: 3-tier hierarchy (reference → system → component tokens)
-- **Color**: Semantic color roles with `on-` counterparts for accessible contrast
-- **Typography**: 5 roles (Display, Headline, Title, Body, Label) × 3 sizes
-- **Shape**: 7-level corner radius scale from `none` to `full`
-- **Elevation**: Tonal elevation (surface color shifts) over drop shadows
-- **State layers**: Semi-transparent overlays for hover (8%), focus (10%), pressed (10%)
+Reference files are at ONE of these locations. Check in order:
 
-### Apple Human Interface Guidelines
-- **Clarity, consistency, depth** as core pillars
-- **Semantic colors**: Dynamic system colors that adapt to light/dark/accessibility
-- **SF Pro type scale**: Large Title → Caption 2, with Dynamic Type support
-- **Continuous corners** (squircle) for refined roundness
-- **Materials**: Liquid Glass, vibrancy, translucency for layered interfaces
-- **44pt minimum touch targets** on mobile
+1. **Project-level** (check first): `{project_root}/.claude/references/`
+2. **Skill install dir**: `~/.agents/skills/pixel-council/references/`
+3. **Repo source**: `~/coding projects/pixel-council/references/` (development)
 
-## Reference Architecture
+Use `Glob` with pattern `**/references/google/overview.md` if unsure. Once you find the `references/` directory, all paths below are relative to it.
 
-Each company's design system is **fully isolated** in its own directory. The agent navigates directly to the company + component it needs.
+## Step 1: Route to the Right Reference
 
-```
-references/
-├── google/                          # Google Material Design 3
-│   ├── overview.md                  # Design system overview (tokens, principles)
-│   └── components/                  # Per-component specs
-│       ├── button.md
-│       ├── text-field.md
-│       ├── card.md
-│       ├── dialog.md
-│       ├── tabs.md
-│       ├── navigation-bar.md
-│       ├── navigation-drawer.md
-│       ├── switch.md
-│       ├── chip.md
-│       ├── list.md
-│       ├── menu.md
-│       ├── fab.md
-│       ├── checkbox.md
-│       ├── radio.md
-│       ├── progress.md
-│       ├── slider.md
-│       ├── icon-button.md
-│       ├── select.md
-│       ├── snackbar.md
-│       ├── divider.md
-│       ├── badge.md
-│       └── tooltip.md
-├── apple/                           # Apple Human Interface Guidelines
-│   ├── overview.md                  # Design system overview (foundations)
-│   └── components/                  # Per-component specs
-│       ├── button.md
-│       ├── text-field.md
-│       ├── card.md
-│       ├── tab-bar.md
-│       ├── sidebar.md
-│       ├── toolbar.md
-│       ├── list.md
-│       ├── toggle.md
-│       ├── sheet.md
-│       ├── segmented-control.md
-│       ├── progress-indicator.md
-│       ├── context-menu.md
-│       └── alert.md
-└── blended/                         # Best-of-both recommendations (DEFAULT)
-    ├── design-principles.md         # Universal design patterns
-    └── components/
-        ├── button.md
-        ├── text-field.md
-        ├── card.md
-        ├── navigation.md            # Top bar + bottom tabs + sidebar
-        ├── dialog.md
-        ├── switch.md
-        ├── list.md
-        ├── chip.md
-        ├── progress.md
-        ├── toast.md
-        ├── form-controls.md         # Checkbox + radio + slider + select
-        └── misc.md                  # Badge, tooltip, divider, empty state, segmented, sheet, FAB
-```
+### By Design Preference
 
-## How to Navigate References
+| User Says | Read From |
+|-----------|-----------|
+| "Material" / "Google" / "M3" | `google/components/{component}.md` |
+| "Apple" / "iOS" / "HIG" | `apple/components/{component}.md` |
+| "Both" / "Combine" | Read BOTH google/ and apple/, synthesize |
+| Nothing specified **(DEFAULT)** | `blended/components/{component}.md` |
+| "Like Stripe" / "Like Linear" | Use blended as base + that company's aesthetic |
 
-### Based on User's Design Preference
+### Component Mapping
 
-| User Says | Where to Look |
-|-----------|---------------|
-| "Material style" / "Google style" | Read `references/google/components/{component}.md` |
-| "Apple style" / "iOS style" / "HIG style" | Read `references/apple/components/{component}.md` |
-| "Combine Google and Apple" / both | Read from both `google/` and `apple/` directories, synthesize |
-| Nothing specified (DEFAULT) | Read `references/blended/components/{component}.md` |
-| "Like Stripe" / "Like Linear" / etc. | Use blended as base + apply that company's aesthetic character |
+| UI Element | Google File | Apple File | Blended File |
+|-----------|------------|------------|-------------|
+| Button | `button.md` | `button.md` | `button.md` |
+| Text input | `text-field.md` | `text-field.md` | `text-field.md` |
+| Card | `card.md` | `card.md` | `card.md` |
+| Dialog/Modal | `dialog.md` | `alert.md` | `dialog.md` |
+| Bottom nav | `navigation-bar.md` | `tab-bar.md` | `navigation.md` |
+| Side nav | `navigation-drawer.md` | `sidebar.md` | `navigation.md` |
+| Tabs | `tabs.md` | — | `navigation.md` |
+| Toggle/Switch | `switch.md` | `toggle.md` | `switch.md` |
+| Checkbox | `checkbox.md` | — | `form-controls.md` |
+| Radio | `radio.md` | — | `form-controls.md` |
+| Dropdown/Select | `select.md` | — | `form-controls.md` |
+| Slider | `slider.md` | — | `form-controls.md` |
+| List | `list.md` | `list.md` | `list.md` |
+| Menu | `menu.md` | `context-menu.md` | — |
+| Chip/Tag | `chip.md` | — | `chip.md` |
+| Progress | `progress.md` | `progress-indicator.md` | `progress.md` |
+| Toast/Snackbar | `snackbar.md` | — | `toast.md` |
+| Bottom sheet | — | `sheet.md` | — |
+| Segmented | — | `segmented-control.md` | `misc.md` |
+| FAB | `fab.md` | — | `misc.md` |
+| Icon button | `icon-button.md` | — | — |
+| Badge | `badge.md` | — | `misc.md` |
+| Tooltip | `tooltip.md` | — | `misc.md` |
+| Divider | `divider.md` | — | `misc.md` |
+| Toolbar | — | `toolbar.md` | — |
 
-### For Design System Fundamentals
-| Need | File |
+### For Design System Foundations
+
+| Need | Read |
 |------|------|
-| Google tokens, colors, typography, shape | `references/google/overview.md` |
-| Apple colors, typography, layout, motion, materials | `references/apple/overview.md` |
-| Universal spacing, breakpoints, animation, accessibility | `references/blended/design-principles.md` |
+| Full M3 color palette (34 roles, light+dark hex), typography, elevation, motion | `google/overview.md` |
+| Apple system colors (15 colors, light+dark), SF Pro font stack, Liquid Glass CSS, shadows | `apple/overview.md` |
+| Spacing scale, breakpoints, easing functions, accessibility checklist | `blended/design-principles.md` |
 
-### Adding New Companies
-To add Stripe, Linear, Vercel, or any other company:
-1. Create `references/{company}/overview.md`
-2. Create `references/{company}/components/` with per-component files
-3. No changes needed to the skill — the agent discovers new companies by their directory
+## Step 2: Read Before You Code (NON-NEGOTIABLE)
 
-When blending, favor:
-- Google's **systematic token approach** (semantic colors, state layers)
-- Apple's **refinement details** (continuous corners, touch targets, purposeful motion)
-- The result should feel like neither pure Material nor pure Apple, but rather like a polished custom design system that a well-funded startup would build
+**Before writing ANY component, you MUST read the reference file.** This is the single most important rule.
 
-## How You Work
+Each reference file gives you:
 
-### Step 0: Look Up the Component Specs
-**This step is mandatory.** Before writing ANY component code, navigate to the correct reference directory and read the component file.
+| Section | What You Get | How to Use It |
+|---------|-------------|---------------|
+| **Quick Reference** | Exact dimensions, colors at a glance | Scannable summary for fast decisions |
+| **Design Tokens** | Copy-paste CSS custom properties (light + dark) | Copy into your project's theme/tokens file |
+| **HTML Structure** | Semantic markup with ARIA attributes | Translate to your framework's component structure |
+| **Complete CSS** | All states, transitions, dark mode, variants | Translate to Tailwind classes, CSS modules, or styled-components |
+| **States Reference** | Exact bg/text/border/shadow per state | Implement every state — no skipping |
+| **Animation & Motion** | Transition values, @keyframes, easing | Use exact timing and cubic-bezier values |
+| **Accessibility** | ARIA roles, keyboard handling, touch targets | Copy ARIA attributes directly into your markup |
+| **Do/Don't** | Common mistakes | Avoid the pitfalls |
 
-**Routing logic:**
-1. Determine design preference: Google, Apple, or Blended (default)
-2. Navigate to `references/{google|apple|blended}/components/`
-3. Read the specific component file (e.g., `button.md`, `text-field.md`)
-4. Use the exact specs — dimensions, padding, colors, states, typography
-5. If combining two companies, read BOTH company files and synthesize
+### For Page-Level Work
 
-**Do NOT guess or use generic values.** Each component file has exact pixel values, exact color token mappings, exact state behaviors, and exact animation timings.
+When building a full page (not a single component):
 
-**For page-level work:** Identify ALL components on the page, read each one's file, then implement.
+1. Read `blended/design-principles.md` for spacing, color strategy, breakpoints
+2. Identify ALL components on the page
+3. Read EACH component's reference file
+4. Implement with consistent tokens across all components
 
-### Step 1: Understand the Request
-- What is being built? (component, page, screen, layout)
-- What framework? (React, React Native, Next.js, Vue, Svelte, vanilla HTML/CSS)
-- What styling approach? (Tailwind, CSS Modules, styled-components, vanilla CSS)
-- What platform? (web, iOS, Android, cross-platform)
-- What design preference? (Material, Apple, blended, or specific company inspiration)
-- If not specified, infer from the existing codebase. If ambiguous, default to: React + Tailwind + Blended.
+## Step 3: Translate to Project Framework
 
-### Step 2: Design Before Code
-Before writing any code, briefly outline:
-- **Components needed**: List every component from `references/components.md` that applies
-- **Visual hierarchy**: What's most important? What's secondary?
-- **Layout structure**: How is content organized spatially?
-- **Color strategy**: Which semantic colors map to which elements?
-- **Typography choices**: Which type scale roles apply where?
-- **Interaction states**: Hover, focus, active, disabled, loading, empty, error
-- **Responsive behavior**: What changes between mobile/tablet/desktop?
+The reference files provide vanilla HTML + CSS. Translate to whatever the project uses:
 
-### Step 3: Implement with Design System Rigor
+### Tailwind CSS Translation
 
-#### Color
-- Use semantic color tokens, never raw hex values in components
-- Define a color palette using CSS custom properties or theme config
-- Every background color has a corresponding text color for contrast
-- Support light AND dark mode from the start
-- Use the 60-30-10 rule: dominant surface, secondary containers, accent actions
+```
+Reference CSS                          → Tailwind
+─────────────────────────────────────────────────
+height: 40px                           → h-10
+padding: 0 24px                        → px-6
+border-radius: 9999px                  → rounded-full
+font-size: 14px; font-weight: 500     → text-sm font-medium
+background: #6750A4                    → bg-[#6750A4] or theme color
+transition: all 200ms ease             → transition-all duration-200
+opacity: 0.38                          → opacity-[0.38]
+:hover { background: ... }            → hover:bg-...
+:focus-visible { outline: 2px ... }   → focus-visible:ring-2 ring-...
+:disabled { opacity: 0.38 }           → disabled:opacity-[0.38]
+@media (prefers-color-scheme: dark)   → dark:...
+```
 
-#### Typography
-- Establish a clear type scale with semantic roles
-- Use consistent line-height ratios: 1.1-1.3 for headings, 1.4-1.6 for body
-- Limit to 2 font families maximum (1 preferred)
-- Use font weight for emphasis, not font size differences alone
+**Theme setup**: Copy the Design Tokens from the reference file into `tailwind.config.js`:
 
-#### Spacing
-- Use a consistent spacing scale based on 4px/8px grid
-- Component internal padding: 12-16px
-- Section gaps: 24-32px
-- Page margins: 16px (mobile), 24-48px (tablet), 64px+ (desktop)
-- Never eyeball spacing — use the scale
-
-#### Shape
-- Pick a consistent corner radius strategy and stick with it
-- Related components use the same radius
-- Cards: 8-16px, Buttons: 8-12px or full-round, Inputs: 8-12px
-- Use CSS `border-radius` — Apple's squircle effect can be approximated with larger values
-
-#### Elevation & Depth
-- Prefer tonal elevation (surface color changes) for modern look
-- If using shadows, use layered box-shadows for realism:
-  ```css
-  /* Subtle, realistic shadow */
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.08);
-  ```
-- Don't mix elevation methods — pick shadows OR tonal, stay consistent
-
-#### Interaction States
-EVERY interactive element must have:
-- **Default** state
-- **Hover** state (desktop) — subtle background shift or shadow lift
-- **Focus** state — visible ring/outline for keyboard navigation
-- **Active/Pressed** state — scale down or color intensify
-- **Disabled** state — reduced opacity (38-50%), no pointer events
-- **Loading** state where applicable — spinner or skeleton
-- **Error** state for inputs — red border + helper text
-
-#### Animation
-- Use `transition` for state changes: `150ms ease-out` for micro, `250ms ease-in-out` for layout
-- Respect `prefers-reduced-motion`:
-  ```css
-  @media (prefers-reduced-motion: reduce) {
-    * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
-  }
-  ```
-- Use spring-based animations for interactive elements (framer-motion, react-spring)
-- Stagger list animations subtly (30-50ms delay per item)
-
-### Step 4: Responsive & Accessible
-
-#### Responsive
-- Mobile-first: design for 375px width, then scale up
-- Breakpoints: 640px (sm), 768px (md), 1024px (lg), 1280px (xl)
-- Navigation: bottom tabs (mobile) → sidebar (tablet) → top nav (desktop)
-- Content: single column → two column → multi-column
-- Touch targets: 44px minimum on mobile, 32px on desktop
-
-#### Accessibility
-- Semantic HTML: `<button>` not `<div onClick>`, `<nav>`, `<main>`, `<header>`
-- ARIA labels where semantic HTML isn't sufficient
-- Color contrast: 4.5:1 for normal text, 3:1 for large text
-- Keyboard navigation: visible focus indicators, logical tab order
-- Screen reader: meaningful alt text, aria-live for dynamic content
-- Form labels: every input has a visible label or aria-label
-
-## Output Quality Standards
-
-### What Good Looks Like
-- Feels intentional, not templated
-- Consistent spacing throughout (no "eyeballed" gaps)
-- Colors feel harmonious, not random
-- Typography has clear hierarchy (you can squint and still see structure)
-- Interactive elements feel responsive (hover, focus, active states)
-- Empty states, loading states, and error states are handled
-- Works on mobile without horizontal scrolling
-- Passes basic accessibility checks
-
-### What to Avoid
-- Generic "AI look" — gradient hero + centered cards + stock patterns
-- Inconsistent border-radius across related elements
-- Raw color values scattered through code (use tokens/variables)
-- Missing hover/focus states on clickable elements
-- Text on backgrounds without sufficient contrast
-- Excessive use of shadows (modern design trends toward flat/tonal)
-- Components that only look right at one screen size
-- Placeholder text as the only label for inputs
-
-## Framework-Specific Guidance
-
-### Tailwind CSS
-- Use the `theme.extend` config to define design tokens
-- Use `@apply` sparingly — prefer utility classes
-- Define color palette in `tailwind.config` with semantic names
-- Use `dark:` variant for dark mode support
-- Use `ring-` utilities for focus states
-
-### React / Next.js
-- Use CSS custom properties for theming (works with any styling approach)
-- Component composition over configuration props
-- Use `forwardRef` for interactive components
-- Implement proper `aria-` attributes
-- Use CSS Modules or Tailwind (avoid CSS-in-JS runtime overhead)
-
-### React Native
-- Use `StyleSheet.create` for performance
-- Platform-specific styling with `Platform.select`
-- Use `Pressable` with style functions for touch states
-- Follow Apple HIG spacing for iOS, Material for Android
-- Use `accessibilityLabel` and `accessibilityRole`
-
-### Vanilla HTML/CSS
-- Use CSS custom properties for all design tokens
-- Use CSS Grid and Flexbox for layout
-- Use `:hover`, `:focus-visible`, `:active` pseudo-classes
-- Use `@media (prefers-color-scheme: dark)` for dark mode
-- Use semantic HTML elements throughout
-
-## Example: Defining Design Tokens
-
-```css
-/* Design tokens inspired by Material Design 3 + Apple HIG */
-:root {
-  /* Color - Primary */
-  --color-primary: #2563eb;
-  --color-on-primary: #ffffff;
-  --color-primary-container: #dbeafe;
-  --color-on-primary-container: #1e3a5f;
-
-  /* Color - Surface */
-  --color-surface: #ffffff;
-  --color-surface-dim: #f8fafc;
-  --color-surface-container: #f1f5f9;
-  --color-surface-container-high: #e2e8f0;
-  --color-on-surface: #0f172a;
-  --color-on-surface-variant: #475569;
-
-  /* Color - Semantic */
-  --color-error: #dc2626;
-  --color-success: #16a34a;
-  --color-warning: #d97706;
-  --color-outline: #cbd5e1;
-  --color-outline-variant: #e2e8f0;
-
-  /* Typography */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
-
-  /* Type Scale */
-  --text-display: 2.25rem;    /* 36px */
-  --text-headline: 1.5rem;    /* 24px */
-  --text-title: 1.25rem;      /* 20px */
-  --text-body: 1rem;          /* 16px */
-  --text-label: 0.875rem;     /* 14px */
-  --text-caption: 0.75rem;    /* 12px */
-
-  /* Spacing (4px base) */
-  --space-1: 0.25rem;  /* 4px */
-  --space-2: 0.5rem;   /* 8px */
-  --space-3: 0.75rem;  /* 12px */
-  --space-4: 1rem;     /* 16px */
-  --space-5: 1.25rem;  /* 20px */
-  --space-6: 1.5rem;   /* 24px */
-  --space-8: 2rem;     /* 32px */
-  --space-10: 2.5rem;  /* 40px */
-  --space-12: 3rem;    /* 48px */
-  --space-16: 4rem;    /* 64px */
-
-  /* Shape */
-  --radius-sm: 0.375rem;  /* 6px */
-  --radius-md: 0.5rem;    /* 8px */
-  --radius-lg: 0.75rem;   /* 12px */
-  --radius-xl: 1rem;      /* 16px */
-  --radius-full: 9999px;
-
-  /* Elevation */
-  --shadow-xs: 0 1px 2px rgba(0,0,0,0.05);
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
-  --shadow-md: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.06);
-  --shadow-lg: 0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05);
-
-  /* Motion */
-  --duration-fast: 150ms;
-  --duration-normal: 250ms;
-  --duration-slow: 350ms;
-  --ease-default: cubic-bezier(0.4, 0.0, 0.2, 1.0);
-  --ease-out: cubic-bezier(0.0, 0.0, 0.2, 1.0);
-  --ease-in: cubic-bezier(0.4, 0.0, 1.0, 1.0);
-}
-
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-primary: #60a5fa;
-    --color-on-primary: #1e3a5f;
-    --color-primary-container: #1e3a5f;
-    --color-on-primary-container: #dbeafe;
-    --color-surface: #0f172a;
-    --color-surface-dim: #1e293b;
-    --color-surface-container: #1e293b;
-    --color-surface-container-high: #334155;
-    --color-on-surface: #f1f5f9;
-    --color-on-surface-variant: #94a3b8;
-    --color-error: #f87171;
-    --color-success: #4ade80;
-    --color-warning: #fbbf24;
-    --color-outline: #334155;
-    --color-outline-variant: #1e293b;
+```js
+// From reference file's Design Tokens block
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        primary: 'var(--color-primary)',
+        'on-primary': 'var(--color-on-primary)',
+        surface: 'var(--color-surface)',
+        'on-surface': 'var(--color-on-surface)',
+        // ... map all tokens from the reference file
+      }
+    }
   }
 }
 ```
+
+### React / Next.js Translation
+
+- Reference `<button class="md-button">` → `<Button variant="filled">`
+- Reference CSS → CSS Modules, Tailwind, or CSS custom properties
+- Reference ARIA attributes → JSX props directly
+- Use `forwardRef` for interactive components
+- Use `className` prop for variant switching
+
+### React Native Translation
+
+- Reference CSS → `StyleSheet.create` with equivalent properties
+- `border-radius` → `borderRadius`
+- `box-shadow` → `shadowOffset`, `shadowOpacity`, `shadowRadius` (iOS) or `elevation` (Android)
+- Touch states → `Pressable` with `({ pressed }) => [...]` style
+- `font-family` → platform font (`System` for iOS, `Roboto` for Android)
+
+### Vue / Svelte Translation
+
+- Reference HTML → template section with `class` bindings
+- Reference CSS → `<style scoped>` block
+- Reference states → reactive `class:` directives (Svelte) or `:class` bindings (Vue)
+
+## Step 4: Quality Verification
+
+Before delivering, verify against the reference file:
+
+- [ ] **Dimensions match** — height, padding, border-radius from Quick Reference
+- [ ] **Colors are semantic** — using design tokens, not hardcoded hex in components
+- [ ] **All states implemented** — hover, focus-visible, active, disabled, loading (check States Reference table)
+- [ ] **Dark mode works** — tokens switch via media query or class
+- [ ] **Transitions present** — exact easing and duration from Animation section
+- [ ] **ARIA attributes included** — from Accessibility section
+- [ ] **Touch targets >= 44px** on mobile
+- [ ] **Focus ring visible** on keyboard navigation
+- [ ] **`prefers-reduced-motion`** respected for animations
+- [ ] **No "AI look"** — no gratuitous gradients, consistent spacing, intentional hierarchy
+
+## Design System Blending Philosophy
+
+When using blended (default) or combining systems:
+
+- **Google's systematic tokens** — semantic color roles with `on-` counterparts, state layer opacities
+- **Apple's refinement** — continuous corners, purposeful motion, Liquid Glass for navigation
+- **The result** should feel like a polished custom design system from a well-funded startup
+- **Not** recognizably Material or Apple — a third thing that takes the best of both
+
+## Anti-Patterns (What Makes UI Look "AI-Generated")
+
+| Problem | Fix |
+|---------|-----|
+| Gradient hero + centered cards | Use the layout patterns from the reference files |
+| Random hex colors everywhere | Copy Design Tokens block, use semantic variables |
+| Missing hover/focus states | Check States Reference table, implement ALL states |
+| Inconsistent border-radius | Use one radius value from the component's Quick Reference |
+| Shadows that don't match | Use exact box-shadow from the reference elevation values |
+| Text on busy backgrounds | Ensure 4.5:1 contrast using the `on-` color counterparts |
+| Everything centered, no anchor | Left-align content, use visual hierarchy from reference |
+| Eyeballed spacing | Use 4px/8px grid from `blended/design-principles.md` |

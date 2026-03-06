@@ -1,68 +1,269 @@
-# Tab Bar — Apple Human Interface Guidelines
+# Tab Bar -- Apple Human Interface Guidelines
 
-> Source: [apple-hig/components/tab-bars](https://github.com/6639835/apple-hig/blob/main/components/tab-bars/README.md)
+## Quick Reference
 
-## Dimensions
+| Property | Value |
+|----------|-------|
+| Height | 49px + safe area inset |
+| Tab count | 3-5 |
+| Icon size | 25px |
+| Label font | SF Pro, 10px/12px, weight 500 |
+| Active color (light) | #007AFF |
+| Active color (dark) | #0A84FF |
+| Inactive color (light) | #8E8E93 |
+| Background | Liquid Glass (blur 20px) |
 
-| Platform | Height | Position |
-|----------|--------|----------|
-| iOS | ~49pt | Bottom, floating on Liquid Glass |
-| iPadOS | Variable | Near top, fixed or convertible to sidebar |
-| tvOS | 68pt | 46pt from screen top (not modifiable) |
-| visionOS | Variable | Fixed, vertical, leading side of window |
+## Design Tokens
 
-## Content
+```css
+:root {
+  --apple-tab-bar-bg: rgba(255, 255, 255, 0.72);
+  --apple-tab-bar-border: rgba(60, 60, 67, 0.29);
+  --apple-tab-bar-active: #007AFF;
+  --apple-tab-bar-inactive: #8E8E93;
+  --apple-tab-bar-badge-bg: #FF3B30;
+  --apple-tab-bar-badge-text: #FFFFFF;
+}
 
-### Icons
-- Use SF Symbols (filled variant for selected state)
-- Icons adapt to compact/regular size classes:
-  - Compact: icons above labels
-  - Regular: icons beside labels
-- Custom icons: reference Apple Design Resources for dimensions
+@media (prefers-color-scheme: dark) {
+  :root {
+    --apple-tab-bar-bg: rgba(30, 30, 30, 0.72);
+    --apple-tab-bar-border: rgba(84, 84, 88, 0.6);
+    --apple-tab-bar-active: #0A84FF;
+    --apple-tab-bar-inactive: #8E8E93;
+    --apple-tab-bar-badge-bg: #FF453A;
+    --apple-tab-bar-badge-text: #FFFFFF;
+  }
+}
 
-### Labels
-- Single words whenever possible
-- Short for visionOS (readable at a glance)
-- Below or beside icons depending on orientation
+.dark {
+  --apple-tab-bar-bg: rgba(30, 30, 30, 0.72);
+  --apple-tab-bar-border: rgba(84, 84, 88, 0.6);
+  --apple-tab-bar-active: #0A84FF;
+  --apple-tab-bar-inactive: #8E8E93;
+  --apple-tab-bar-badge-bg: #FF453A;
+  --apple-tab-bar-badge-text: #FFFFFF;
+}
+```
 
-## Item Count
+## Variants
 
-- Recommended: 3-5 tabs
-- Overflow: "More" tab (iOS/iPadOS), fade effect (tvOS)
-- iPadOS: default max 5 for optimal view continuity
-- Scrollable if content exceeds visible space (tvOS)
+| Variant | Description |
+|---------|-------------|
+| Standard | 3-5 tabs, icon above label |
+| Compact | Icon beside label (regular width iPad) |
+| With badge | Red dot or count badge on tab icon |
 
-## Styling
+## HTML Structure
 
-### Badge
-- Red oval, white text (number or exclamation)
-- Reserve for critical information only
-- Indicates new/updated section content
+```html
+<nav class="apple-tab-bar" role="tablist" aria-label="Main sections">
+  <a href="/home" class="apple-tab-bar__tab apple-tab-bar__tab--active"
+     role="tab" aria-selected="true" aria-current="page">
+    <span class="apple-tab-bar__icon" aria-hidden="true">
+      <svg width="25" height="25"><!-- SF Symbol filled --></svg>
+    </span>
+    <span class="apple-tab-bar__label">Home</span>
+  </a>
+  <a href="/search" class="apple-tab-bar__tab" role="tab" aria-selected="false">
+    <span class="apple-tab-bar__icon" aria-hidden="true">
+      <svg width="25" height="25"><!-- SF Symbol --></svg>
+    </span>
+    <span class="apple-tab-bar__label">Search</span>
+  </a>
+  <a href="/activity" class="apple-tab-bar__tab" role="tab" aria-selected="false">
+    <span class="apple-tab-bar__icon-wrapper">
+      <svg width="25" height="25" class="apple-tab-bar__icon" aria-hidden="true"><!-- icon --></svg>
+      <span class="apple-tab-bar__badge" aria-label="5 new items">5</span>
+    </span>
+    <span class="apple-tab-bar__label">Activity</span>
+  </a>
+</nav>
+```
 
-### Colors
-- Active: tint/accent color for icon and label
-- Inactive: system gray
-- Avoid similar colors between tab labels and content backgrounds
-- Follow Liquid Glass color guidance
+## Complete CSS
 
-### Background
-- iOS: Liquid Glass material (translucent blur)
-- tvOS: customizable tint, color, or image; translucent by default
-- tvOS selected: opaque with drop shadow during focus
+```css
+.apple-tab-bar {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+  width: 100%;
+  height: calc(49px + env(safe-area-inset-bottom, 0px));
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  background: var(--apple-tab-bar-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-top: 0.5px solid var(--apple-tab-bar-border);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+}
 
-## Platform Behaviors
+.apple-tab-bar__tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-width: 44px;
+  gap: 2px;
+  padding: 6px 0 2px;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  position: relative;
+  transition: opacity 150ms ease;
+}
 
-| Platform | Behavior |
-|----------|----------|
-| iOS | Minimizable with accessories (Music MiniPlayer); slides out on scroll; distinct search item option |
-| iPadOS | Optional sidebar conversion via button; customizable by user |
-| tvOS | Scrollable; pinned with split views; Menu button returns focus |
-| visionOS | Symbol + text required; expands/collapses with gaze detection |
+/* Compact: icon beside label */
+.apple-tab-bar--compact .apple-tab-bar__tab {
+  flex-direction: row;
+  gap: 5px;
+  justify-content: center;
+}
 
-## Key Rules
+.apple-tab-bar__icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-1. Tab bar must remain visible during section navigation
-2. Never disable or hide tabs even when content unavailable
-3. Always show empty state explanations for unavailable content
-4. Preserve navigation state within each section
-5. Use for top-level app sections, not content filtering (use segmented control for that)
+.apple-tab-bar__icon {
+  width: 25px;
+  height: 25px;
+  color: var(--apple-tab-bar-inactive);
+  transition: color 150ms ease;
+}
+
+.apple-tab-bar__tab--active .apple-tab-bar__icon {
+  color: var(--apple-tab-bar-active);
+}
+
+.apple-tab-bar__label {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 12px;
+  letter-spacing: 0px;
+  color: var(--apple-tab-bar-inactive);
+  transition: color 150ms ease;
+}
+
+.apple-tab-bar__tab--active .apple-tab-bar__label {
+  color: var(--apple-tab-bar-active);
+}
+
+/* Badge */
+.apple-tab-bar__badge {
+  position: absolute;
+  top: -3px;
+  right: -8px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 9999px;
+  background: var(--apple-tab-bar-badge-bg);
+  color: var(--apple-tab-bar-badge-text);
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 16px;
+  text-align: center;
+}
+
+/* Dot badge */
+.apple-tab-bar__badge--dot {
+  min-width: 6px;
+  width: 6px;
+  height: 6px;
+  padding: 0;
+  top: -1px;
+  right: -3px;
+}
+
+/* Hover (desktop / pointer devices) */
+@media (hover: hover) {
+  .apple-tab-bar__tab:hover {
+    opacity: 0.7;
+  }
+}
+
+/* Focus */
+.apple-tab-bar__tab:focus-visible {
+  outline: 4px solid rgba(0, 122, 255, 0.6);
+  outline-offset: 1px;
+  border-radius: 4px;
+}
+
+/* Active / pressed */
+.apple-tab-bar__tab:active {
+  opacity: 0.5;
+}
+
+/* Disabled */
+.apple-tab-bar__tab[aria-disabled="true"] {
+  opacity: 0.38;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+```
+
+## States Reference
+
+| State | Icon Color | Label Color | Opacity | Cursor |
+|-------|-----------|-------------|---------|--------|
+| Inactive | #8E8E93 | #8E8E93 | 1 | pointer |
+| Active | #007AFF | #007AFF | 1 | pointer |
+| Hover | -- | -- | 0.7 | pointer |
+| Focus | -- | -- | 1 | pointer |
+| Pressed | -- | -- | 0.5 | pointer |
+| Disabled | -- | -- | 0.38 | not-allowed |
+
+## Animation & Motion
+
+```css
+.apple-tab-bar__icon,
+.apple-tab-bar__label {
+  transition: color 150ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .apple-tab-bar__icon,
+  .apple-tab-bar__label,
+  .apple-tab-bar__tab {
+    transition: none;
+  }
+}
+```
+
+## Accessibility
+
+- ARIA: `role="tablist"`, `role="tab"`, `aria-selected`, `aria-current="page"` on active
+- Keyboard: Tab to enter bar; Arrow Left/Right between tabs; Enter/Space to activate
+- Focus: 4px solid `rgba(0,122,255,0.6)` outline, 1px offset
+- Touch target: Min 44x49px per tab
+- Screen reader: Badge counts via `aria-label` on badge element
+- Tab bar always visible -- never hidden during navigation
+
+## Responsive
+
+| Breakpoint | Behavior |
+|-----------|----------|
+| < 600px | Standard layout (icon above label), 49px height |
+| 600-1024px | Compact layout (icon beside label) or convert to sidebar |
+| > 1024px | Typically replaced by sidebar navigation |
+
+## Do / Don't
+
+| Do | Don't |
+|----|-------|
+| Use 3-5 tabs for top-level sections | Use tab bar for content filtering |
+| Show filled icon for active tab | Disable or hide individual tabs |
+| Keep labels to single words | Use tab bar for sequential workflows |
+| Preserve state within each tab | Change tab count dynamically |
+| Use badge sparingly for critical info | Use badges for decorative or non-urgent info |
