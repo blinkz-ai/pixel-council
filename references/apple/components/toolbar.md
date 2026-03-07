@@ -1,3 +1,10 @@
+---
+name: toolbar
+description: Apple toolbar and navigation bar with large title, blur background, and bar buttons
+metadata:
+  tags: toolbar, navigation bar, header, top bar, app bar, title bar
+---
+
 # Toolbar -- Apple Human Interface Guidelines
 
 ## Quick Reference

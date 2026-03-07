@@ -1,3 +1,10 @@
+---
+name: chip
+description: M3 assist, filter, input, suggestion chip variants with trailing icons
+metadata:
+  tags: chip, tag, badge, filter, label, pill
+---
+
 # Chip -- Google Material Design 3
 
 ## Quick Reference

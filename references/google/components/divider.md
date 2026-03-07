@@ -1,3 +1,10 @@
+---
+name: divider
+description: M3 full-width and inset horizontal/vertical dividers
+metadata:
+  tags: divider, separator, line, hr, section break
+---
+
 # Divider -- Google Material Design 3
 
 ## Quick Reference

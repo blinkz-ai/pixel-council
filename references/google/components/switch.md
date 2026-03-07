@@ -1,3 +1,10 @@
+---
+name: switch
+description: M3 toggle switch with on/off states, icons, and handle animation
+metadata:
+  tags: switch, toggle, on off, boolean, setting
+---
+
 # Switch -- Google Material Design 3
 
 ## Quick Reference

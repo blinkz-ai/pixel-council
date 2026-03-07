@@ -1,3 +1,10 @@
+---
+name: context-menu
+description: Apple context menus with SF Symbols, destructive actions, and submenus
+metadata:
+  tags: context menu, right click, long press, menu, dropdown, actions
+---
+
 # Context Menu -- Apple Human Interface Guidelines
 
 ## Quick Reference

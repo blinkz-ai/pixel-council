@@ -1,3 +1,10 @@
+---
+name: toggle
+description: Apple toggle switch with green/gray track and slide animation
+metadata:
+  tags: toggle, switch, on off, boolean, setting
+---
+
 # Toggle / Switch -- Apple Human Interface Guidelines
 
 ## Quick Reference

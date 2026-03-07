@@ -1,3 +1,10 @@
+---
+name: navigation
+description: Blended bottom nav, sidebar, and tabs combining M3 indicators with Apple Liquid Glass blur
+metadata:
+  tags: navigation, nav bar, sidebar, tabs, bottom nav, top nav, menu
+---
+
 # Navigation -- Blended Recommendation
 
 ## Quick Reference

@@ -1,3 +1,10 @@
+---
+name: select
+description: M3 filled and outlined select menus (dropdowns) with option lists
+metadata:
+  tags: select, dropdown, picker, combo box, form, options
+---
+
 # Select (Dropdown) -- Google Material Design 3
 
 ## Quick Reference

@@ -1,3 +1,10 @@
+---
+name: navigation-drawer
+description: M3 standard, modal, and dismissible side navigation drawers
+metadata:
+  tags: navigation drawer, sidebar, side nav, menu, drawer
+---
+
 # Navigation Drawer -- Google Material Design 3
 
 ## Quick Reference

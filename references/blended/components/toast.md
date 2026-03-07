@@ -1,3 +1,10 @@
+---
+name: toast
+description: Blended toast notification with optional action, auto-dismiss, and slide-in animation
+metadata:
+  tags: toast, snackbar, notification, message, feedback, alert
+---
+
 # Toast / Notification -- Blended Recommendation
 
 ## Quick Reference

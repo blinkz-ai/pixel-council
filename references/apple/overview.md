@@ -1,3 +1,10 @@
+---
+name: apple-hig-overview
+description: Apple system colors, SF Pro typography, Liquid Glass effects, shadows, focus ring, vibrancy
+metadata:
+  tags: apple, hig, human interface guidelines, system colors, sf pro, liquid glass, vibrancy, theme
+---
+
 # Apple Human Interface Guidelines -- Design System Reference
 
 > Source: [apple-hig](https://github.com/6639835/apple-hig) -- 117 documents, 874 images

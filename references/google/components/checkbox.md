@@ -1,3 +1,10 @@
+---
+name: checkbox
+description: M3 checkbox with checked, unchecked, indeterminate states and checkmark animation
+metadata:
+  tags: checkbox, check, select, multi-select, form, boolean
+---
+
 # Checkbox -- Google Material Design 3
 
 ## Quick Reference

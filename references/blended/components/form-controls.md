@@ -1,3 +1,10 @@
+---
+name: form-controls
+description: Blended checkbox, radio, select, and slider controls for forms
+metadata:
+  tags: form controls, checkbox, radio, select, slider, form, input
+---
+
 # Form Controls -- Blended Design System
 
 Contains: Checkbox, Radio, Select/Dropdown, Slider.

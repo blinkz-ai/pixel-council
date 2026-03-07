@@ -1,3 +1,10 @@
+---
+name: list
+description: M3 one-line, two-line, three-line list items with leading/trailing elements
+metadata:
+  tags: list, list item, menu list, settings list, options
+---
+
 # List -- Google Material Design 3
 
 ## Quick Reference

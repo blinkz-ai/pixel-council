@@ -1,3 +1,10 @@
+---
+name: tabs
+description: M3 primary and secondary tabs with active indicator animation
+metadata:
+  tags: tabs, tab bar, navigation, sections, segments
+---
+
 # Tabs -- Google Material Design 3
 
 ## Quick Reference

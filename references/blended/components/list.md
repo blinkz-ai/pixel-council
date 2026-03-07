@@ -1,3 +1,10 @@
+---
+name: list
+description: Blended list items with leading/trailing elements, dividers, and swipe actions
+metadata:
+  tags: list, list item, settings list, options, rows, menu
+---
+
 # List -- Blended Recommendation
 
 ## Quick Reference

@@ -1,3 +1,10 @@
+---
+name: progress-indicator
+description: Apple linear and circular progress with determinate and indeterminate spinner states
+metadata:
+  tags: progress, loading, spinner, activity indicator, progress bar
+---
+
 # Progress Indicators -- Apple Human Interface Guidelines
 
 ## Quick Reference

@@ -1,3 +1,10 @@
+---
+name: tooltip
+description: M3 plain and rich tooltips with positioning and delay behavior
+metadata:
+  tags: tooltip, hint, help text, hover info, popover
+---
+
 # Tooltip -- Google Material Design 3
 
 ## Quick Reference

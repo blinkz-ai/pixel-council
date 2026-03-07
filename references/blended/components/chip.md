@@ -1,3 +1,10 @@
+---
+name: chip
+description: Blended chip/tag with filter, input, and suggestion variants
+metadata:
+  tags: chip, tag, badge, filter, label, pill
+---
+
 # Chip -- Blended Recommendation
 
 ## Quick Reference

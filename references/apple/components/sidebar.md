@@ -1,3 +1,10 @@
+---
+name: sidebar
+description: Apple sidebar navigation with disclosure groups, selection state, and SF Symbols
+metadata:
+  tags: sidebar, side nav, navigation, drawer, menu, source list
+---
+
 # Sidebar -- Apple Human Interface Guidelines
 
 ## Quick Reference

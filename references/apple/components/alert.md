@@ -1,3 +1,10 @@
+---
+name: alert
+description: Apple alert dialogs with title, message, and 1-3 action buttons
+metadata:
+  tags: alert, dialog, modal, confirm, popup, warning, error
+---
+
 # Alert -- Apple Human Interface Guidelines
 
 ## Quick Reference

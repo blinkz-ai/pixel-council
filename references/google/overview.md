@@ -1,3 +1,10 @@
+---
+name: google-m3-overview
+description: Complete M3 token system — 34 colors (light+dark), typography scale, elevation levels, motion easing curves
+metadata:
+  tags: material design 3, m3, design tokens, colors, typography, elevation, motion, theme
+---
+
 # Google Material Design 3 -- Design System Reference
 
 > Source: [material-components/material-web](https://github.com/material-components/material-web)

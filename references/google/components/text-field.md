@@ -1,3 +1,10 @@
+---
+name: text-field
+description: M3 filled and outlined text inputs with labels, helpers, icons, error states
+metadata:
+  tags: text field, input, form, text input, search, email, password
+---
+
 # Text Field -- Google Material Design 3
 
 ## Quick Reference

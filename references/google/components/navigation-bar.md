@@ -1,3 +1,10 @@
+---
+name: navigation-bar
+description: M3 bottom navigation bar with 3-5 destinations, badges, active indicator
+metadata:
+  tags: navigation bar, bottom nav, tab bar, mobile nav
+---
+
 # Navigation Bar (Bottom Navigation) -- Google Material Design 3
 
 ## Quick Reference

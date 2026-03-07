@@ -1,3 +1,10 @@
+---
+name: misc
+description: Blended avatar, badge, tooltip, divider, skeleton, empty-state, and kbd components
+metadata:
+  tags: avatar, badge, tooltip, divider, skeleton, empty state, keyboard shortcut, kbd, profile picture
+---
+
 # Miscellaneous Components -- Blended Recommendation
 
 Seven mini-components: avatar, badge, tooltip, divider, skeleton, empty-state, kbd.

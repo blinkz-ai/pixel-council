@@ -1,3 +1,10 @@
+---
+name: snackbar
+description: M3 snackbar notifications with optional action and dismiss
+metadata:
+  tags: snackbar, toast, notification, message, feedback, alert
+---
+
 # Snackbar -- Google Material Design 3
 
 ## Quick Reference

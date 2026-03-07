@@ -1,3 +1,10 @@
+---
+name: dialog
+description: Blended modal dialog with scrim, title, content, and action buttons
+metadata:
+  tags: dialog, modal, popup, confirm, alert, overlay
+---
+
 # Dialog -- Blended Recommendation
 
 ## Quick Reference

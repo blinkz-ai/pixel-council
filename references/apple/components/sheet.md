@@ -1,3 +1,10 @@
+---
+name: sheet
+description: Apple modal sheets with detents (medium/large), drag indicator, and dismiss gesture
+metadata:
+  tags: sheet, bottom sheet, modal, drawer, panel, popover
+---
+
 # Sheet -- Apple Human Interface Guidelines
 
 ## Quick Reference

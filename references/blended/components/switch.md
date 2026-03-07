@@ -1,3 +1,10 @@
+---
+name: switch
+description: Blended toggle switch with M3 tokens and Apple handle animation
+metadata:
+  tags: switch, toggle, on off, boolean, setting
+---
+
 # Switch -- Blended Design System
 
 ## Quick Reference

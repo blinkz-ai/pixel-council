@@ -1,3 +1,10 @@
+---
+name: icon-button
+description: M3 standard, filled, filled-tonal, outlined icon buttons with toggle states
+metadata:
+  tags: icon button, icon, action, toolbar button, like, favorite
+---
+
 # Icon Button -- Google Material Design 3
 
 ## Quick Reference

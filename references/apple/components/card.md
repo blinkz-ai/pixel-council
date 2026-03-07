@@ -1,3 +1,10 @@
+---
+name: card
+description: Apple content card with continuous corner radius, subtle shadow, and grouped layout
+metadata:
+  tags: card, container, surface, content, panel, grouped
+---
+
 # Card -- Apple Human Interface Guidelines
 
 ## Quick Reference

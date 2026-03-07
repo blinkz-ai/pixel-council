@@ -1,3 +1,10 @@
+---
+name: button
+description: Apple system buttons — bordered, borderless, bordered-prominent with tint color and press states
+metadata:
+  tags: button, cta, action, form, submit, click, tint
+---
+
 # Button -- Apple Human Interface Guidelines
 
 ## Quick Reference

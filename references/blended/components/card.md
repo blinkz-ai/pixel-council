@@ -1,3 +1,10 @@
+---
+name: card
+description: Blended card with M3 surface tokens and Apple continuous corner radius
+metadata:
+  tags: card, container, surface, content, panel
+---
+
 # Card -- Blended Recommendation
 
 ## Quick Reference

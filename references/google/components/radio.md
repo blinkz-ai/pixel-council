@@ -1,3 +1,10 @@
+---
+name: radio
+description: M3 radio button with single-select group behavior
+metadata:
+  tags: radio, radio button, single select, option, form
+---
+
 # Radio Button -- Google Material Design 3
 
 ## Quick Reference

@@ -1,3 +1,10 @@
+---
+name: menu
+description: M3 dropdown menu with menu items, dividers, icons, and nested submenus
+metadata:
+  tags: menu, dropdown, context menu, popup menu, options
+---
+
 # Menu -- Google Material Design 3
 
 ## Quick Reference

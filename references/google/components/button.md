@@ -1,3 +1,10 @@
+---
+name: button
+description: M3 filled, outlined, text, elevated, tonal button variants with complete states
+metadata:
+  tags: button, cta, action, form, submit, click
+---
+
 # Button -- Google Material Design 3
 
 ## Quick Reference

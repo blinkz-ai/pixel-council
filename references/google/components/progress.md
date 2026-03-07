@@ -1,3 +1,10 @@
+---
+name: progress
+description: M3 linear and circular progress indicators with determinate and indeterminate states
+metadata:
+  tags: progress, loading, spinner, progress bar, indeterminate, determinate
+---
+
 # Progress Indicators -- Google Material Design 3
 
 ## Quick Reference

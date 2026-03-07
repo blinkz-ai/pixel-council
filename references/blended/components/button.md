@@ -1,3 +1,10 @@
+---
+name: button
+description: Blended button combining M3 token architecture with Apple refinement — filled, outlined, text, icon variants
+metadata:
+  tags: button, cta, action, form, submit, click
+---
+
 # Button -- Blended Recommendation
 
 ## Quick Reference

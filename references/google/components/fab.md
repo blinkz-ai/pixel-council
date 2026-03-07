@@ -1,3 +1,10 @@
+---
+name: fab
+description: M3 small, regular, large, and extended floating action buttons
+metadata:
+  tags: fab, floating action button, primary action, add, create
+---
+
 # FAB (Floating Action Button) -- Google Material Design 3
 
 ## Quick Reference

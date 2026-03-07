@@ -1,3 +1,10 @@
+---
+name: blended-design-principles
+description: Universal spacing scale, breakpoints, easing curves, accessibility rules from Google M3 and Apple HIG combined
+metadata:
+  tags: design principles, spacing, breakpoints, easing, accessibility, grid, responsive, layout
+---
+
 # Cross-Company Design Principles
 
 > Universal patterns extracted from Google Material Design 3 and Apple HIG, with resolved token values.

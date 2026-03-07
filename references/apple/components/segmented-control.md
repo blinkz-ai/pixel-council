@@ -1,3 +1,10 @@
+---
+name: segmented-control
+description: Apple segmented control with sliding selection indicator and equal-width segments
+metadata:
+  tags: segmented control, segments, tabs, toggle group, picker
+---
+
 # Segmented Control -- Apple Human Interface Guidelines
 
 ## Quick Reference

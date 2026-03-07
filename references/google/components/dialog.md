@@ -1,3 +1,10 @@
+---
+name: dialog
+description: M3 basic and full-screen dialogs with actions, scrim, and transition
+metadata:
+  tags: dialog, modal, popup, confirm, alert, overlay
+---
+
 # Dialog -- Google Material Design 3
 
 ## Quick Reference

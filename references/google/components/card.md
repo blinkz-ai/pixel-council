@@ -1,3 +1,10 @@
+---
+name: card
+description: M3 elevated, filled, outlined card containers with complete states
+metadata:
+  tags: card, container, surface, content, panel
+---
+
 # Card -- Google Material Design 3
 
 ## Quick Reference

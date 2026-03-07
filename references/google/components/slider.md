@@ -1,3 +1,10 @@
+---
+name: slider
+description: M3 continuous and discrete sliders with value label and range support
+metadata:
+  tags: slider, range, input, volume, brightness, form
+---
+
 # Slider -- Google Material Design 3
 
 ## Quick Reference

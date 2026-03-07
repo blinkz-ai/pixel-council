@@ -1,3 +1,10 @@
+---
+name: tab-bar
+description: Apple bottom tab bar with SF Symbols, badges, and Liquid Glass background
+metadata:
+  tags: tab bar, bottom nav, navigation, tabs, mobile nav
+---
+
 # Tab Bar -- Apple Human Interface Guidelines
 
 ## Quick Reference

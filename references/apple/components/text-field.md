@@ -1,3 +1,10 @@
+---
+name: text-field
+description: Apple rounded-rect text fields with placeholder, clear button, and inline validation
+metadata:
+  tags: text field, input, form, text input, search, email, password
+---
+
 # Text Field -- Apple Human Interface Guidelines
 
 ## Quick Reference

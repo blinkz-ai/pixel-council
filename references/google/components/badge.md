@@ -1,3 +1,10 @@
+---
+name: badge
+description: M3 small dot and large numbered badge overlays for notifications
+metadata:
+  tags: badge, notification, count, indicator, dot, unread
+---
+
 # Badge -- Google Material Design 3
 
 ## Quick Reference

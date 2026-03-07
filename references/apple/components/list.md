@@ -1,3 +1,10 @@
+---
+name: list
+description: Apple inset-grouped and plain list rows with accessories and swipe actions
+metadata:
+  tags: list, list item, table view, settings, rows, menu
+---
+
 # List -- Apple Human Interface Guidelines
 
 ## Quick Reference

@@ -1,3 +1,10 @@
+---
+name: progress
+description: Blended linear and circular progress with determinate and indeterminate states
+metadata:
+  tags: progress, loading, spinner, progress bar, indeterminate
+---
+
 # Progress Indicators -- Blended Recommendation
 
 ## Quick Reference

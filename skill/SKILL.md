@@ -23,6 +23,8 @@ Reference files exist at ONE of these paths (check in order):
 
 If unsure, glob for `**/pixel-council/references/google/overview.md`.
 
+If the user requests a component not in the mapping table below, list the directory contents of the relevant design system's `components/` folder — there may be a file for it. Each reference file has YAML frontmatter with `name`, `description`, and `tags` to help you match user intent.
+
 ```
 references/
 ├── google/overview.md              # M3 colors, elevation, typography, motion
@@ -33,33 +35,43 @@ references/
 └── blended/components/*.md          # 12 blended component specs
 ```
 
+**Overview files:**
+- [Google M3 Overview](references/google/overview.md) — 34 colors, typography, elevation, motion
+- [Apple HIG Overview](references/apple/overview.md) — System colors, SF Pro, Liquid Glass, shadows
+- [Blended Design Principles](references/blended/design-principles.md) — Spacing, breakpoints, easing, accessibility
+
 ### Component File Mapping
 
 | Component | Google | Apple | Blended |
 |-----------|--------|-------|---------|
-| Button | `button.md` | `button.md` | `button.md` |
-| Text Input | `text-field.md` | `text-field.md` | `text-field.md` |
-| Card | `card.md` | `card.md` | `card.md` |
-| Dialog/Modal | `dialog.md` | `alert.md` | `dialog.md` |
-| Nav (bottom) | `navigation-bar.md` | `tab-bar.md` | `navigation.md` |
-| Nav (side) | `navigation-drawer.md` | `sidebar.md` | `navigation.md` |
-| Toggle/Switch | `switch.md` | `toggle.md` | `switch.md` |
-| List | `list.md` | `list.md` | `list.md` |
-| Chip/Tag | `chip.md` | — | `chip.md` |
-| Progress | `progress.md` | `progress-indicator.md` | `progress.md` |
-| Toast/Snackbar | `snackbar.md` | — | `toast.md` |
-| Tabs | `tabs.md` | — | `navigation.md` |
-| Menu | `menu.md` | `context-menu.md` | — |
-| Checkbox | `checkbox.md` | — | `form-controls.md` |
-| Radio | `radio.md` | — | `form-controls.md` |
-| Select | `select.md` | — | `form-controls.md` |
-| Slider | `slider.md` | — | `form-controls.md` |
-| FAB | `fab.md` | — | `misc.md` |
-| Badge | `badge.md` | — | `misc.md` |
-| Tooltip | `tooltip.md` | — | `misc.md` |
-| Sheet | — | `sheet.md` | — |
-| Segmented | — | `segmented-control.md` | `misc.md` |
-| Toolbar | — | `toolbar.md` | — |
+| Button | [button.md](references/google/components/button.md) | [button.md](references/apple/components/button.md) | [button.md](references/blended/components/button.md) |
+| Text Input | [text-field.md](references/google/components/text-field.md) | [text-field.md](references/apple/components/text-field.md) | [text-field.md](references/blended/components/text-field.md) |
+| Card | [card.md](references/google/components/card.md) | [card.md](references/apple/components/card.md) | [card.md](references/blended/components/card.md) |
+| Dialog/Modal | [dialog.md](references/google/components/dialog.md) | [alert.md](references/apple/components/alert.md) | [dialog.md](references/blended/components/dialog.md) |
+| Nav (bottom) | [navigation-bar.md](references/google/components/navigation-bar.md) | [tab-bar.md](references/apple/components/tab-bar.md) | [navigation.md](references/blended/components/navigation.md) |
+| Nav (side) | [navigation-drawer.md](references/google/components/navigation-drawer.md) | [sidebar.md](references/apple/components/sidebar.md) | [navigation.md](references/blended/components/navigation.md) |
+| Toggle/Switch | [switch.md](references/google/components/switch.md) | [toggle.md](references/apple/components/toggle.md) | [switch.md](references/blended/components/switch.md) |
+| List | [list.md](references/google/components/list.md) | [list.md](references/apple/components/list.md) | [list.md](references/blended/components/list.md) |
+| Chip/Tag | [chip.md](references/google/components/chip.md) | — | [chip.md](references/blended/components/chip.md) |
+| Progress | [progress.md](references/google/components/progress.md) | [progress-indicator.md](references/apple/components/progress-indicator.md) | [progress.md](references/blended/components/progress.md) |
+| Toast/Snackbar | [snackbar.md](references/google/components/snackbar.md) | — | [toast.md](references/blended/components/toast.md) |
+| Tabs | [tabs.md](references/google/components/tabs.md) | — | [navigation.md](references/blended/components/navigation.md) |
+| Menu | [menu.md](references/google/components/menu.md) | [context-menu.md](references/apple/components/context-menu.md) | — |
+| Checkbox | [checkbox.md](references/google/components/checkbox.md) | — | [form-controls.md](references/blended/components/form-controls.md) |
+| Radio | [radio.md](references/google/components/radio.md) | — | [form-controls.md](references/blended/components/form-controls.md) |
+| Select | [select.md](references/google/components/select.md) | — | [form-controls.md](references/blended/components/form-controls.md) |
+| Slider | [slider.md](references/google/components/slider.md) | — | [form-controls.md](references/blended/components/form-controls.md) |
+| Icon Button | [icon-button.md](references/google/components/icon-button.md) | — | — |
+| Divider | [divider.md](references/google/components/divider.md) | — | [misc.md](references/blended/components/misc.md) |
+| FAB | [fab.md](references/google/components/fab.md) | — | — |
+| Badge | [badge.md](references/google/components/badge.md) | — | [misc.md](references/blended/components/misc.md) |
+| Tooltip | [tooltip.md](references/google/components/tooltip.md) | — | [misc.md](references/blended/components/misc.md) |
+| Avatar | — | — | [misc.md](references/blended/components/misc.md) |
+| Skeleton | — | — | [misc.md](references/blended/components/misc.md) |
+| Empty State | — | — | [misc.md](references/blended/components/misc.md) |
+| Sheet | — | [sheet.md](references/apple/components/sheet.md) | — |
+| Segmented | — | [segmented-control.md](references/apple/components/segmented-control.md) | — |
+| Toolbar | — | [toolbar.md](references/apple/components/toolbar.md) | — |
 
 ---
 
@@ -96,9 +108,9 @@ This is the critical step. Read the reference files BEFORE presenting any plan o
 
 | User chose | Read first | Then for each component |
 |------------|-----------|----------------------|
-| Google / M3 | `google/overview.md` | `google/components/{component}.md` |
-| Apple / HIG | `apple/overview.md` | `apple/components/{component}.md` |
-| Blend (default) | `blended/design-principles.md` | `blended/components/{component}.md` |
+| Google / M3 | [google/overview.md](references/google/overview.md) | `google/components/{component}.md` |
+| Apple / HIG | [apple/overview.md](references/apple/overview.md) | `apple/components/{component}.md` |
+| Blend (default) | [blended/design-principles.md](references/blended/design-principles.md) | `blended/components/{component}.md` |
 
 ### What each reference file gives you
 

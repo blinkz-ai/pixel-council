@@ -1,3 +1,10 @@
+---
+name: text-field
+description: Blended text input with floating label, helper text, validation, and clear button
+metadata:
+  tags: text field, input, form, text input, search, email, password
+---
+
 # Text Field -- Blended Recommendation
 
 ## Quick Reference
