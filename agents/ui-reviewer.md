@@ -16,8 +16,8 @@ The pixel-council reference files are bundled with this plugin. Glob for `**/pix
 
 ```
 references/
-├── google/overview.md + components/*.md    # 22 M3 component specs
-├── apple/overview.md + components/*.md     # 13 Apple HIG specs
+├── google/overview.md + components/*.md    # 32 M3 component specs
+├── apple/overview.md + components/*.md     # 33 Apple HIG specs
 └── blended/design-principles.md + components/*.md  # 12 blended specs
 ```
 

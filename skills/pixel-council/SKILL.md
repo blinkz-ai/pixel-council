@@ -59,7 +59,7 @@ references/
 | Progress | [progress.md](references/google/components/progress.md) | [progress-indicator.md](references/apple/components/progress-indicator.md) | [progress.md](references/blended/components/progress.md) |
 | Toast/Snackbar | [snackbar.md](references/google/components/snackbar.md) | — | [toast.md](references/blended/components/toast.md) |
 | Tabs | [tabs.md](references/google/components/tabs.md) | — | [navigation.md](references/blended/components/navigation.md) |
-| Menu | [menu.md](references/google/components/menu.md) | [context-menu.md](references/apple/components/context-menu.md) | — |
+| Menu / Context Menu | [menu.md](references/google/components/menu.md) | [context-menu.md](references/apple/components/context-menu.md) | — |
 | Checkbox | [checkbox.md](references/google/components/checkbox.md) | — | [form-controls.md](references/blended/components/form-controls.md) |
 | Radio | [radio.md](references/google/components/radio.md) | — | [form-controls.md](references/blended/components/form-controls.md) |
 | Select | [select.md](references/google/components/select.md) | — | [form-controls.md](references/blended/components/form-controls.md) |
@@ -82,13 +82,12 @@ references/
 | Date Picker | [date-picker.md](references/google/components/date-picker.md) | [date-picker.md](references/apple/components/date-picker.md) | — |
 | Time Picker | [time-picker.md](references/google/components/time-picker.md) | — | — |
 | Carousel | [carousel.md](references/google/components/carousel.md) | — | — |
-| Toolbar | — | [toolbar.md](references/apple/components/toolbar.md) | — |
 | Navigation Bar | — | [navigation-bar.md](references/apple/components/navigation-bar.md) | — |
 | Stepper | — | [stepper.md](references/apple/components/stepper.md) | — |
 | Picker | — | [picker.md](references/apple/components/picker.md) | — |
 | Action Sheet | — | [action-sheet.md](references/apple/components/action-sheet.md) | — |
 | Popover | — | [popover.md](references/apple/components/popover.md) | — |
-| Pull-down Menu | [menu.md](references/google/components/menu.md) | [menu.md](references/apple/components/menu.md) | — |
+| Pull-down Menu | — | [menu.md](references/apple/components/menu.md) | — |
 | Disclosure | — | [disclosure-group.md](references/apple/components/disclosure-group.md) | — |
 | Table | — | [table.md](references/apple/components/table.md) | — |
 | Collection/Grid | — | [collection.md](references/apple/components/collection.md) | — |
