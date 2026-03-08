@@ -72,12 +72,23 @@ metadata:
 
 ## Variants
 
+### Base Variants
+
 | Variant | Background | Icon Color | Border |
 |---------|-----------|------------|--------|
 | Standard | transparent | #49454F | none |
 | Filled | #6750A4 | #FFFFFF | none |
 | Tonal | #E8DEF8 | #1D192B | none |
 | Outlined | transparent | #49454F | 1px #79747E |
+
+### Toggle Variants (unselected → selected)
+
+| Variant | Unselected Bg | Unselected Icon | Selected Bg | Selected Icon |
+|---------|--------------|----------------|-------------|---------------|
+| Standard Toggle | transparent | #49454F | transparent | #6750A4 |
+| Filled Toggle | #E8DEF8 | #1D192B | #6750A4 | #FFFFFF |
+| Tonal Toggle | #E8DEF8 | #1D192B | #6750A4 | #FFFFFF |
+| Outlined Toggle | transparent | #49454F | inverse surface | inverse on-surface |
 
 ## HTML Structure
 
@@ -102,10 +113,28 @@ metadata:
   <svg class="md-icon-button__icon" width="24" height="24" aria-hidden="true"><!-- icon --></svg>
 </button>
 
-<!-- Toggle -->
+<!-- Standard Toggle (unselected) -->
 <button class="md-icon-button md-icon-button--toggle" aria-label="Favorite" aria-pressed="false">
   <svg class="md-icon-button__icon md-icon-button__icon--off" width="24" height="24" aria-hidden="true"><!-- outlined heart --></svg>
   <svg class="md-icon-button__icon md-icon-button__icon--on" width="24" height="24" aria-hidden="true"><!-- filled heart --></svg>
+</button>
+
+<!-- Filled Toggle (unselected) -->
+<button class="md-icon-button md-icon-button--filled md-icon-button--toggle" aria-label="Favorite" aria-pressed="false">
+  <svg class="md-icon-button__icon md-icon-button__icon--off" width="24" height="24" aria-hidden="true"><!-- outlined heart --></svg>
+  <svg class="md-icon-button__icon md-icon-button__icon--on" width="24" height="24" aria-hidden="true"><!-- filled heart --></svg>
+</button>
+
+<!-- Tonal Toggle (unselected) -->
+<button class="md-icon-button md-icon-button--tonal md-icon-button--toggle" aria-label="Bookmark" aria-pressed="false">
+  <svg class="md-icon-button__icon md-icon-button__icon--off" width="24" height="24" aria-hidden="true"><!-- outlined bookmark --></svg>
+  <svg class="md-icon-button__icon md-icon-button__icon--on" width="24" height="24" aria-hidden="true"><!-- filled bookmark --></svg>
+</button>
+
+<!-- Outlined Toggle (unselected) -->
+<button class="md-icon-button md-icon-button--outlined md-icon-button--toggle" aria-label="Star" aria-pressed="false">
+  <svg class="md-icon-button__icon md-icon-button__icon--off" width="24" height="24" aria-hidden="true"><!-- outlined star --></svg>
+  <svg class="md-icon-button__icon md-icon-button__icon--on" width="24" height="24" aria-hidden="true"><!-- filled star --></svg>
 </button>
 ```
 
@@ -166,10 +195,42 @@ metadata:
   color: var(--md-icon-button-outlined-icon);
 }
 
-/* Toggle */
+/* Toggle -- icon swap */
 .md-icon-button--toggle .md-icon-button__icon--on { display: none; }
 .md-icon-button--toggle[aria-pressed="true"] .md-icon-button__icon--off { display: none; }
 .md-icon-button--toggle[aria-pressed="true"] .md-icon-button__icon--on { display: block; }
+
+/* Standard Toggle selected */
+.md-icon-button--toggle[aria-pressed="true"] {
+  color: #6750A4;
+}
+
+/* Filled Toggle -- unselected uses tonal bg, selected uses primary */
+.md-icon-button--filled.md-icon-button--toggle {
+  background: var(--md-icon-button-tonal-bg);
+  color: var(--md-icon-button-tonal-icon);
+}
+.md-icon-button--filled.md-icon-button--toggle[aria-pressed="true"] {
+  background: var(--md-icon-button-filled-bg);
+  color: var(--md-icon-button-filled-icon);
+}
+
+/* Tonal Toggle -- unselected uses lower tonal, selected uses primary tonal */
+.md-icon-button--tonal.md-icon-button--toggle {
+  background: var(--md-icon-button-tonal-bg);
+  color: var(--md-icon-button-tonal-icon);
+}
+.md-icon-button--tonal.md-icon-button--toggle[aria-pressed="true"] {
+  background: var(--md-icon-button-filled-bg);
+  color: var(--md-icon-button-filled-icon);
+}
+
+/* Outlined Toggle -- unselected has border, selected fills inversely */
+.md-icon-button--outlined.md-icon-button--toggle[aria-pressed="true"] {
+  background: #313033;
+  color: #F4EFF4;
+  border-color: transparent;
+}
 
 /* Hover state layer */
 .md-icon-button:hover::before {
@@ -222,6 +283,8 @@ metadata:
 
 ## States Reference
 
+### Standard Icon Button States
+
 | State | Background | Icon | Border | Overlay | Cursor |
 |-------|-----------|------|--------|---------|--------|
 | Default | transparent | #49454F | -- | none | pointer |
@@ -229,6 +292,27 @@ metadata:
 | Focus | transparent | #49454F | -- | 0.10 | pointer |
 | Pressed | transparent | #49454F | -- | 0.10 | pointer |
 | Disabled | rgba(0,0,0,0.12) | opacity 0.38 | -- | none | not-allowed |
+
+### Toggle States (Standard Toggle)
+
+| State | Background | Icon |
+|-------|-----------|------|
+| Unselected | transparent | #49454F |
+| Selected | transparent | #6750A4 |
+
+### Toggle States (Filled Toggle)
+
+| State | Background | Icon |
+|-------|-----------|------|
+| Unselected | #E8DEF8 | #1D192B |
+| Selected | #6750A4 | #FFFFFF |
+
+### Toggle States (Outlined Toggle)
+
+| State | Background | Icon | Border |
+|-------|-----------|------|--------|
+| Unselected | transparent | #49454F | 1px #79747E |
+| Selected | #313033 | #F4EFF4 | none |
 
 ## Animation & Motion
 

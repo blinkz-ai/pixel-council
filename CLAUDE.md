@@ -13,10 +13,10 @@ pixel-council/
 ├── skills/
 │   └── pixel-council/
 │       ├── SKILL.md                   # The skill prompt (builds UI from specs)
-│       └── references/                # 50 self-contained component reference files
+│       └── references/                # 60 self-contained component reference files
 │           ├── google/                # Google Material Design 3
 │           │   ├── overview.md        # Full M3 token system (34 colors, typography, elevation, motion)
-│           │   └── components/        # 22 per-component specs with complete HTML+CSS
+│           │   └── components/        # 32 per-component specs with complete HTML+CSS
 │           ├── apple/                 # Apple HIG
 │           │   ├── overview.md        # System colors, SF Pro, Liquid Glass, shadows
 │           │   └── components/        # 13 per-component specs with complete HTML+CSS

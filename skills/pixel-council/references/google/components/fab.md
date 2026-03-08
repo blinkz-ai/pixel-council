@@ -19,6 +19,10 @@ metadata:
 | Corner radius (medium) | 16px |
 | Corner radius (small) | 12px |
 | Corner radius (large) | 28px |
+| Extended height | 56px |
+| Extended padding | 0 20px |
+| Extended gap | 12px |
+| Extended label font | Roboto, 14px/20px, weight 500, spacing 0.1px |
 | Container color (light) | #EADDFF |
 | Container color (dark) | #4F378B |
 | Elevation (resting) | Level 3 |
@@ -73,12 +77,23 @@ metadata:
 
 ## Variants
 
+### Color Variants
+
 | Variant | Container | Icon Color | Use Case |
 |---------|-----------|------------|----------|
 | Primary (default) | #EADDFF | #21005D | Most common primary action |
 | Surface | #ECE6F0 | #6750A4 | Lower emphasis |
 | Secondary | #E8DEF8 | #1D192B | Secondary actions |
 | Tertiary | #FFD8E4 | #31111D | Tertiary actions |
+
+### Size Variants
+
+| Variant | Dimensions | Radius | Icon | Use Case |
+|---------|-----------|--------|------|----------|
+| Small | 40x40px | 12px | 24px | Compact UI, secondary actions |
+| Medium (default) | 56x56px | 16px | 24px | Standard primary action |
+| Large | 96x96px | 28px | 36px | Hero actions, emphasis |
+| Extended | auto x 56px | 16px | 24px + label | When text adds clarity to icon |
 
 ## HTML Structure
 

@@ -67,7 +67,8 @@ case "$choice" in
     echo ""
     echo "  Installed:"
     echo "    Skill:      $SKILL_DIR/SKILL.md"
-    echo "    References:  $SKILL_DIR/references/ (50 files)"
+    REF_COUNT=$(find "$SKILL_DIR/references" -name "*.md" | wc -l | tr -d ' ')
+    echo "    References:  $SKILL_DIR/references/ ($REF_COUNT files)"
     echo "    Agent:       $CLAUDE_AGENTS/ui-reviewer.md"
     echo "    Symlink:     $CLAUDE_SKILLS/pixel-council"
     echo ""

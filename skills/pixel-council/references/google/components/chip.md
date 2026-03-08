@@ -261,10 +261,49 @@ metadata:
 - Individual chips: `role="option"`
 - Filter chips: `aria-selected="true/false"` to indicate toggle state
 - Input chips (removable): remove button has `aria-label="Remove [chip name]"`
-- Keyboard: Tab to enter group, Arrow Left/Right between chips, Enter/Space to toggle/activate, Delete/Backspace to remove input chips
 - Focus: visible background state layer, no outline override
-- Touch target: 32px height (below 48px min); ensure adequate spacing in chip group
+- Touch target: 32px height (below 48px min); ensure adequate spacing in chip group (min 8px gap gives ~40px touch)
 - Screen reader: announce chip label and selected state
+
+### Chip Group Keyboard Navigation (Roving Tabindex)
+
+Chip groups use the roving tabindex pattern for arrow-key navigation:
+
+| Key | Action |
+|-----|--------|
+| Tab | Enter chip group (focuses the active/first chip) |
+| Shift+Tab | Exit chip group to previous focusable element |
+| Arrow Right | Move focus to next chip |
+| Arrow Left | Move focus to previous chip |
+| Home | Move focus to first chip |
+| End | Move focus to last chip |
+| Enter / Space | Toggle (filter), activate (assist/suggestion), or focus remove button (input) |
+| Delete / Backspace | Remove the focused input chip |
+
+```html
+<!-- Roving tabindex: only focused chip has tabindex="0", rest are -1 -->
+<div class="md-chip-group" role="listbox" aria-label="Filter options">
+  <button class="md-chip md-chip--filter" role="option" aria-selected="false" tabindex="0">
+    <span class="md-chip__label">First</span>
+  </button>
+  <button class="md-chip md-chip--filter" role="option" aria-selected="false" tabindex="-1">
+    <span class="md-chip__label">Second</span>
+  </button>
+  <button class="md-chip md-chip--filter" role="option" aria-selected="true" tabindex="-1">
+    <span class="md-chip__label">Third</span>
+  </button>
+</div>
+```
+
+```css
+/* Focus visible within chip group */
+.md-chip-group .md-chip:focus-visible {
+  background: var(--md-chip-focus);
+  outline: none;
+}
+
+/* Wrap-around focus: JS should move tabindex="0" as arrow keys navigate */
+```
 
 ## Responsive
 

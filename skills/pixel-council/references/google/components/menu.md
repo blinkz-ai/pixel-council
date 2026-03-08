@@ -73,6 +73,7 @@ metadata:
 | With dividers | Grouped sections separated by dividers |
 | Submenu | Nested menu with arrow indicator |
 | With selection | Check icon on selected item |
+| Exposed dropdown | Anchored to a text field trigger, acts as a select alternative |
 
 ## HTML Structure
 
@@ -112,6 +113,27 @@ metadata:
     <span class="md-menu__label">More options</span>
     <svg class="md-menu__submenu-arrow" aria-hidden="true" width="24" height="24"><!-- arrow_right --></svg>
   </button>
+</div>
+
+<!-- Exposed dropdown menu (anchored to trigger field) -->
+<div class="md-menu-anchor">
+  <button class="md-menu-anchor__trigger" role="combobox"
+          aria-expanded="false" aria-haspopup="listbox" aria-label="Sort by">
+    <span class="md-menu-anchor__label">Sort by</span>
+    <span class="md-menu-anchor__value">Newest first</span>
+    <svg class="md-menu-anchor__arrow" aria-hidden="true" width="24" height="24"><!-- arrow_drop_down --></svg>
+  </button>
+  <div class="md-menu md-menu--exposed" role="listbox" aria-label="Sort options">
+    <div class="md-menu__item md-menu__item--selected" role="option" aria-selected="true" tabindex="0">
+      <span class="md-menu__label">Newest first</span>
+    </div>
+    <div class="md-menu__item" role="option" aria-selected="false" tabindex="-1">
+      <span class="md-menu__label">Oldest first</span>
+    </div>
+    <div class="md-menu__item" role="option" aria-selected="false" tabindex="-1">
+      <span class="md-menu__label">A to Z</span>
+    </div>
+  </div>
 </div>
 ```
 
@@ -192,15 +214,87 @@ metadata:
   margin: 8px 0;
 }
 
+/* Exposed dropdown menu (anchored to trigger) */
+.md-menu-anchor {
+  position: relative;
+  display: inline-flex;
+}
+
+.md-menu-anchor__trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 56px;
+  padding: 0 16px;
+  border: 1px solid #79747E;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--md-menu-text);
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  cursor: pointer;
+  transition: border-color 150ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+.md-menu-anchor__trigger[aria-expanded="true"] {
+  border-color: #6750A4;
+  border-width: 2px;
+}
+
+.md-menu-anchor__label {
+  position: absolute;
+  top: -8px;
+  left: 12px;
+  padding: 0 4px;
+  background: inherit;
+  font-size: 12px;
+  line-height: 16px;
+  color: #49454F;
+}
+
+.md-menu-anchor__trigger[aria-expanded="true"] .md-menu-anchor__label {
+  color: #6750A4;
+}
+
+.md-menu-anchor__value { flex: 1; text-align: left; }
+
+.md-menu-anchor__arrow {
+  width: 24px; height: 24px;
+  color: var(--md-menu-icon);
+  transition: transform 200ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+.md-menu-anchor__trigger[aria-expanded="true"] .md-menu-anchor__arrow {
+  transform: rotate(180deg);
+}
+
+.md-menu--exposed {
+  top: 100%;
+  left: 0;
+  right: 0;
+  width: auto;
+  min-width: 100%;
+  margin-top: 4px;
+}
+
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
   .md-menu { background: var(--md-menu-bg); color: var(--md-menu-text); }
+  .md-menu-anchor__trigger { border-color: #938F99; }
+  .md-menu-anchor__trigger[aria-expanded="true"] { border-color: #D0BCFF; }
+  .md-menu-anchor__label { color: #CAC4D0; }
+  .md-menu-anchor__trigger[aria-expanded="true"] .md-menu-anchor__label { color: #D0BCFF; }
 }
 .dark .md-menu { background: var(--md-menu-bg); color: var(--md-menu-text); }
+.dark .md-menu-anchor__trigger { border-color: #938F99; }
+.dark .md-menu-anchor__trigger[aria-expanded="true"] { border-color: #D0BCFF; }
 
 @media (prefers-reduced-motion: reduce) {
   .md-menu { transition: none; }
   .md-menu__item { transition: none; }
+  .md-menu-anchor__arrow { transition: none; }
+  .md-menu-anchor__trigger { transition: none; }
 }
 ```
 
@@ -254,6 +348,7 @@ metadata:
 - Typeahead: typing characters jumps to matching item by first letter
 - Focus management: focus moves into menu on open, returns to trigger on close
 - Touch target: 48px min height per item
+- **Exposed dropdown**: trigger uses `role="combobox"`, `aria-expanded`, `aria-haspopup="listbox"`. Menu uses `role="listbox"` with `role="option"` items and `aria-selected`. Arrow Up/Down navigates options. Enter selects. Escape closes and restores previous value.
 
 ## Responsive
 

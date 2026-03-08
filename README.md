@@ -1,6 +1,6 @@
 # Pixel Council
 
-A Claude Code plugin that produces production-grade UI — not AI-generated boilerplate. It encodes the real design specifications from Google Material Design 3 and Apple Human Interface Guidelines into 50 component reference files that Claude reads before writing any code.
+A Claude Code plugin that produces production-grade UI — not AI-generated boilerplate. It encodes the real design specifications from Google Material Design 3 and Apple Human Interface Guidelines into 60 component reference files that Claude reads before writing any code.
 
 ## The Problem
 
@@ -22,7 +22,7 @@ Pixel Council gives Claude the actual design system specs — resolved hex value
 
 | Company | Coverage |
 |---------|----------|
-| **Google Material Design 3** | 22 components, 34 color roles (light+dark hex), elevation box-shadows, typescale, motion easing |
+| **Google Material Design 3** | 32 components, 34 color roles (light+dark hex), elevation box-shadows, typescale, motion easing |
 | **Apple HIG** | 13 components, 15 system colors (light+dark hex), SF Pro font stack, Liquid Glass CSS, shadow system |
 | **Blended** (default) | 12 components combining Google's systematic tokens with Apple's refinement |
 
@@ -142,7 +142,7 @@ Check if my dark mode implementation matches the spec
 5. Claude translates the reference HTML+CSS into your project's framework (React, Tailwind, Vue, etc.)
 6. Result: pixel-perfect UI with proper tokens, states, and accessibility — not generic AI output
 
-## What's Inside (50 files, 15,000+ lines)
+## What's Inside (60 files, 20,000+ lines)
 
 Every component file is a **self-contained implementation guide**. Claude reads ONE file and gets everything needed — no guessing.
 
@@ -158,13 +158,13 @@ Each file contains:
 
 ```
 skills/pixel-council/references/
-├── google/                    # 22 components + design system overview
+├── google/                    # 32 components + design system overview
 │   ├── overview.md            # 34 color roles, elevation shadows, typescale, motion easing
 │   └── components/
 │       ├── button.md          # 5 variants, ripple keyframes, state layers
 │       ├── text-field.md      # Filled/outlined, floating label animation
 │       ├── card.md            # Elevated/filled/outlined, hover elevation
-│       └── ... (19 more)
+│       └── ... (29 more)
 │
 ├── apple/                     # 13 components + design system overview
 │   ├── overview.md            # System colors, Liquid Glass CSS, SF Pro stack, shadows
@@ -190,7 +190,7 @@ pixel-council/
 ├── skills/
 │   └── pixel-council/
 │       ├── SKILL.md              # Builds UI from reference specs
-│       └── references/           # 50 component reference files
+│       └── references/           # 60 component reference files
 │           ├── google/           # Material Design 3
 │           ├── apple/            # Human Interface Guidelines
 │           └── blended/          # Best-of-both (default)
