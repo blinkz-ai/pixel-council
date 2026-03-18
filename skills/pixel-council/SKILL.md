@@ -337,7 +337,7 @@ Put design tokens in `tailwind.config.js` under `theme.extend.colors` so the who
 
 ### 4B. Composition Principles (Apply to Every Page)
 
-**Read** [Composition Principles Reference](references/composition-principles.md) for detailed guidance on:
+**Read** [Composition Principles Reference](composition-principles.md) for detailed guidance on:
 - Typography hierarchy and scale usage
 - Color distribution with intention
 - Spatial composition and visual hierarchy
@@ -373,7 +373,7 @@ Apply these principles to every page — the difference between "technically cor
 
 ### 4D. Theme Implementation Pattern
 
-**Read** [Theme Implementation Reference](references/theme-implementation.md) for:
+**Read** [Theme Implementation Reference](theme-implementation.md) for:
 - Complete CSS pattern (light + dark modes)
 - HTML theme toggle markup
 - Smooth transition setup
@@ -400,7 +400,7 @@ Before delivering, run through BOTH checklists. The first ensures spec accuracy.
 
 ### Theme Verification (MANDATORY)
 
-See [Theme Implementation Reference](references/theme-implementation.md) for complete theme verification checklist. Key items:
+See [Theme Implementation Reference](theme-implementation.md) for complete theme verification checklist. Key items:
 - Light theme renders correctly with proper contrast
 - Dark theme uses reference file tokens (NOT inverted)
 - Both `@media (prefers-color-scheme: dark)` AND `.dark` class work
