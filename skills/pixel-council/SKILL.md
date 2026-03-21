@@ -29,17 +29,16 @@ Otherwise, **first infer what you can** from the prompt and codebase:
 - **Scope**: What the prompt describes — a page, a component, a fix, a redesign.
 - **Tech stack**: Check `package.json`, `tailwind.config.*`, `tsconfig.json` in the project.
 
-**Then ask about what's still unclear** — one question at a time, waiting for each answer. Prefer multiple-choice where options are obvious, open-ended where context is needed.
+**Then ask about what's still unclear** — strictly one question at a time, waiting for each answer before asking the next. Never combine questions. Always include options when asking — never ask open-ended questions where a list of choices applies.
 
-If the scope is vague (e.g. "build a dashboard", "design a page"), always clarify scope first:
-> "What should this dashboard show? Who uses it and what decisions do they make with it?"
+Resolve in this priority order, stopping as soon as you have enough to proceed:
+- Scope (what exactly to build, who uses it)
+- Design system (if not specified or inferable)
+- Framework (if not in `package.json` — do NOT assume or default)
+- Device target (for page-level work)
+- Existing styles or brand constraints
 
-Other things worth clarifying before building:
-- Framework (if not in `package.json`)
-- Device / responsive target (for page-level work)
-- Existing brand colors or styles to match
-
-Stop asking as soon as you have enough to proceed. If you can make a reasonable assumption, state it and move on instead of asking.
+Never skip an unknown by making an assumption. Never combine multiple questions into one message.
 
 ---
 
