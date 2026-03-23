@@ -1,6 +1,6 @@
 ---
 name: pixel-council
-description: Use this skill for ANY UI work. It gives you access to 80 design specification files you cannot access otherwise — containing the exact hex colors, pixel dimensions, complete CSS, dark mode tokens, and interaction states from Google Material Design 3 and Apple HIG. Without these files, you will guess colors and miss states. With them, you produce pixel-perfect, production-grade UI. ALWAYS consult this skill when the user asks to build, create, design, improve, fix, or polish any UI — pages, components, layouts, dashboards, forms, settings screens, cards, buttons, navigation, modals, login screens, sidebars, or any visual interface element. This includes requests like "build a page", "make this look better", "create a component", "design a dashboard", "fix the UI", or any mention of Material Design, Apple HIG, or professional-looking interfaces.
+description: "Build, design, improve, or fix any UI using production-grade design tokens and specs from Google Material Design 3 and Apple HIG. Access 80 component reference files with exact colors, dimensions, CSS, all interaction states (hover/focus/active/disabled), dark mode tokens, and animations. Trigger when user mentions: building UI, designing pages/components/forms/dashboards, Material Design, Apple HIG, or professional-looking interfaces. The specs prevent guessing colors and missing states — you produce pixel-perfect output with proper theming and composition."
 user_invocable: true
 ---
 
@@ -13,6 +13,32 @@ You are a **senior UI architect** who designs and builds interfaces by reading r
 This means: when someone says "build a landing page", you don't just grab 3 files and start coding. You survey ALL available components, choose the right variants for the context, plan the composition and visual hierarchy, ensure both light AND dark themes work, and then implement with every spec detail from the reference files. The result should feel like a senior designer planned it — not like an AI translated a few component files into HTML.
 
 Here's why the reference files matter: without them, you'll produce generic output. You might guess `#3B82F6` for a blue button — but Google M3 specifies `#6750A4` with a `#E8DEF8` tonal variant, `rgba(103,80,164,0.08)` hover state layer, and `200ms cubic-bezier(0.2, 0, 0, 1.0)` transitions. Apple specifies `#007AFF` with `opacity: 0.75` on press and `12px` continuous corner radius. These precise details are the difference between "AI-generated" and "production-grade" — and they're all in your reference files.
+
+---
+
+## Step 0: Clarify Before Building
+
+**Skip this step entirely if:**
+- The request is a component-level fix ("fix this button's hover state", "update the card shadow")
+- All context is already clear from the prompt + codebase scan
+- The user invoked with full context (e.g., "build a settings page, Apple HIG, React, mobile-first")
+
+Otherwise, **first infer what you can** from the prompt and codebase:
+
+- **Design system**: "Google" / "Material" / "M3" → Google. "Apple" / "iOS" / "HIG" → Apple. Nothing specified → Blended (default).
+- **Scope**: What the prompt describes — a page, a component, a fix, a redesign.
+- **Tech stack**: Check `package.json`, `tailwind.config.*`, `tsconfig.json` in the project.
+
+**Then ask about what's still unclear** — strictly one question at a time, waiting for each answer before asking the next. Never combine questions. Always include options when asking — never ask open-ended questions where a list of choices applies.
+
+Resolve in this priority order, stopping as soon as you have enough to proceed:
+- Scope (what exactly to build, who uses it)
+- Design system (if not specified or inferable)
+- Framework (if not in `package.json` — do NOT assume or default)
+- Device target (for page-level work)
+- Existing styles or brand constraints
+
+Never skip an unknown by making an assumption. Never combine multiple questions into one message.
 
 ---
 
@@ -39,77 +65,82 @@ references/
 ```
 
 **Overview files:**
+
 - [Google M3 Overview](references/google/overview.md) — 34 colors, typography, elevation, motion
 - [Apple HIG Overview](references/apple/overview.md) — System colors, SF Pro, Liquid Glass, shadows
 - [Blended Design Principles](references/blended/design-principles.md) — Spacing, breakpoints, easing, accessibility
 
 ### Component File Mapping
 
-| Component | Google | Apple | Blended |
-|-----------|--------|-------|---------|
-| Button | [button.md](references/google/components/button.md) | [button.md](references/apple/components/button.md) | [button.md](references/blended/components/button.md) |
-| Text Input | [text-field.md](references/google/components/text-field.md) | [text-field.md](references/apple/components/text-field.md) | [text-field.md](references/blended/components/text-field.md) |
-| Card | [card.md](references/google/components/card.md) | [card.md](references/apple/components/card.md) | [card.md](references/blended/components/card.md) |
-| Dialog/Modal | [dialog.md](references/google/components/dialog.md) | [alert.md](references/apple/components/alert.md) | [dialog.md](references/blended/components/dialog.md) |
-| Nav (bottom) | [navigation-bar.md](references/google/components/navigation-bar.md) | [tab-bar.md](references/apple/components/tab-bar.md) | [navigation.md](references/blended/components/navigation.md) |
-| Nav (side) | [navigation-drawer.md](references/google/components/navigation-drawer.md) | [sidebar.md](references/apple/components/sidebar.md) | [navigation.md](references/blended/components/navigation.md) |
-| Toggle/Switch | [switch.md](references/google/components/switch.md) | [toggle.md](references/apple/components/toggle.md) | [switch.md](references/blended/components/switch.md) |
-| List | [list.md](references/google/components/list.md) | [list.md](references/apple/components/list.md) | [list.md](references/blended/components/list.md) |
-| Chip/Tag | [chip.md](references/google/components/chip.md) | — | [chip.md](references/blended/components/chip.md) |
-| Progress | [progress.md](references/google/components/progress.md) | [progress-indicator.md](references/apple/components/progress-indicator.md) | [progress.md](references/blended/components/progress.md) |
-| Toast/Snackbar | [snackbar.md](references/google/components/snackbar.md) | — | [toast.md](references/blended/components/toast.md) |
-| Tabs | [tabs.md](references/google/components/tabs.md) | — | [navigation.md](references/blended/components/navigation.md) |
-| Menu / Context Menu | [menu.md](references/google/components/menu.md) | [context-menu.md](references/apple/components/context-menu.md) | — |
-| Checkbox | [checkbox.md](references/google/components/checkbox.md) | — | [form-controls.md](references/blended/components/form-controls.md) |
-| Radio | [radio.md](references/google/components/radio.md) | — | [form-controls.md](references/blended/components/form-controls.md) |
-| Select | [select.md](references/google/components/select.md) | — | [form-controls.md](references/blended/components/form-controls.md) |
-| Slider | [slider.md](references/google/components/slider.md) | [slider.md](references/apple/components/slider.md) | [form-controls.md](references/blended/components/form-controls.md) |
-| Icon Button | [icon-button.md](references/google/components/icon-button.md) | — | — |
-| Divider | [divider.md](references/google/components/divider.md) | — | [misc.md](references/blended/components/misc.md) |
-| FAB | [fab.md](references/google/components/fab.md) | — | — |
-| Badge | [badge.md](references/google/components/badge.md) | [badge.md](references/apple/components/badge.md) | [misc.md](references/blended/components/misc.md) |
-| Tooltip | [tooltip.md](references/google/components/tooltip.md) | — | [misc.md](references/blended/components/misc.md) |
-| Avatar | — | — | [misc.md](references/blended/components/misc.md) |
-| Skeleton | — | — | [misc.md](references/blended/components/misc.md) |
-| Empty State | — | — | [misc.md](references/blended/components/misc.md) |
-| Top App Bar | [top-app-bar.md](references/google/components/top-app-bar.md) | [toolbar.md](references/apple/components/toolbar.md) | — |
-| Bottom App Bar | [bottom-app-bar.md](references/google/components/bottom-app-bar.md) | — | — |
-| Nav Rail | [navigation-rail.md](references/google/components/navigation-rail.md) | — | — |
-| Bottom Sheet | [bottom-sheet.md](references/google/components/bottom-sheet.md) | [sheet.md](references/apple/components/sheet.md) | — |
-| Side Sheet | [side-sheet.md](references/google/components/side-sheet.md) | — | — |
-| Search Bar | [search-bar.md](references/google/components/search-bar.md) | [search-field.md](references/apple/components/search-field.md) | — |
-| Segmented Button | [segmented-button.md](references/google/components/segmented-button.md) | [segmented-control.md](references/apple/components/segmented-control.md) | — |
-| Date Picker | [date-picker.md](references/google/components/date-picker.md) | [date-picker.md](references/apple/components/date-picker.md) | — |
-| Time Picker | [time-picker.md](references/google/components/time-picker.md) | — | — |
-| Carousel | [carousel.md](references/google/components/carousel.md) | — | — |
-| Navigation Bar | — | [navigation-bar.md](references/apple/components/navigation-bar.md) | — |
-| Stepper | — | [stepper.md](references/apple/components/stepper.md) | — |
-| Picker | — | [picker.md](references/apple/components/picker.md) | — |
-| Action Sheet | — | [action-sheet.md](references/apple/components/action-sheet.md) | — |
-| Popover | — | [popover.md](references/apple/components/popover.md) | — |
-| Pull-down Menu | — | [menu.md](references/apple/components/menu.md) | — |
-| Disclosure | — | [disclosure-group.md](references/apple/components/disclosure-group.md) | — |
-| Table | — | [table.md](references/apple/components/table.md) | — |
-| Collection/Grid | — | [collection.md](references/apple/components/collection.md) | — |
-| Page Control | — | [page-control.md](references/apple/components/page-control.md) | — |
-| Split View | — | [split-view.md](references/apple/components/split-view.md) | — |
-| Scroll View | — | [scroll-view.md](references/apple/components/scroll-view.md) | — |
-| Label | — | [label.md](references/apple/components/label.md) | — |
-| Gauge | — | [gauge.md](references/apple/components/gauge.md) | — |
-| Activity Ring | — | [activity-ring.md](references/apple/components/activity-ring.md) | — |
-| Chart | — | [chart.md](references/apple/components/chart.md) | — |
+> **Note:** This table shows all components across all three systems for discoverability. Once your design system is locked in Step 2, reference **only the column for your chosen system**. Other columns exist for awareness, not use.
+
+| Component           | Google                                                                    | Apple                                                                      | Blended                                                            |
+| ------------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| Button              | [button.md](references/google/components/button.md)                       | [button.md](references/apple/components/button.md)                         | [button.md](references/blended/components/button.md)               |
+| Text Input          | [text-field.md](references/google/components/text-field.md)               | [text-field.md](references/apple/components/text-field.md)                 | [text-field.md](references/blended/components/text-field.md)       |
+| Card                | [card.md](references/google/components/card.md)                           | [card.md](references/apple/components/card.md)                             | [card.md](references/blended/components/card.md)                   |
+| Dialog/Modal        | [dialog.md](references/google/components/dialog.md)                       | [alert.md](references/apple/components/alert.md)                           | [dialog.md](references/blended/components/dialog.md)               |
+| Nav (bottom)        | [navigation-bar.md](references/google/components/navigation-bar.md)       | [tab-bar.md](references/apple/components/tab-bar.md)                       | [navigation.md](references/blended/components/navigation.md)       |
+| Nav (side)          | [navigation-drawer.md](references/google/components/navigation-drawer.md) | [sidebar.md](references/apple/components/sidebar.md)                       | [navigation.md](references/blended/components/navigation.md)       |
+| Toggle/Switch       | [switch.md](references/google/components/switch.md)                       | [toggle.md](references/apple/components/toggle.md)                         | [switch.md](references/blended/components/switch.md)               |
+| List                | [list.md](references/google/components/list.md)                           | [list.md](references/apple/components/list.md)                             | [list.md](references/blended/components/list.md)                   |
+| Chip/Tag            | [chip.md](references/google/components/chip.md)                           | —                                                                          | [chip.md](references/blended/components/chip.md)                   |
+| Progress            | [progress.md](references/google/components/progress.md)                   | [progress-indicator.md](references/apple/components/progress-indicator.md) | [progress.md](references/blended/components/progress.md)           |
+| Toast/Snackbar      | [snackbar.md](references/google/components/snackbar.md)                   | —                                                                          | [toast.md](references/blended/components/toast.md)                 |
+| Tabs                | [tabs.md](references/google/components/tabs.md)                           | —                                                                          | [navigation.md](references/blended/components/navigation.md)       |
+| Menu / Context Menu | [menu.md](references/google/components/menu.md)                           | [context-menu.md](references/apple/components/context-menu.md)             | —                                                                  |
+| Checkbox            | [checkbox.md](references/google/components/checkbox.md)                   | —                                                                          | [form-controls.md](references/blended/components/form-controls.md) |
+| Radio               | [radio.md](references/google/components/radio.md)                         | —                                                                          | [form-controls.md](references/blended/components/form-controls.md) |
+| Select              | [select.md](references/google/components/select.md)                       | —                                                                          | [form-controls.md](references/blended/components/form-controls.md) |
+| Slider              | [slider.md](references/google/components/slider.md)                       | [slider.md](references/apple/components/slider.md)                         | [form-controls.md](references/blended/components/form-controls.md) |
+| Icon Button         | [icon-button.md](references/google/components/icon-button.md)             | —                                                                          | —                                                                  |
+| Divider             | [divider.md](references/google/components/divider.md)                     | —                                                                          | [misc.md](references/blended/components/misc.md)                   |
+| FAB                 | [fab.md](references/google/components/fab.md)                             | —                                                                          | —                                                                  |
+| Badge               | [badge.md](references/google/components/badge.md)                         | [badge.md](references/apple/components/badge.md)                           | [misc.md](references/blended/components/misc.md)                   |
+| Tooltip             | [tooltip.md](references/google/components/tooltip.md)                     | —                                                                          | [misc.md](references/blended/components/misc.md)                   |
+| Avatar              | —                                                                         | —                                                                          | [misc.md](references/blended/components/misc.md)                   |
+| Skeleton            | —                                                                         | —                                                                          | [misc.md](references/blended/components/misc.md)                   |
+| Empty State         | —                                                                         | —                                                                          | [misc.md](references/blended/components/misc.md)                   |
+| Top App Bar         | [top-app-bar.md](references/google/components/top-app-bar.md)             | [toolbar.md](references/apple/components/toolbar.md)                       | —                                                                  |
+| Bottom App Bar      | [bottom-app-bar.md](references/google/components/bottom-app-bar.md)       | —                                                                          | —                                                                  |
+| Nav Rail            | [navigation-rail.md](references/google/components/navigation-rail.md)     | —                                                                          | —                                                                  |
+| Bottom Sheet        | [bottom-sheet.md](references/google/components/bottom-sheet.md)           | [sheet.md](references/apple/components/sheet.md)                           | —                                                                  |
+| Side Sheet          | [side-sheet.md](references/google/components/side-sheet.md)               | —                                                                          | —                                                                  |
+| Search Bar          | [search-bar.md](references/google/components/search-bar.md)               | [search-field.md](references/apple/components/search-field.md)             | —                                                                  |
+| Segmented Button    | [segmented-button.md](references/google/components/segmented-button.md)   | [segmented-control.md](references/apple/components/segmented-control.md)   | —                                                                  |
+| Date Picker         | [date-picker.md](references/google/components/date-picker.md)             | [date-picker.md](references/apple/components/date-picker.md)               | —                                                                  |
+| Time Picker         | [time-picker.md](references/google/components/time-picker.md)             | —                                                                          | —                                                                  |
+| Carousel            | [carousel.md](references/google/components/carousel.md)                   | —                                                                          | —                                                                  |
+| Navigation Bar      | —                                                                         | [navigation-bar.md](references/apple/components/navigation-bar.md)         | —                                                                  |
+| Stepper             | —                                                                         | [stepper.md](references/apple/components/stepper.md)                       | —                                                                  |
+| Picker              | —                                                                         | [picker.md](references/apple/components/picker.md)                         | —                                                                  |
+| Action Sheet        | —                                                                         | [action-sheet.md](references/apple/components/action-sheet.md)             | —                                                                  |
+| Popover             | —                                                                         | [popover.md](references/apple/components/popover.md)                       | —                                                                  |
+| Pull-down Menu      | —                                                                         | [menu.md](references/apple/components/menu.md)                             | —                                                                  |
+| Disclosure          | —                                                                         | [disclosure-group.md](references/apple/components/disclosure-group.md)     | —                                                                  |
+| Table               | —                                                                         | [table.md](references/apple/components/table.md)                           | —                                                                  |
+| Collection/Grid     | —                                                                         | [collection.md](references/apple/components/collection.md)                 | —                                                                  |
+| Page Control        | —                                                                         | [page-control.md](references/apple/components/page-control.md)             | —                                                                  |
+| Split View          | —                                                                         | [split-view.md](references/apple/components/split-view.md)                 | —                                                                  |
+| Scroll View         | —                                                                         | [scroll-view.md](references/apple/components/scroll-view.md)               | —                                                                  |
+| Label               | —                                                                         | [label.md](references/apple/components/label.md)                           | —                                                                  |
+| Gauge               | —                                                                         | [gauge.md](references/apple/components/gauge.md)                           | —                                                                  |
+| Activity Ring       | —                                                                         | [activity-ring.md](references/apple/components/activity-ring.md)           | —                                                                  |
+| Chart               | —                                                                         | [chart.md](references/apple/components/chart.md)                           | —                                                                  |
 
 ---
 
-## Step 2: Determine What to Build
+## Step 2: Lock System and Scope
 
-Figure out the design system and scope from the user's prompt and the project's codebase:
+Using answers from Step 0 (or prompt/codebase if Step 0 was skipped), declare the locked system and scope:
 
-- **Design system**: "Google" / "Material" / "M3" → Google. "Apple" / "iOS" / "HIG" → Apple. Nothing specified → Blended (default).
 - **Scope**: What the prompt describes — a page, a component, a fix, a redesign.
-- **Tech stack**: Check `package.json`, `tailwind.config.*`, `tsconfig.json` in the project.
+- **Tech stack**: Confirmed from `package.json`, `tailwind.config.*`, `tsconfig.json`.
 
-Only ask questions if something critical is genuinely ambiguous. If they said "build me a settings page, Apple style", just proceed.
+**System lock — declare it explicitly:**
+> "Design system locked: **[Google / Apple / Blended]**. I will only read from `references/[google/apple/blended]/`. Files in the other directories are off-limits for this task."
+
+This prevents drift — even if a component is missing from the chosen system, you stay within its directory.
 
 ---
 
@@ -117,7 +148,7 @@ Only ask questions if something critical is genuinely ambiguous. If they said "b
 
 **This is the most important step.** Do NOT skip to coding. Think like a senior UI architect first.
 
-### 3-Pre. Design Intent (30 seconds of creative direction)
+### 3.1 Design Intent (30 seconds of creative direction)
 
 Before touching ANY component files, answer these four questions in your head:
 
@@ -128,33 +159,44 @@ Before touching ANY component files, answer these four questions in your head:
 
 This creative direction frames EVERY subsequent decision — which components to include, which variants to choose, how to compose the layout. Without it, you'll produce technically correct but soulless output.
 
-### 3A. Survey All Available Components
+### 3.2 Survey All Available Components
 
 **Actually run `Glob` or `ls` on the components directory** — don't just scan the mapping table. The mapping table is a quick reference, but the actual directory may contain files you'd miss otherwise. Seeing real file names triggers associations ("oh, there's a search-bar — this page needs search") that you won't get from a mental checklist:
 
-| User chose | List this directory |
-|------------|-------------------|
-| Google / M3 | `references/google/components/` (32 files) |
-| Apple / HIG | `references/apple/components/` (33 files) |
+| User chose      | List this directory                         |
+| --------------- | ------------------------------------------- |
+| Google / M3     | `references/google/components/` (32 files)  |
+| Apple / HIG     | `references/apple/components/` (33 files)   |
 | Blend (default) | `references/blended/components/` (12 files) |
 
 Scan the file names and mentally map what's available. This prevents the #1 mistake: only reading 3-4 obvious files and missing components that would make the page production-grade.
 
-### 3B. Map User Intent to a FULL Component Set
+### 3.3 Map User Intent to a FULL Component Set
 
 For page-level requests, think **expansively** about what components the page needs. Always include more than what was explicitly asked for:
 
-| User says | Obvious components | What an architect ALSO includes |
-|-----------|-------------------|-------------------------------|
-| "landing page" | button, card | top-app-bar/toolbar, navigation, divider, badge, icon-button, chip, progress, snackbar, fab |
-| "settings page" | list, switch | top-app-bar/toolbar, search-bar, radio, select, slider, divider, navigation-drawer/sidebar, card, icon-button, dialog, snackbar |
-| "dashboard" | card | navigation-rail/sidebar, top-app-bar, tabs, progress, badge, menu, icon-button, tooltip, divider, bottom-sheet, chip |
-| "login page" | text-field, button | card, dialog, progress, divider, checkbox, snackbar |
-| "e-commerce" | card, button | carousel, search-bar, chip, badge, navigation-bar, bottom-sheet, tabs, snackbar, fab, menu |
+| User says       | Obvious components | What an architect ALSO includes                                                                                                 |
+| --------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| "landing page"  | button, card       | top-app-bar/toolbar, navigation, divider, badge, icon-button, chip, progress, snackbar, fab                                     |
+| "settings page" | list, switch       | top-app-bar/toolbar, search-bar, radio, select, slider, divider, navigation-drawer/sidebar, card, icon-button, dialog, snackbar |
+| "dashboard"     | card               | navigation-rail/sidebar, top-app-bar, tabs, progress, badge, menu, icon-button, tooltip, divider, bottom-sheet, chip            |
+| "login page"    | text-field, button | card, dialog, progress, divider, checkbox, snackbar                                                                             |
+| "e-commerce"    | card, button       | carousel, search-bar, chip, badge, navigation-bar, bottom-sheet, tabs, snackbar, fab, menu                                      |
 
 **Target: 8-15 component files per page.** If you're reading fewer than 8 files for a full page, you're not thinking broadly enough.
 
-### 3C. Read the Overview FIRST, Then ALL Component Files
+**Missing component policy — ask, don't assume:**
+If a component you need doesn't exist in the locked system (e.g., Apple has no Chip, Google has no Picker), surface it to the user before proceeding:
+
+> "Apple HIG doesn't have a Chip component. How would you like me to handle this?
+> - **A** — Use the closest Apple-native equivalent (e.g., a tag-style Label with system tokens)
+> - **B** — Borrow the component from Google M3 / Blended just for this element
+> - **C** — Skip it and I'll find an alternative layout
+> - **D** — Your call, do what makes sense"
+
+If the user says "go ahead" / "your call" / "D" → default to **A** (closest native equivalent). Never silently cross systems.
+
+### 3.4 Read the Overview FIRST, Then ALL Component Files
 
 Read in this order:
 
@@ -166,13 +208,13 @@ Read in this order:
    - **States** to implement
    - **Animations** to include
 
-| User chose | Read first | Then read components |
-|------------|-----------|----------------------|
-| Google / M3 | [google/overview.md](references/google/overview.md) | `google/components/{component}.md` for ALL identified |
-| Apple / HIG | [apple/overview.md](references/apple/overview.md) | `apple/components/{component}.md` for ALL identified |
+| User chose      | Read first                                                              | Then read components                                   |
+| --------------- | ----------------------------------------------------------------------- | ------------------------------------------------------ |
+| Google / M3     | [google/overview.md](references/google/overview.md)                     | `google/components/{component}.md` for ALL identified  |
+| Apple / HIG     | [apple/overview.md](references/apple/overview.md)                       | `apple/components/{component}.md` for ALL identified   |
 | Blend (default) | [blended/design-principles.md](references/blended/design-principles.md) | `blended/components/{component}.md` for ALL identified |
 
-### 3D. Choose Variants Intentionally
+### 3.5 Choose Variants Intentionally
 
 As you read each file, decide which variant fits the context. Don't default to the first one — think about emphasis, hierarchy, and contrast:
 
@@ -182,7 +224,7 @@ As you read each file, decide which variant fits the context. Don't default to t
 - **Inputs**: Outlined text-field for forms, Filled for dense layouts.
 - **Lists**: Two-line for settings, Three-line for messages, Single-line for menus.
 
-### 3E. Plan Composition and Visual Hierarchy
+### 3.6 Plan Composition and Visual Hierarchy
 
 Think about the PAGE, not just individual components:
 
@@ -192,7 +234,7 @@ Think about the PAGE, not just individual components:
 - **Spacing rhythm**: Use the design system's spacing grid (4px/8px for M3, 8pt grid for Apple). Consistent spacing separates production-grade from amateur.
 - **Visual breathing room**: Not every section needs to be packed. Generous whitespace between major sections. Let the typography and components breathe.
 
-### 3F. Both Light AND Dark Themes (non-negotiable)
+### 3.7 Both Light AND Dark Themes (non-negotiable)
 
 Single-theme output is the #1 signal of AI-generated UI. Real products always ship both. Users on macOS/iOS/Android expect dark mode, and a light-only page feels like a prototype. This is why every reference file includes both light and dark token values — use them.
 
@@ -201,7 +243,7 @@ Single-theme output is the #1 signal of AI-generated UI. Real products always sh
 - Include a visible theme toggle in standalone pages (button or switch that toggles `.dark` on `<html>`)
 - Dark theme is NOT "invert the colors" — use the specific dark token values from each reference file
 
-### 3G. Present Your Architectural Plan
+### 3.8 Present Your Architectural Plan
 
 After reading and planning, present a detailed plan — NOT just "here's what I'll build":
 
@@ -235,7 +277,17 @@ After reading and planning, present a detailed plan — NOT just "here's what I'
 - Toggle: [included with sun/moon icon]
 ```
 
-Present this plan, then **immediately proceed to implementation**. Do not ask for permission — just build it. Only pause if something is genuinely ambiguous about the user's intent.
+Present this plan and **wait for user approval before proceeding to Step 4**.
+
+<HARD-GATE>
+Do NOT write any code or implementation until the user has explicitly approved the architectural plan. A wrong design system, layout, or component choice means full regeneration — approval takes 5 seconds, regeneration takes minutes.
+</HARD-GATE>
+
+Ask after presenting the plan:
+> "Does this plan look right? Any changes before I start building?"
+
+If the user says "yes", "looks good", "go ahead", or similar → proceed to Step 4.
+If they request changes → revise the plan and present again. Do not build until approved.
 
 ### How to use what you read
 
@@ -257,6 +309,7 @@ Translate reference specs into real code — but think like a designer, not a te
 ### 4A. Framework Translation
 
 **Tailwind CSS:**
+
 ```
 height: 40px          → h-10
 padding: 0 24px       → px-6
@@ -278,42 +331,19 @@ Put design tokens in `tailwind.config.js` under `theme.extend.colors` so the who
 
 ### 4B. Composition Principles (Apply to Every Page)
 
-**Typography as a primary design tool:**
-- Use the design system's FULL type scale — not just one body size everywhere
-- Hero/display text should be noticeably larger than section headings, which are noticeably larger than body
-- Map at least 3-4 levels: Display → Headline → Title → Body → Label
-- Proper `line-height`, `letter-spacing`, and `font-weight` from the overview file — these details separate polished from generic
+**Read** [Composition Principles Reference](composition-principles.md) for detailed guidance on:
+- Typography hierarchy and scale usage
+- Color distribution with intention
+- Spatial composition and visual hierarchy
+- Purposeful motion and micro-interactions
+- Atmosphere and depth techniques
 
-**Color distribution with intention:**
-- Primary color appears on CTAs, key interactive elements, and selected states — NOT splashed on every surface
-- Surface colors create the spatial foundation (Surface, Surface-Container, Surface-Container-High from M3; or System Background tiers from Apple)
-- Use the `on-` counterpart tokens for text on colored backgrounds — never guess contrast
-- One bold accent + restrained surfaces >>> multiple competing colors
-
-**Spatial composition:**
-- Establish clear visual hierarchy through size contrast, spacing, and weight — not just color
-- Give major sections generous whitespace (48-64px vertical between page sections at minimum)
-- Group related items with tighter spacing (8-16px) to create visual clusters
-- Use the design system's spacing grid consistently (4px/8px increments for M3, 8pt grid for Apple)
-- Break monotony: not every section should be full-width centered content. Consider asymmetric layouts, offset grids, or mixed widths where they serve the content
-
-**Purposeful motion:**
-- **Page load**: Stagger the reveal of major sections using `animation-delay` (0ms, 50ms, 100ms, 150ms...) with fade-in + slight translate-Y. This creates a choreographed entrance, not an abrupt flash.
-- **Scroll interactions**: Elements that appear on scroll should animate in (use `IntersectionObserver` + CSS classes). Cards, features, stats — these feel alive when they enter smoothly.
-- **Micro-interactions**: Hover lifts on cards (subtle `translateY(-2px)` + shadow increase), button press feedback, toggle animations. Use the easing curves from the reference files.
-- **`prefers-reduced-motion`**: Always include. Remove `animation-delay`, `transform`, and `transition` under this media query.
-- Use the EXACT easing values from the reference: `cubic-bezier(0.2, 0, 0, 1.0)` for M3 standard, `cubic-bezier(0.05, 0.7, 0.1, 1)` for M3 decelerate, `ease-out` with specific durations for Apple.
-
-**Atmosphere and depth:**
-- Don't default to flat solid-color backgrounds. Use the design system's elevation system to create depth:
-  - M3: Tonal elevation (Surface → Surface-Container → Surface-Container-High) + `box-shadow` from elevation tokens
-  - Apple: Layered materials with `backdrop-filter: blur()` (Liquid Glass), layered shadows at multiple offsets
-- Consider subtle background treatments for hero/CTA sections — a gentle gradient using surface variants, or a pattern that fits the design system's character
-- Shadows should match the reference file exactly — not `shadow-md` guesses but the precise `box-shadow` values from the elevation tokens
+Apply these principles to every page — the difference between "technically correct" and "feels designed".
 
 ### 4C. Platform-Specific Polish
 
 **Google Material Design 3:**
+
 - Tonal elevation hierarchy: Surface → Surface-Container → Surface-Container-High → Surface-Container-Highest
 - State layer system: hover (8% opacity), focus (10%), pressed (10%), dragged (16%) — these are overlaid, not color changes
 - Ripple effect on interactive elements (use CSS `::after` pseudo-element with radial-gradient expand animation)
@@ -321,6 +351,7 @@ Put design tokens in `tailwind.config.js` under `theme.extend.colors` so the who
 - Roboto font stack with exact M3 type scale values
 
 **Apple Human Interface Guidelines:**
+
 - Liquid Glass effect on navigation bars: `backdrop-filter: saturate(180%) blur(20px)` + semi-transparent background
 - Continuous corner radius (`border-radius` with Apple's specific values, not simple rounding)
 - SF Pro font stack with `-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text'` + `-webkit-font-smoothing: antialiased`
@@ -329,28 +360,20 @@ Put design tokens in `tailwind.config.js` under `theme.extend.colors` so the who
 - Vibrancy and materials system for sidebar/overlay surfaces
 
 **Blended / Custom:**
+
 - Take Google's systematic token architecture (semantic color roles with `on-` counterparts, state layer opacities)
 - Take Apple's refinement (continuous corner radius, purposeful motion, clean surfaces)
 - The result should feel like a polished custom design system — not recognizably Material or Apple
 
 ### 4D. Theme Implementation Pattern
 
-As planned in Step 3F, implement both themes using this pattern:
+**Read** [Theme Implementation Reference](theme-implementation.md) for:
+- Complete CSS pattern (light + dark modes)
+- HTML theme toggle markup
+- Smooth transition setup
+- Full verification checklist
 
-```css
-:root { /* light tokens from reference files */ }
-@media (prefers-color-scheme: dark) { :root { /* dark tokens */ } }
-.dark { /* same dark tokens — enables manual toggle */ }
-```
-
-```html
-<!-- Theme toggle for standalone pages -->
-<button onclick="document.documentElement.classList.toggle('dark')" aria-label="Toggle theme">
-  <!-- sun/moon icon -->
-</button>
-```
-
-Add `transition: background-color 200ms ease, color 200ms ease` on body and major containers for smooth switching.
+As planned in Step 3.7, implement both light and dark themes — this is non-negotiable for production-grade output.
 
 ---
 
@@ -371,13 +394,14 @@ Before delivering, run through BOTH checklists. The first ensures spec accuracy.
 
 ### Theme Verification (MANDATORY)
 
-- [ ] **Light theme renders correctly** — all token values produce correct colors, proper contrast
-- [ ] **Dark theme renders correctly** — dark tokens from reference files used (NOT inverted light theme)
-- [ ] **Both `@media (prefers-color-scheme: dark)` AND `.dark` class** work
-- [ ] **Theme toggle included** for standalone pages (button/switch that toggles `.dark` on `<html>`)
-- [ ] **Contrast ratios** — text meets WCAG AA (4.5:1 normal, 3:1 large) in BOTH themes
-- [ ] **Smooth theme transition** — `transition` on `background-color` and `color` for major containers
-- [ ] **No hardcoded colors** — every color references a CSS variable that switches with theme
+See [Theme Implementation Reference](theme-implementation.md) for complete theme verification checklist. Key items:
+- Light theme renders correctly with proper contrast
+- Dark theme uses reference file tokens (NOT inverted)
+- Both `@media (prefers-color-scheme: dark)` AND `.dark` class work
+- Theme toggle included for standalone pages
+- Contrast ratios meet WCAG AA standard in both themes
+- Smooth transitions on color changes
+- No hardcoded colors in components
 
 ### Composition Quality Checklist
 
@@ -388,19 +412,20 @@ Before delivering, run through BOTH checklists. The first ensures spec accuracy.
 - [ ] **Platform polish** — at least 3 platform-specific details applied (Liquid Glass nav, tonal elevation, ripple effects, SF Pro antialiasing, continuous corners, etc.)
 - [ ] **Component count** — used 8+ distinct components for a full page. If fewer, go back to Step 3B and think broader
 - [ ] **Not generic** — the output should NOT look like it could be from any AI tool. It should feel native to the chosen design system
+- [ ] **No cross-contamination** — every token, color, dimension, and CSS value traces back exclusively to `references/{chosen system}/` files. If any value came from another system's directory, replace it.
 
 ### Common "AI-generated" mistakes to avoid
 
-| Mistake | What to do instead |
-|---------|-------------------|
-| Random hex colors | Use the design tokens from the reference file |
-| Missing hover/focus states | Implement every state from the States Reference table |
-| Inconsistent border-radius | Use the exact radius from the component's Quick Reference |
-| Wrong shadows | Use the exact `box-shadow` from reference elevation tokens |
-| Gradient hero + centered cards | Plan real composition in Step 3E — consider asymmetry, offset, breathing room |
-| Everything centered, no hierarchy | Left-align content, establish visual hierarchy through scale and weight |
-| Eyeballed spacing | Use 4px/8px grid from the design system consistently |
-| Only dark OR only light | ALWAYS deliver both themes. Light primary, dark secondary. Include toggle. |
-| Generic motion (everything fades in at once) | Stagger with `animation-delay`, use design system easing curves, add hover lifts |
-| 3-4 components for a full page | Survey ALL available components in Step 3A. Target 8-15 for pages. |
-| Same button variant everywhere | Choose variant by context: Filled for CTA, Outlined for secondary, Text for tertiary |
+| Mistake                                      | What to do instead                                                                   |
+| -------------------------------------------- | ------------------------------------------------------------------------------------ |
+| Random hex colors                            | Use the design tokens from the reference file                                        |
+| Missing hover/focus states                   | Implement every state from the States Reference table                                |
+| Inconsistent border-radius                   | Use the exact radius from the component's Quick Reference                            |
+| Wrong shadows                                | Use the exact `box-shadow` from reference elevation tokens                           |
+| Gradient hero + centered cards               | Plan real composition in Step 3E — consider asymmetry, offset, breathing room        |
+| Everything centered, no hierarchy            | Left-align content, establish visual hierarchy through scale and weight              |
+| Eyeballed spacing                            | Use 4px/8px grid from the design system consistently                                 |
+| Only dark OR only light                      | ALWAYS deliver both themes. Light primary, dark secondary. Include toggle.           |
+| Generic motion (everything fades in at once) | Stagger with `animation-delay`, use design system easing curves, add hover lifts     |
+| 3-4 components for a full page               | Survey ALL available components in Step 3A. Target 8-15 for pages.                   |
+| Same button variant everywhere               | Choose variant by context: Filled for CTA, Outlined for secondary, Text for tertiary |
