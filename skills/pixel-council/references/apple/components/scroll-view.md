@@ -30,7 +30,7 @@ metadata:
   --apple-scrollview-tint: #007AFF;
   --apple-scrollview-refresh-bg: #F2F2F7;
   --apple-scrollview-separator: rgba(60, 60, 67, 0.29);
-  --apple-scrollview-text: #000000;
+  --apple-scrollview-text: #1D1D1F;
   --apple-scrollview-secondary: rgba(60, 60, 67, 0.6);
   --apple-scrollview-font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
     'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -44,7 +44,7 @@ metadata:
     --apple-scrollview-tint: #0A84FF;
     --apple-scrollview-refresh-bg: #1C1C1E;
     --apple-scrollview-separator: rgba(84, 84, 88, 0.6);
-    --apple-scrollview-text: #FFFFFF;
+    --apple-scrollview-text: #F5F5F7;
     --apple-scrollview-secondary: rgba(235, 235, 245, 0.6);
   }
 }
@@ -55,7 +55,7 @@ metadata:
   --apple-scrollview-tint: #0A84FF;
   --apple-scrollview-refresh-bg: #1C1C1E;
   --apple-scrollview-separator: rgba(84, 84, 88, 0.6);
-  --apple-scrollview-text: #FFFFFF;
+  --apple-scrollview-text: #F5F5F7;
   --apple-scrollview-secondary: rgba(235, 235, 245, 0.6);
 }
 ```
@@ -283,11 +283,11 @@ metadata:
 
 @media (prefers-color-scheme: dark) {
   .apple-scrollview:focus-visible {
-    outline-color: rgba(10, 132, 255, 0.6);
+    outline-color: rgba(10, 132, 255, 0.4);
   }
 }
 .dark .apple-scrollview:focus-visible {
-  outline-color: rgba(10, 132, 255, 0.6);
+  outline-color: rgba(10, 132, 255, 0.4);
 }
 ```
 

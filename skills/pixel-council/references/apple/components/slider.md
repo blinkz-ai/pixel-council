@@ -30,10 +30,10 @@ metadata:
   --apple-slider-max-track: rgba(120, 120, 128, 0.16);
   --apple-slider-thumb: #FFFFFF;
   --apple-slider-thumb-shadow: 0 3px 8px rgba(0, 0, 0, 0.15), 0 1px 1px rgba(0, 0, 0, 0.16);
-  --apple-slider-label: #000000;
+  --apple-slider-label: #1D1D1F;
   --apple-slider-secondary-label: rgba(60, 60, 67, 0.6);
   --apple-slider-icon: rgba(60, 60, 67, 0.6);
-  --apple-slider-focus-ring: rgba(0, 122, 255, 0.6);
+  --apple-slider-focus-ring: rgba(0, 122, 255, 0.4);
   --apple-slider-font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
     'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -44,10 +44,10 @@ metadata:
     --apple-slider-max-track: rgba(120, 120, 128, 0.36);
     --apple-slider-thumb: #FFFFFF;
     --apple-slider-thumb-shadow: 0 3px 8px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.3);
-    --apple-slider-label: #FFFFFF;
+    --apple-slider-label: #F5F5F7;
     --apple-slider-secondary-label: rgba(235, 235, 245, 0.6);
     --apple-slider-icon: rgba(235, 235, 245, 0.6);
-    --apple-slider-focus-ring: rgba(10, 132, 255, 0.6);
+    --apple-slider-focus-ring: rgba(10, 132, 255, 0.4);
   }
 }
 .dark {
@@ -55,10 +55,10 @@ metadata:
   --apple-slider-max-track: rgba(120, 120, 128, 0.36);
   --apple-slider-thumb: #FFFFFF;
   --apple-slider-thumb-shadow: 0 3px 8px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.3);
-  --apple-slider-label: #FFFFFF;
+  --apple-slider-label: #F5F5F7;
   --apple-slider-secondary-label: rgba(235, 235, 245, 0.6);
   --apple-slider-icon: rgba(235, 235, 245, 0.6);
-  --apple-slider-focus-ring: rgba(10, 132, 255, 0.6);
+  --apple-slider-focus-ring: rgba(10, 132, 255, 0.4);
 }
 ```
 
@@ -289,17 +289,17 @@ metadata:
 /* Dark mode focus ring override */
 @media (prefers-color-scheme: dark) {
   .apple-slider__input:focus-visible::-webkit-slider-thumb {
-    outline-color: rgba(10, 132, 255, 0.6);
+    outline-color: rgba(10, 132, 255, 0.4);
   }
   .apple-slider__input:focus-visible::-moz-range-thumb {
-    outline-color: rgba(10, 132, 255, 0.6);
+    outline-color: rgba(10, 132, 255, 0.4);
   }
 }
 .dark .apple-slider__input:focus-visible::-webkit-slider-thumb {
-  outline-color: rgba(10, 132, 255, 0.6);
+  outline-color: rgba(10, 132, 255, 0.4);
 }
 .dark .apple-slider__input:focus-visible::-moz-range-thumb {
-  outline-color: rgba(10, 132, 255, 0.6);
+  outline-color: rgba(10, 132, 255, 0.4);
 }
 ```
 
@@ -336,7 +336,7 @@ metadata:
 
 - **ARIA**: `aria-label` on input, `aria-valuemin`, `aria-valuemax`, `aria-valuenow` for screen readers, `aria-disabled="true"` when disabled
 - **Keyboard**: Tab to focus, Left/Down to decrease, Right/Up to increase, Home for min, End for max
-- **Focus ring**: 4px solid blue at 60% opacity around thumb
+- **Focus ring**: 4px solid blue at 40% opacity around thumb
 - **Touch target**: 28px thumb with minimum 44px hit area (browser handles enlarged touch area)
 - **Screen reader**: Announces label + current value + range
 - **Min/max icons**: `aria-hidden="true"`, context provided by `aria-label`

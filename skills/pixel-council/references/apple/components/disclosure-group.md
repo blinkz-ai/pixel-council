@@ -26,13 +26,13 @@ metadata:
 :root {
   --apple-disclosure-bg: #FFFFFF;
   --apple-disclosure-grouped-bg: #F2F2F7;
-  --apple-disclosure-text: #000000;
+  --apple-disclosure-text: #1D1D1F;
   --apple-disclosure-secondary: rgba(60, 60, 67, 0.6);
   --apple-disclosure-chevron: rgba(60, 60, 67, 0.3);
   --apple-disclosure-tint: #007AFF;
   --apple-disclosure-separator: rgba(60, 60, 67, 0.29);
   --apple-disclosure-fill: rgba(120, 120, 128, 0.12);
-  --apple-disclosure-focus-ring: rgba(0, 122, 255, 0.6);
+  --apple-disclosure-focus-ring: rgba(0, 122, 255, 0.4);
   --apple-disclosure-font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
     'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -41,25 +41,25 @@ metadata:
   :root {
     --apple-disclosure-bg: #1C1C1E;
     --apple-disclosure-grouped-bg: #000000;
-    --apple-disclosure-text: #FFFFFF;
+    --apple-disclosure-text: #F5F5F7;
     --apple-disclosure-secondary: rgba(235, 235, 245, 0.6);
     --apple-disclosure-chevron: rgba(235, 235, 245, 0.3);
     --apple-disclosure-tint: #0A84FF;
     --apple-disclosure-separator: rgba(84, 84, 88, 0.6);
     --apple-disclosure-fill: rgba(120, 120, 128, 0.24);
-    --apple-disclosure-focus-ring: rgba(10, 132, 255, 0.6);
+    --apple-disclosure-focus-ring: rgba(10, 132, 255, 0.4);
   }
 }
 .dark {
   --apple-disclosure-bg: #1C1C1E;
   --apple-disclosure-grouped-bg: #000000;
-  --apple-disclosure-text: #FFFFFF;
+  --apple-disclosure-text: #F5F5F7;
   --apple-disclosure-secondary: rgba(235, 235, 245, 0.6);
   --apple-disclosure-chevron: rgba(235, 235, 245, 0.3);
   --apple-disclosure-tint: #0A84FF;
   --apple-disclosure-separator: rgba(84, 84, 88, 0.6);
   --apple-disclosure-fill: rgba(120, 120, 128, 0.24);
-  --apple-disclosure-focus-ring: rgba(10, 132, 255, 0.6);
+  --apple-disclosure-focus-ring: rgba(10, 132, 255, 0.4);
 }
 ```
 
@@ -328,11 +328,11 @@ metadata:
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
   .apple-disclosure__header:focus-visible {
-    outline-color: rgba(10, 132, 255, 0.6);
+    outline-color: rgba(10, 132, 255, 0.4);
   }
 }
 .dark .apple-disclosure__header:focus-visible {
-  outline-color: rgba(10, 132, 255, 0.6);
+  outline-color: rgba(10, 132, 255, 0.4);
 }
 ```
 
@@ -380,7 +380,7 @@ metadata:
 
 - **ARIA**: `<details>` and `<summary>` provide built-in expand/collapse semantics; no additional ARIA needed. If using custom elements, use `aria-expanded` on trigger and `aria-controls` pointing to content
 - **Keyboard**: Tab to focus summary, Enter/Space to toggle, focus moves naturally into revealed content
-- **Focus ring**: 4px solid blue at 60% opacity, inset to match container shape
+- **Focus ring**: 4px solid blue at 40% opacity, inset to match container shape
 - **Touch target**: 44px minimum height for header
 - **Screen reader**: Announces "disclosure triangle, [title], collapsed/expanded"
 - **Nesting**: Each nested disclosure has its own summary/content pair, independently operable

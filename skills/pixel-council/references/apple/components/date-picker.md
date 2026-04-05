@@ -28,7 +28,7 @@ metadata:
 :root {
   --apple-datepicker-bg: #FFFFFF;
   --apple-datepicker-surface: #F2F2F7;
-  --apple-datepicker-text: #000000;
+  --apple-datepicker-text: #1D1D1F;
   --apple-datepicker-secondary: rgba(60, 60, 67, 0.6);
   --apple-datepicker-tertiary: rgba(60, 60, 67, 0.3);
   --apple-datepicker-tint: #007AFF;
@@ -40,7 +40,7 @@ metadata:
   --apple-datepicker-weekend: rgba(60, 60, 67, 0.6);
   --apple-datepicker-outside: rgba(60, 60, 67, 0.3);
   --apple-datepicker-range-bg: rgba(0, 122, 255, 0.12);
-  --apple-datepicker-focus-ring: rgba(0, 122, 255, 0.6);
+  --apple-datepicker-focus-ring: rgba(0, 122, 255, 0.4);
   --apple-datepicker-font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
     'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -49,7 +49,7 @@ metadata:
   :root {
     --apple-datepicker-bg: #1C1C1E;
     --apple-datepicker-surface: #2C2C2E;
-    --apple-datepicker-text: #FFFFFF;
+    --apple-datepicker-text: #F5F5F7;
     --apple-datepicker-secondary: rgba(235, 235, 245, 0.6);
     --apple-datepicker-tertiary: rgba(235, 235, 245, 0.3);
     --apple-datepicker-tint: #0A84FF;
@@ -61,13 +61,13 @@ metadata:
     --apple-datepicker-weekend: rgba(235, 235, 245, 0.6);
     --apple-datepicker-outside: rgba(235, 235, 245, 0.18);
     --apple-datepicker-range-bg: rgba(10, 132, 255, 0.2);
-    --apple-datepicker-focus-ring: rgba(10, 132, 255, 0.6);
+    --apple-datepicker-focus-ring: rgba(10, 132, 255, 0.4);
   }
 }
 .dark {
   --apple-datepicker-bg: #1C1C1E;
   --apple-datepicker-surface: #2C2C2E;
-  --apple-datepicker-text: #FFFFFF;
+  --apple-datepicker-text: #F5F5F7;
   --apple-datepicker-secondary: rgba(235, 235, 245, 0.6);
   --apple-datepicker-tertiary: rgba(235, 235, 245, 0.3);
   --apple-datepicker-tint: #0A84FF;
@@ -79,7 +79,7 @@ metadata:
   --apple-datepicker-weekend: rgba(235, 235, 245, 0.6);
   --apple-datepicker-outside: rgba(235, 235, 245, 0.18);
   --apple-datepicker-range-bg: rgba(10, 132, 255, 0.2);
-  --apple-datepicker-focus-ring: rgba(10, 132, 255, 0.6);
+  --apple-datepicker-focus-ring: rgba(10, 132, 255, 0.4);
 }
 ```
 
@@ -378,13 +378,13 @@ metadata:
   .apple-datepicker__day:focus-visible,
   .apple-datepicker__trigger:focus-visible,
   .apple-datepicker__nav-btn:focus-visible {
-    outline-color: rgba(10, 132, 255, 0.6);
+    outline-color: rgba(10, 132, 255, 0.4);
   }
 }
 .dark .apple-datepicker__day:focus-visible,
 .dark .apple-datepicker__trigger:focus-visible,
 .dark .apple-datepicker__nav-btn:focus-visible {
-  outline-color: rgba(10, 132, 255, 0.6);
+  outline-color: rgba(10, 132, 255, 0.4);
 }
 ```
 
@@ -436,7 +436,7 @@ metadata:
 
 - **ARIA**: `role="grid"` on calendar, `role="gridcell"` on days, `role="row"` on rows, `role="columnheader"` on weekday names, `aria-selected` on selected day, `aria-current="date"` on today, `aria-label` with full date on each day
 - **Keyboard**: Arrow keys to navigate days, Page Up/Down for months, Home/End for first/last day of week, Enter/Space to select
-- **Focus ring**: 4px solid blue at 60% opacity on focused day cell
+- **Focus ring**: 4px solid blue at 40% opacity on focused day cell
 - **Touch target**: 44x44px day cells meet iOS minimum
 - **Screen reader**: Announces "March 8, 2026, today" or "March 15, selected", month changes announced via `aria-live`
 - **Compact trigger**: `aria-haspopup="dialog"` indicates popup calendar

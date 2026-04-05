@@ -29,7 +29,7 @@ metadata:
   --apple-pagecontrol-inactive: rgba(0, 0, 0, 0.2);
   --apple-pagecontrol-tint-active: #007AFF;
   --apple-pagecontrol-tint-inactive: rgba(0, 122, 255, 0.3);
-  --apple-pagecontrol-focus-ring: rgba(0, 122, 255, 0.6);
+  --apple-pagecontrol-focus-ring: rgba(0, 122, 255, 0.4);
   --apple-pagecontrol-font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
     'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -40,7 +40,7 @@ metadata:
     --apple-pagecontrol-inactive: rgba(255, 255, 255, 0.2);
     --apple-pagecontrol-tint-active: #0A84FF;
     --apple-pagecontrol-tint-inactive: rgba(10, 132, 255, 0.3);
-    --apple-pagecontrol-focus-ring: rgba(10, 132, 255, 0.6);
+    --apple-pagecontrol-focus-ring: rgba(10, 132, 255, 0.4);
   }
 }
 .dark {
@@ -48,7 +48,7 @@ metadata:
   --apple-pagecontrol-inactive: rgba(255, 255, 255, 0.2);
   --apple-pagecontrol-tint-active: #0A84FF;
   --apple-pagecontrol-tint-inactive: rgba(10, 132, 255, 0.3);
-  --apple-pagecontrol-focus-ring: rgba(10, 132, 255, 0.6);
+  --apple-pagecontrol-focus-ring: rgba(10, 132, 255, 0.4);
 }
 ```
 
@@ -178,11 +178,11 @@ metadata:
 /* Dark hover */
 @media (prefers-color-scheme: dark) {
   .apple-pagecontrol__dot:focus-visible {
-    outline-color: rgba(10, 132, 255, 0.6);
+    outline-color: rgba(10, 132, 255, 0.4);
   }
 }
 .dark .apple-pagecontrol__dot:focus-visible {
-  outline-color: rgba(10, 132, 255, 0.6);
+  outline-color: rgba(10, 132, 255, 0.4);
 }
 
 @media (hover: hover) and (prefers-color-scheme: dark) {
@@ -226,7 +226,7 @@ metadata:
 
 - **ARIA**: `role="tablist"` on container, `role="tab"` on each dot, `aria-selected` on active dot, `aria-label` with "Page X of Y"
 - **Keyboard**: Left/Right arrow keys to navigate between dots, Tab to focus the control, only active dot has `tabindex="0"`
-- **Focus ring**: 4px solid blue at 60% opacity, 2px offset
+- **Focus ring**: 4px solid blue at 40% opacity, 2px offset
 - **Touch target**: 44px minimum height strip (dots expand into touch area)
 - **Screen reader**: Announces current page and total count
 - **Swipe**: On touch devices, the associated scroll view handles swipe; dots update in response

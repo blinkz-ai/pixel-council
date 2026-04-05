@@ -30,9 +30,9 @@ metadata:
   --apple-stepper-tint: #007AFF;
   --apple-stepper-icon: #007AFF;
   --apple-stepper-separator: rgba(60, 60, 67, 0.29);
-  --apple-stepper-label: #000000;
+  --apple-stepper-label: #1D1D1F;
   --apple-stepper-secondary-label: rgba(60, 60, 67, 0.6);
-  --apple-stepper-focus-ring: rgba(0, 122, 255, 0.6);
+  --apple-stepper-focus-ring: rgba(0, 122, 255, 0.4);
   --apple-stepper-font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
     'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -43,9 +43,9 @@ metadata:
     --apple-stepper-tint: #0A84FF;
     --apple-stepper-icon: #0A84FF;
     --apple-stepper-separator: rgba(84, 84, 88, 0.6);
-    --apple-stepper-label: #FFFFFF;
+    --apple-stepper-label: #F5F5F7;
     --apple-stepper-secondary-label: rgba(235, 235, 245, 0.6);
-    --apple-stepper-focus-ring: rgba(10, 132, 255, 0.6);
+    --apple-stepper-focus-ring: rgba(10, 132, 255, 0.4);
   }
 }
 .dark {
@@ -53,9 +53,9 @@ metadata:
   --apple-stepper-tint: #0A84FF;
   --apple-stepper-icon: #0A84FF;
   --apple-stepper-separator: rgba(84, 84, 88, 0.6);
-  --apple-stepper-label: #FFFFFF;
+  --apple-stepper-label: #F5F5F7;
   --apple-stepper-secondary-label: rgba(235, 235, 245, 0.6);
-  --apple-stepper-focus-ring: rgba(10, 132, 255, 0.6);
+  --apple-stepper-focus-ring: rgba(10, 132, 255, 0.4);
 }
 ```
 
@@ -244,7 +244,7 @@ metadata:
   }
   .apple-stepper__decrement:focus-visible,
   .apple-stepper__increment:focus-visible {
-    outline-color: rgba(10, 132, 255, 0.6);
+    outline-color: rgba(10, 132, 255, 0.4);
   }
 }
 .dark .apple-stepper__decrement:active,
@@ -253,7 +253,7 @@ metadata:
 }
 .dark .apple-stepper__decrement:focus-visible,
 .dark .apple-stepper__increment:focus-visible {
-  outline-color: rgba(10, 132, 255, 0.6);
+  outline-color: rgba(10, 132, 255, 0.4);
 }
 ```
 
@@ -289,7 +289,7 @@ metadata:
 
 - **ARIA**: `role="group"` on container with `aria-label`, each button has `aria-label`, `aria-disabled` on min/max bounds
 - **Keyboard**: Tab to focus each button, Enter/Space to activate, long-press not applicable on web
-- **Focus ring**: 4px solid blue at 60% opacity, 1px offset
+- **Focus ring**: 4px solid blue at 40% opacity, 1px offset
 - **Touch target**: 47x32px buttons (meets width, expand height to 44px with padding)
 - **Screen reader**: Announces "Decrease [label]" / "Increase [label]", value changes announced via `aria-live="polite"` on value element
 - **Haptic feedback**: Not available on web, visual press feedback substitutes

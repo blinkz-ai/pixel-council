@@ -27,7 +27,7 @@ metadata:
 :root {
   --apple-table-bg: #FFFFFF;
   --apple-table-grouped-bg: #F2F2F7;
-  --apple-table-text: #000000;
+  --apple-table-text: #1D1D1F;
   --apple-table-secondary: rgba(60, 60, 67, 0.6);
   --apple-table-tertiary: rgba(60, 60, 67, 0.3);
   --apple-table-tint: #007AFF;
@@ -37,7 +37,7 @@ metadata:
   --apple-table-selected: rgba(0, 122, 255, 0.12);
   --apple-table-header-bg: #F2F2F7;
   --apple-table-fill: rgba(120, 120, 128, 0.12);
-  --apple-table-focus-ring: rgba(0, 122, 255, 0.6);
+  --apple-table-focus-ring: rgba(0, 122, 255, 0.4);
   --apple-table-font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
     'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -46,7 +46,7 @@ metadata:
   :root {
     --apple-table-bg: #1C1C1E;
     --apple-table-grouped-bg: #000000;
-    --apple-table-text: #FFFFFF;
+    --apple-table-text: #F5F5F7;
     --apple-table-secondary: rgba(235, 235, 245, 0.6);
     --apple-table-tertiary: rgba(235, 235, 245, 0.3);
     --apple-table-tint: #0A84FF;
@@ -56,13 +56,13 @@ metadata:
     --apple-table-selected: rgba(10, 132, 255, 0.2);
     --apple-table-header-bg: #1C1C1E;
     --apple-table-fill: rgba(120, 120, 128, 0.24);
-    --apple-table-focus-ring: rgba(10, 132, 255, 0.6);
+    --apple-table-focus-ring: rgba(10, 132, 255, 0.4);
   }
 }
 .dark {
   --apple-table-bg: #1C1C1E;
   --apple-table-grouped-bg: #000000;
-  --apple-table-text: #FFFFFF;
+  --apple-table-text: #F5F5F7;
   --apple-table-secondary: rgba(235, 235, 245, 0.6);
   --apple-table-tertiary: rgba(235, 235, 245, 0.3);
   --apple-table-tint: #0A84FF;
@@ -72,7 +72,7 @@ metadata:
   --apple-table-selected: rgba(10, 132, 255, 0.2);
   --apple-table-header-bg: #1C1C1E;
   --apple-table-fill: rgba(120, 120, 128, 0.24);
-  --apple-table-focus-ring: rgba(10, 132, 255, 0.6);
+  --apple-table-focus-ring: rgba(10, 132, 255, 0.4);
 }
 ```
 
@@ -384,12 +384,12 @@ metadata:
 @media (prefers-color-scheme: dark) {
   .apple-table__row:focus-visible,
   .apple-table__column-header:focus-visible {
-    outline-color: rgba(10, 132, 255, 0.6);
+    outline-color: rgba(10, 132, 255, 0.4);
   }
 }
 .dark .apple-table__row:focus-visible,
 .dark .apple-table__column-header:focus-visible {
-  outline-color: rgba(10, 132, 255, 0.6);
+  outline-color: rgba(10, 132, 255, 0.4);
 }
 ```
 
@@ -435,7 +435,7 @@ metadata:
 
 - **ARIA**: `role="table"` on container, `role="row"` on rows, `role="cell"` on cells, `role="columnheader"` with `aria-sort` on sortable columns, `aria-selected` on selected rows
 - **Keyboard**: Tab to focus rows, Enter/Space to select, arrow keys to navigate cells in data table mode
-- **Focus ring**: 4px solid blue at 60% opacity, inset for rows, standard for column headers
+- **Focus ring**: 4px solid blue at 40% opacity, inset for rows, standard for column headers
 - **Touch target**: 44px minimum row height
 - **Screen reader**: Announces column header + cell content for each row, sort direction
 - **Swipe actions**: Must have keyboard-accessible alternatives (context menu or visible buttons)

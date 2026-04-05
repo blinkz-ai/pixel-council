@@ -29,12 +29,12 @@ metadata:
   --apple-splitview-detail-bg: #FFFFFF;
   --apple-splitview-supplementary-bg: #FFFFFF;
   --apple-splitview-separator: rgba(60, 60, 67, 0.29);
-  --apple-splitview-text: #000000;
+  --apple-splitview-text: #1D1D1F;
   --apple-splitview-secondary: rgba(60, 60, 67, 0.6);
   --apple-splitview-tint: #007AFF;
   --apple-splitview-selected: rgba(0, 122, 255, 0.12);
   --apple-splitview-fill: rgba(120, 120, 128, 0.12);
-  --apple-splitview-focus-ring: rgba(0, 122, 255, 0.6);
+  --apple-splitview-focus-ring: rgba(0, 122, 255, 0.4);
   --apple-splitview-font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
     'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -45,12 +45,12 @@ metadata:
     --apple-splitview-detail-bg: #000000;
     --apple-splitview-supplementary-bg: #1C1C1E;
     --apple-splitview-separator: rgba(84, 84, 88, 0.6);
-    --apple-splitview-text: #FFFFFF;
+    --apple-splitview-text: #F5F5F7;
     --apple-splitview-secondary: rgba(235, 235, 245, 0.6);
     --apple-splitview-tint: #0A84FF;
     --apple-splitview-selected: rgba(10, 132, 255, 0.2);
     --apple-splitview-fill: rgba(120, 120, 128, 0.24);
-    --apple-splitview-focus-ring: rgba(10, 132, 255, 0.6);
+    --apple-splitview-focus-ring: rgba(10, 132, 255, 0.4);
   }
 }
 .dark {
@@ -58,12 +58,12 @@ metadata:
   --apple-splitview-detail-bg: #000000;
   --apple-splitview-supplementary-bg: #1C1C1E;
   --apple-splitview-separator: rgba(84, 84, 88, 0.6);
-  --apple-splitview-text: #FFFFFF;
+  --apple-splitview-text: #F5F5F7;
   --apple-splitview-secondary: rgba(235, 235, 245, 0.6);
   --apple-splitview-tint: #0A84FF;
   --apple-splitview-selected: rgba(10, 132, 255, 0.2);
   --apple-splitview-fill: rgba(120, 120, 128, 0.24);
-  --apple-splitview-focus-ring: rgba(10, 132, 255, 0.6);
+  --apple-splitview-focus-ring: rgba(10, 132, 255, 0.4);
 }
 ```
 
@@ -359,12 +359,12 @@ metadata:
 @media (prefers-color-scheme: dark) {
   .apple-splitview__nav-item:focus-visible,
   .apple-splitview__toggle:focus-visible {
-    outline-color: rgba(10, 132, 255, 0.6);
+    outline-color: rgba(10, 132, 255, 0.4);
   }
 }
 .dark .apple-splitview__nav-item:focus-visible,
 .dark .apple-splitview__toggle:focus-visible {
-  outline-color: rgba(10, 132, 255, 0.6);
+  outline-color: rgba(10, 132, 255, 0.4);
 }
 ```
 
@@ -405,7 +405,7 @@ metadata:
 
 - **ARIA**: Sidebar has `role="navigation"` with `aria-label`, detail has `role="main"`, toggle has `aria-expanded`, selected nav item has `aria-current`
 - **Keyboard**: Tab to navigate between sidebar items, Enter to select, shortcut to toggle sidebar (e.g., Cmd+Shift+S)
-- **Focus ring**: 4px solid blue at 60% opacity, 1px offset
+- **Focus ring**: 4px solid blue at 40% opacity, 1px offset
 - **Touch target**: 44px minimum for nav items and toggle button
 - **Screen reader**: Announces sidebar open/close state, selected navigation item
 - **Responsive**: Sidebar becomes overlay on tablet/phone, still keyboard accessible

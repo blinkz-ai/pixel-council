@@ -26,7 +26,7 @@ metadata:
 :root {
   --apple-collection-bg: #FFFFFF;
   --apple-collection-surface: #F2F2F7;
-  --apple-collection-text: #000000;
+  --apple-collection-text: #1D1D1F;
   --apple-collection-secondary: rgba(60, 60, 67, 0.6);
   --apple-collection-tint: #007AFF;
   --apple-collection-separator: rgba(60, 60, 67, 0.29);
@@ -34,7 +34,7 @@ metadata:
   --apple-collection-item-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
   --apple-collection-selected: rgba(0, 122, 255, 0.12);
   --apple-collection-fill: rgba(120, 120, 128, 0.12);
-  --apple-collection-focus-ring: rgba(0, 122, 255, 0.6);
+  --apple-collection-focus-ring: rgba(0, 122, 255, 0.4);
   --apple-collection-font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
     'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -43,7 +43,7 @@ metadata:
   :root {
     --apple-collection-bg: #000000;
     --apple-collection-surface: #1C1C1E;
-    --apple-collection-text: #FFFFFF;
+    --apple-collection-text: #F5F5F7;
     --apple-collection-secondary: rgba(235, 235, 245, 0.6);
     --apple-collection-tint: #0A84FF;
     --apple-collection-separator: rgba(84, 84, 88, 0.6);
@@ -51,13 +51,13 @@ metadata:
     --apple-collection-item-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.16);
     --apple-collection-selected: rgba(10, 132, 255, 0.2);
     --apple-collection-fill: rgba(120, 120, 128, 0.24);
-    --apple-collection-focus-ring: rgba(10, 132, 255, 0.6);
+    --apple-collection-focus-ring: rgba(10, 132, 255, 0.4);
   }
 }
 .dark {
   --apple-collection-bg: #000000;
   --apple-collection-surface: #1C1C1E;
-  --apple-collection-text: #FFFFFF;
+  --apple-collection-text: #F5F5F7;
   --apple-collection-secondary: rgba(235, 235, 245, 0.6);
   --apple-collection-tint: #0A84FF;
   --apple-collection-separator: rgba(84, 84, 88, 0.6);
@@ -65,7 +65,7 @@ metadata:
   --apple-collection-item-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.16);
   --apple-collection-selected: rgba(10, 132, 255, 0.2);
   --apple-collection-fill: rgba(120, 120, 128, 0.24);
-  --apple-collection-focus-ring: rgba(10, 132, 255, 0.6);
+  --apple-collection-focus-ring: rgba(10, 132, 255, 0.4);
 }
 ```
 
@@ -362,12 +362,12 @@ metadata:
 @media (prefers-color-scheme: dark) {
   .apple-collection__item:focus-visible,
   .apple-collection__card:focus-visible {
-    outline-color: rgba(10, 132, 255, 0.6);
+    outline-color: rgba(10, 132, 255, 0.4);
   }
 }
 .dark .apple-collection__item:focus-visible,
 .dark .apple-collection__card:focus-visible {
-  outline-color: rgba(10, 132, 255, 0.6);
+  outline-color: rgba(10, 132, 255, 0.4);
 }
 ```
 
@@ -408,7 +408,7 @@ metadata:
 
 - **ARIA**: Container has `aria-label`, `role="list"` on scroll containers, `role="listitem"` on items, `aria-selected` in multi-select mode
 - **Keyboard**: Tab to focus items, Enter/Space to select, arrow keys to navigate grid
-- **Focus ring**: 4px solid blue at 60% opacity, 2px offset
+- **Focus ring**: 4px solid blue at 40% opacity, 2px offset
 - **Touch target**: Each item is at least 44x44px
 - **Screen reader**: Announces item label or image alt text, selection state
 - **Images**: Use `loading="lazy"` for performance, provide meaningful `alt` text

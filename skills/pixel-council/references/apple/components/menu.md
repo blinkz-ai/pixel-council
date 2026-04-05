@@ -27,7 +27,7 @@ metadata:
 ```css
 :root {
   --apple-menu-bg: #FFFFFF;
-  --apple-menu-text: #000000;
+  --apple-menu-text: #1D1D1F;
   --apple-menu-secondary: rgba(60, 60, 67, 0.6);
   --apple-menu-tint: #007AFF;
   --apple-menu-destructive: #FF3B30;
@@ -36,7 +36,7 @@ metadata:
   --apple-menu-highlight-text: #FFFFFF;
   --apple-menu-fill: rgba(120, 120, 128, 0.12);
   --apple-menu-shadow: 0 10px 15px rgba(0, 0, 0, 0.08), 0 4px 6px rgba(0, 0, 0, 0.05);
-  --apple-menu-focus-ring: rgba(0, 122, 255, 0.6);
+  --apple-menu-focus-ring: rgba(0, 122, 255, 0.4);
   --apple-menu-font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
     'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -44,7 +44,7 @@ metadata:
 @media (prefers-color-scheme: dark) {
   :root {
     --apple-menu-bg: #2C2C2E;
-    --apple-menu-text: #FFFFFF;
+    --apple-menu-text: #F5F5F7;
     --apple-menu-secondary: rgba(235, 235, 245, 0.6);
     --apple-menu-tint: #0A84FF;
     --apple-menu-destructive: #FF453A;
@@ -53,12 +53,12 @@ metadata:
     --apple-menu-highlight-text: #FFFFFF;
     --apple-menu-fill: rgba(120, 120, 128, 0.24);
     --apple-menu-shadow: 0 10px 15px rgba(0, 0, 0, 0.3), 0 4px 6px rgba(0, 0, 0, 0.2);
-    --apple-menu-focus-ring: rgba(10, 132, 255, 0.6);
+    --apple-menu-focus-ring: rgba(10, 132, 255, 0.4);
   }
 }
 .dark {
   --apple-menu-bg: #2C2C2E;
-  --apple-menu-text: #FFFFFF;
+  --apple-menu-text: #F5F5F7;
   --apple-menu-secondary: rgba(235, 235, 245, 0.6);
   --apple-menu-tint: #0A84FF;
   --apple-menu-destructive: #FF453A;
@@ -67,7 +67,7 @@ metadata:
   --apple-menu-highlight-text: #FFFFFF;
   --apple-menu-fill: rgba(120, 120, 128, 0.24);
   --apple-menu-shadow: 0 10px 15px rgba(0, 0, 0, 0.3), 0 4px 6px rgba(0, 0, 0, 0.2);
-  --apple-menu-focus-ring: rgba(10, 132, 255, 0.6);
+  --apple-menu-focus-ring: rgba(10, 132, 255, 0.4);
 }
 ```
 
@@ -336,11 +336,11 @@ metadata:
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
   .apple-menu__trigger:focus-visible {
-    outline-color: rgba(10, 132, 255, 0.6);
+    outline-color: rgba(10, 132, 255, 0.4);
   }
 }
 .dark .apple-menu__trigger:focus-visible {
-  outline-color: rgba(10, 132, 255, 0.6);
+  outline-color: rgba(10, 132, 255, 0.4);
 }
 ```
 

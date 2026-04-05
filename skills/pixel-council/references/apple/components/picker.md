@@ -26,7 +26,7 @@ metadata:
 ```css
 :root {
   --apple-picker-bg: #FFFFFF;
-  --apple-picker-text: #000000;
+  --apple-picker-text: #1D1D1F;
   --apple-picker-secondary: rgba(60, 60, 67, 0.6);
   --apple-picker-tint: #007AFF;
   --apple-picker-selection: rgba(120, 120, 128, 0.16);
@@ -34,7 +34,7 @@ metadata:
   --apple-picker-fill: rgba(120, 120, 128, 0.12);
   --apple-picker-overlay-top: linear-gradient(to bottom, rgba(255,255,255,0.8), transparent);
   --apple-picker-overlay-bottom: linear-gradient(to top, rgba(255,255,255,0.8), transparent);
-  --apple-picker-focus-ring: rgba(0, 122, 255, 0.6);
+  --apple-picker-focus-ring: rgba(0, 122, 255, 0.4);
   --apple-picker-font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
     'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -42,7 +42,7 @@ metadata:
 @media (prefers-color-scheme: dark) {
   :root {
     --apple-picker-bg: #1C1C1E;
-    --apple-picker-text: #FFFFFF;
+    --apple-picker-text: #F5F5F7;
     --apple-picker-secondary: rgba(235, 235, 245, 0.6);
     --apple-picker-tint: #0A84FF;
     --apple-picker-selection: rgba(120, 120, 128, 0.36);
@@ -50,12 +50,12 @@ metadata:
     --apple-picker-fill: rgba(120, 120, 128, 0.24);
     --apple-picker-overlay-top: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
     --apple-picker-overlay-bottom: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-    --apple-picker-focus-ring: rgba(10, 132, 255, 0.6);
+    --apple-picker-focus-ring: rgba(10, 132, 255, 0.4);
   }
 }
 .dark {
   --apple-picker-bg: #1C1C1E;
-  --apple-picker-text: #FFFFFF;
+  --apple-picker-text: #F5F5F7;
   --apple-picker-secondary: rgba(235, 235, 245, 0.6);
   --apple-picker-tint: #0A84FF;
   --apple-picker-selection: rgba(120, 120, 128, 0.36);
@@ -63,7 +63,7 @@ metadata:
   --apple-picker-fill: rgba(120, 120, 128, 0.24);
   --apple-picker-overlay-top: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
   --apple-picker-overlay-bottom: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-  --apple-picker-focus-ring: rgba(10, 132, 255, 0.6);
+  --apple-picker-focus-ring: rgba(10, 132, 255, 0.4);
 }
 ```
 
@@ -375,7 +375,7 @@ metadata:
   .apple-picker__trigger:focus-visible,
   .apple-picker__compact-trigger:focus-visible,
   .apple-picker--wheel:focus-visible {
-    outline-color: rgba(10, 132, 255, 0.6);
+    outline-color: rgba(10, 132, 255, 0.4);
   }
 }
 .dark .apple-picker__options {
@@ -384,7 +384,7 @@ metadata:
 .dark .apple-picker__trigger:focus-visible,
 .dark .apple-picker__compact-trigger:focus-visible,
 .dark .apple-picker--wheel:focus-visible {
-  outline-color: rgba(10, 132, 255, 0.6);
+  outline-color: rgba(10, 132, 255, 0.4);
 }
 ```
 
@@ -436,7 +436,7 @@ metadata:
 
 - **ARIA**: `aria-haspopup="listbox"` on trigger, `aria-expanded` toggled, `role="listbox"` on options, `role="option"` on each item, `aria-selected` on selected
 - **Keyboard**: Tab to focus trigger, Enter/Space to open, Up/Down to navigate options, Enter to select, Escape to close
-- **Focus ring**: 4px solid blue at 60% opacity, 1px offset
+- **Focus ring**: 4px solid blue at 40% opacity, 1px offset
 - **Touch target**: 44px minimum height for all interactive elements
 - **Screen reader**: Announces label, current value, expanded/collapsed state
 - **Wheel variant**: Arrow keys to scroll, treated as listbox for screen readers

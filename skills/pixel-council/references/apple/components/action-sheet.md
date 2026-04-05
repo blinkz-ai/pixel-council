@@ -30,12 +30,12 @@ metadata:
   --apple-actionsheet-text: #007AFF;
   --apple-actionsheet-destructive: #FF3B30;
   --apple-actionsheet-cancel-text: #007AFF;
-  --apple-actionsheet-label: #000000;
+  --apple-actionsheet-label: #1D1D1F;
   --apple-actionsheet-secondary: rgba(60, 60, 67, 0.6);
   --apple-actionsheet-separator: rgba(60, 60, 67, 0.29);
   --apple-actionsheet-pressed: rgba(120, 120, 128, 0.16);
   --apple-actionsheet-overlay: rgba(0, 0, 0, 0.4);
-  --apple-actionsheet-focus-ring: rgba(0, 122, 255, 0.6);
+  --apple-actionsheet-focus-ring: rgba(0, 122, 255, 0.4);
   --apple-actionsheet-font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
     'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -46,12 +46,12 @@ metadata:
     --apple-actionsheet-text: #0A84FF;
     --apple-actionsheet-destructive: #FF453A;
     --apple-actionsheet-cancel-text: #0A84FF;
-    --apple-actionsheet-label: #FFFFFF;
+    --apple-actionsheet-label: #F5F5F7;
     --apple-actionsheet-secondary: rgba(235, 235, 245, 0.6);
     --apple-actionsheet-separator: rgba(84, 84, 88, 0.6);
     --apple-actionsheet-pressed: rgba(120, 120, 128, 0.36);
     --apple-actionsheet-overlay: rgba(0, 0, 0, 0.6);
-    --apple-actionsheet-focus-ring: rgba(10, 132, 255, 0.6);
+    --apple-actionsheet-focus-ring: rgba(10, 132, 255, 0.4);
   }
 }
 .dark {
@@ -59,12 +59,12 @@ metadata:
   --apple-actionsheet-text: #0A84FF;
   --apple-actionsheet-destructive: #FF453A;
   --apple-actionsheet-cancel-text: #0A84FF;
-  --apple-actionsheet-label: #FFFFFF;
+  --apple-actionsheet-label: #F5F5F7;
   --apple-actionsheet-secondary: rgba(235, 235, 245, 0.6);
   --apple-actionsheet-separator: rgba(84, 84, 88, 0.6);
   --apple-actionsheet-pressed: rgba(120, 120, 128, 0.36);
   --apple-actionsheet-overlay: rgba(0, 0, 0, 0.6);
-  --apple-actionsheet-focus-ring: rgba(10, 132, 255, 0.6);
+  --apple-actionsheet-focus-ring: rgba(10, 132, 255, 0.4);
 }
 ```
 
@@ -257,11 +257,11 @@ metadata:
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
   .apple-actionsheet__action:focus-visible {
-    outline-color: rgba(10, 132, 255, 0.6);
+    outline-color: rgba(10, 132, 255, 0.4);
   }
 }
 .dark .apple-actionsheet__action:focus-visible {
-  outline-color: rgba(10, 132, 255, 0.6);
+  outline-color: rgba(10, 132, 255, 0.4);
 }
 
 /* iPad/Desktop: render as popover instead */
@@ -331,7 +331,7 @@ metadata:
 
 - **ARIA**: `role="dialog"`, `aria-modal="true"`, `aria-label` on container, action buttons are standard buttons
 - **Keyboard**: Tab to cycle through actions, Enter/Space to activate, Escape to dismiss (activates Cancel)
-- **Focus ring**: 4px solid blue at 60% opacity, inset to fit within rounded group
+- **Focus ring**: 4px solid blue at 40% opacity, inset to fit within rounded group
 - **Focus trap**: Focus must be trapped within action sheet while open
 - **Touch target**: 57px action height exceeds 44px minimum
 - **Screen reader**: Announces dialog label, each action text, destructive actions distinguished by color (ensure text also communicates danger)

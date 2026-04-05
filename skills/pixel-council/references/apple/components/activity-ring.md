@@ -31,7 +31,7 @@ metadata:
   --apple-ring-move-track: rgba(255, 45, 85, 0.3);
   --apple-ring-exercise-track: rgba(52, 199, 89, 0.3);
   --apple-ring-stand-track: rgba(90, 200, 250, 0.3);
-  --apple-ring-text: #000000;
+  --apple-ring-text: #1D1D1F;
   --apple-ring-secondary: rgba(60, 60, 67, 0.6);
   --apple-ring-font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
     'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -45,7 +45,7 @@ metadata:
     --apple-ring-move-track: rgba(255, 55, 95, 0.3);
     --apple-ring-exercise-track: rgba(48, 209, 88, 0.3);
     --apple-ring-stand-track: rgba(100, 210, 255, 0.3);
-    --apple-ring-text: #FFFFFF;
+    --apple-ring-text: #F5F5F7;
     --apple-ring-secondary: rgba(235, 235, 245, 0.6);
   }
 }
@@ -56,7 +56,7 @@ metadata:
   --apple-ring-move-track: rgba(255, 55, 95, 0.3);
   --apple-ring-exercise-track: rgba(48, 209, 88, 0.3);
   --apple-ring-stand-track: rgba(100, 210, 255, 0.3);
-  --apple-ring-text: #FFFFFF;
+  --apple-ring-text: #F5F5F7;
   --apple-ring-secondary: rgba(235, 235, 245, 0.6);
 }
 ```

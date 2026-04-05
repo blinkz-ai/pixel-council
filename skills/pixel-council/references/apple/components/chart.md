@@ -27,7 +27,7 @@ metadata:
 ```css
 :root {
   --apple-chart-bg: #FFFFFF;
-  --apple-chart-text: #000000;
+  --apple-chart-text: #1D1D1F;
   --apple-chart-secondary: rgba(60, 60, 67, 0.6);
   --apple-chart-tertiary: rgba(60, 60, 67, 0.3);
   --apple-chart-grid: rgba(60, 60, 67, 0.12);
@@ -46,7 +46,7 @@ metadata:
 @media (prefers-color-scheme: dark) {
   :root {
     --apple-chart-bg: #1C1C1E;
-    --apple-chart-text: #FFFFFF;
+    --apple-chart-text: #F5F5F7;
     --apple-chart-secondary: rgba(235, 235, 245, 0.6);
     --apple-chart-tertiary: rgba(235, 235, 245, 0.3);
     --apple-chart-grid: rgba(235, 235, 245, 0.1);
@@ -62,7 +62,7 @@ metadata:
 }
 .dark {
   --apple-chart-bg: #1C1C1E;
-  --apple-chart-text: #FFFFFF;
+  --apple-chart-text: #F5F5F7;
   --apple-chart-secondary: rgba(235, 235, 245, 0.6);
   --apple-chart-tertiary: rgba(235, 235, 245, 0.3);
   --apple-chart-grid: rgba(235, 235, 245, 0.1);

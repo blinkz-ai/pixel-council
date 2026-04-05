@@ -32,7 +32,7 @@ metadata:
   --apple-gauge-yellow: #FFCC00;
   --apple-gauge-orange: #FF9500;
   --apple-gauge-red: #FF3B30;
-  --apple-gauge-text: #000000;
+  --apple-gauge-text: #1D1D1F;
   --apple-gauge-secondary: rgba(60, 60, 67, 0.6);
   --apple-gauge-font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
     'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -46,7 +46,7 @@ metadata:
     --apple-gauge-yellow: #FFD60A;
     --apple-gauge-orange: #FF9F0A;
     --apple-gauge-red: #FF453A;
-    --apple-gauge-text: #FFFFFF;
+    --apple-gauge-text: #F5F5F7;
     --apple-gauge-secondary: rgba(235, 235, 245, 0.6);
   }
 }
@@ -57,7 +57,7 @@ metadata:
   --apple-gauge-yellow: #FFD60A;
   --apple-gauge-orange: #FF9F0A;
   --apple-gauge-red: #FF453A;
-  --apple-gauge-text: #FFFFFF;
+  --apple-gauge-text: #F5F5F7;
   --apple-gauge-secondary: rgba(235, 235, 245, 0.6);
 }
 ```

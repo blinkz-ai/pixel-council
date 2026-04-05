@@ -26,7 +26,7 @@ metadata:
 ```css
 :root {
   --apple-popover-bg: #FFFFFF;
-  --apple-popover-text: #000000;
+  --apple-popover-text: #1D1D1F;
   --apple-popover-secondary: rgba(60, 60, 67, 0.6);
   --apple-popover-tint: #007AFF;
   --apple-popover-separator: rgba(60, 60, 67, 0.29);
@@ -34,7 +34,7 @@ metadata:
   --apple-popover-shadow: 0 10px 15px rgba(0, 0, 0, 0.08), 0 4px 6px rgba(0, 0, 0, 0.05);
   --apple-popover-arrow-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
   --apple-popover-overlay: rgba(0, 0, 0, 0.15);
-  --apple-popover-focus-ring: rgba(0, 122, 255, 0.6);
+  --apple-popover-focus-ring: rgba(0, 122, 255, 0.4);
   --apple-popover-font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
     'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -42,7 +42,7 @@ metadata:
 @media (prefers-color-scheme: dark) {
   :root {
     --apple-popover-bg: #2C2C2E;
-    --apple-popover-text: #FFFFFF;
+    --apple-popover-text: #F5F5F7;
     --apple-popover-secondary: rgba(235, 235, 245, 0.6);
     --apple-popover-tint: #0A84FF;
     --apple-popover-separator: rgba(84, 84, 88, 0.6);
@@ -50,12 +50,12 @@ metadata:
     --apple-popover-shadow: 0 10px 15px rgba(0, 0, 0, 0.3), 0 4px 6px rgba(0, 0, 0, 0.2);
     --apple-popover-arrow-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     --apple-popover-overlay: rgba(0, 0, 0, 0.4);
-    --apple-popover-focus-ring: rgba(10, 132, 255, 0.6);
+    --apple-popover-focus-ring: rgba(10, 132, 255, 0.4);
   }
 }
 .dark {
   --apple-popover-bg: #2C2C2E;
-  --apple-popover-text: #FFFFFF;
+  --apple-popover-text: #F5F5F7;
   --apple-popover-secondary: rgba(235, 235, 245, 0.6);
   --apple-popover-tint: #0A84FF;
   --apple-popover-separator: rgba(84, 84, 88, 0.6);
@@ -63,7 +63,7 @@ metadata:
   --apple-popover-shadow: 0 10px 15px rgba(0, 0, 0, 0.3), 0 4px 6px rgba(0, 0, 0, 0.2);
   --apple-popover-arrow-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   --apple-popover-overlay: rgba(0, 0, 0, 0.4);
-  --apple-popover-focus-ring: rgba(10, 132, 255, 0.6);
+  --apple-popover-focus-ring: rgba(10, 132, 255, 0.4);
 }
 ```
 
@@ -304,13 +304,13 @@ metadata:
   .apple-popover__menu-item--destructive { color: #FF453A; }
   .apple-popover__menu-item:focus-visible,
   .apple-popover__nav-action:focus-visible {
-    outline-color: rgba(10, 132, 255, 0.6);
+    outline-color: rgba(10, 132, 255, 0.4);
   }
 }
 .dark .apple-popover__menu-item--destructive { color: #FF453A; }
 .dark .apple-popover__menu-item:focus-visible,
 .dark .apple-popover__nav-action:focus-visible {
-  outline-color: rgba(10, 132, 255, 0.6);
+  outline-color: rgba(10, 132, 255, 0.4);
 }
 
 /* Mobile: full-width bottom sheet fallback */
@@ -371,7 +371,7 @@ metadata:
 
 - **ARIA**: `role="dialog"` for content popovers, `role="menu"` for menu popovers, `aria-label` on container, `role="menuitem"` on menu items, `role="separator"` on dividers
 - **Keyboard**: Tab to cycle through interactive elements, Escape to dismiss, Enter/Space to activate items
-- **Focus ring**: 4px solid blue at 60% opacity, 1px offset
+- **Focus ring**: 4px solid blue at 40% opacity, 1px offset
 - **Focus trap**: Focus must be trapped within popover while open
 - **Touch target**: Menu items 44px minimum height (11px padding × 2 + 22px line)
 - **Screen reader**: Announces popover label on open, items navigable
