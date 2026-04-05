@@ -11,7 +11,7 @@ metadata:
 
 | Property | Value |
 |----------|-------|
-| Corner radius | 10-13px (continuous/squircle) |
+| Corner radius | 10-12px (10px inner, 12px panels) |
 | Padding | 16px |
 | Height | Content-determined |
 | Title font | SF Pro Headline, 17px/22px, weight 600 |
@@ -29,10 +29,10 @@ metadata:
   --apple-card-secondary-label: rgba(60,60,67,0.6);
   --apple-card-separator: rgba(60,60,67,0.29);
   --apple-card-blue: #007AFF;
-  --apple-card-radius: 13px;
+  --apple-card-radius: 12px;
   --apple-card-padding: 16px;
-  --apple-card-shadow-1: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
-  --apple-card-shadow-2: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.06);
+  --apple-card-shadow-1: 0 2px 8px rgba(0,0,0,0.08), 0 0 1px rgba(0,0,0,0.12);
+  --apple-card-shadow-2: 0 4px 12px rgba(0,0,0,0.1), 0 0 1px rgba(0,0,0,0.12);
   --apple-card-transition: transform 250ms ease-out, box-shadow 250ms ease-out;
   --apple-card-font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
     'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -46,8 +46,8 @@ metadata:
     --apple-card-secondary-label: rgba(235,235,245,0.6);
     --apple-card-separator: rgba(84,84,88,0.6);
     --apple-card-blue: #0A84FF;
-    --apple-card-shadow-1: 0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
-    --apple-card-shadow-2: 0 4px 6px rgba(0,0,0,0.3), 0 2px 4px rgba(0,0,0,0.2);
+    --apple-card-shadow-1: 0 2px 8px rgba(0,0,0,0.32), 0 0 1px rgba(0,0,0,0.48);
+    --apple-card-shadow-2: 0 4px 12px rgba(0,0,0,0.36), 0 0 1px rgba(0,0,0,0.48);
   }
 }
 .dark {
@@ -57,8 +57,8 @@ metadata:
   --apple-card-secondary-label: rgba(235,235,245,0.6);
   --apple-card-separator: rgba(84,84,88,0.6);
   --apple-card-blue: #0A84FF;
-  --apple-card-shadow-1: 0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
-  --apple-card-shadow-2: 0 4px 6px rgba(0,0,0,0.3), 0 2px 4px rgba(0,0,0,0.2);
+  --apple-card-shadow-1: 0 2px 8px rgba(0,0,0,0.32), 0 0 1px rgba(0,0,0,0.48);
+  --apple-card-shadow-2: 0 4px 12px rgba(0,0,0,0.36), 0 0 1px rgba(0,0,0,0.48);
 }
 ```
 
@@ -197,7 +197,7 @@ metadata:
 
 /* -- Focus -- */
 .apple-card--interactive:focus-visible {
-  outline: 4px solid rgba(0, 122, 255, 0.6);
+  outline: 4px solid rgba(0, 122, 255, 0.4);
   outline-offset: 1px;
 }
 
@@ -215,11 +215,11 @@ metadata:
 /* -- Dark mode -- */
 @media (prefers-color-scheme: dark) {
   .apple-card--interactive:focus-visible {
-    outline-color: rgba(10, 132, 255, 0.6);
+    outline-color: rgba(10, 132, 255, 0.4);
   }
 }
 .dark .apple-card--interactive:focus-visible {
-  outline-color: rgba(10, 132, 255, 0.6);
+  outline-color: rgba(10, 132, 255, 0.4);
 }
 ```
 
@@ -251,7 +251,7 @@ metadata:
 
 - **ARIA**: `role="article"` on interactive cards, `aria-label` for linked cards
 - **Keyboard**: Tab to focus, Enter/Space to activate interactive cards
-- **Focus ring**: 4px solid blue at 60% opacity, 1px offset
+- **Focus ring**: 4px solid blue at 40% opacity, 1px offset
 - **Touch target**: entire card surface tappable, min 44x44px per action
 - **Screen reader**: card title announced, internal actions individually focusable
 

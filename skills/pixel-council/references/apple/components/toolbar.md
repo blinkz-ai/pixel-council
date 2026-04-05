@@ -11,7 +11,7 @@ metadata:
 
 | Property | Value |
 |----------|-------|
-| Height | 44px |
+| Height | 48px |
 | Background | Liquid Glass (blur 20px) |
 | Item touch target | 44x44px |
 | Icon size | 22px |
@@ -24,7 +24,7 @@ metadata:
 ```css
 :root {
   --apple-toolbar-bg: rgba(255, 255, 255, 0.72);
-  --apple-toolbar-border: rgba(60, 60, 67, 0.29);
+  --apple-toolbar-border: rgba(0, 0, 0, 0.12);
   --apple-toolbar-action: #007AFF;
   --apple-toolbar-label: #000000;
   --apple-toolbar-secondary: rgba(60, 60, 67, 0.6);
@@ -35,7 +35,7 @@ metadata:
 @media (prefers-color-scheme: dark) {
   :root {
     --apple-toolbar-bg: rgba(30, 30, 30, 0.72);
-    --apple-toolbar-border: rgba(84, 84, 88, 0.6);
+    --apple-toolbar-border: rgba(255, 255, 255, 0.12);
     --apple-toolbar-action: #0A84FF;
     --apple-toolbar-label: #FFFFFF;
     --apple-toolbar-secondary: rgba(235, 235, 245, 0.6);
@@ -46,7 +46,7 @@ metadata:
 
 .dark {
   --apple-toolbar-bg: rgba(30, 30, 30, 0.72);
-  --apple-toolbar-border: rgba(84, 84, 88, 0.6);
+  --apple-toolbar-border: rgba(255, 255, 255, 0.12);
   --apple-toolbar-action: #0A84FF;
   --apple-toolbar-label: #FFFFFF;
   --apple-toolbar-secondary: rgba(235, 235, 245, 0.6);
@@ -114,7 +114,7 @@ metadata:
   display: flex;
   align-items: center;
   width: 100%;
-  height: 44px;
+  height: 48px;
   padding: 0 8px;
   background: var(--apple-toolbar-bg);
   backdrop-filter: blur(20px) saturate(180%);
@@ -192,7 +192,8 @@ metadata:
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
-  border-radius: 8px;
+  height: 28px;
+  border-radius: 6px;
   transition: opacity 100ms ease;
 }
 
@@ -218,16 +219,16 @@ metadata:
 
 /* Focus */
 .apple-toolbar__button:focus-visible {
-  outline: 4px solid rgba(0, 122, 255, 0.6);
+  outline: 4px solid rgba(0, 122, 255, 0.4);
   outline-offset: 1px;
 }
 @media (prefers-color-scheme: dark) {
   .apple-toolbar__button:focus-visible {
-    outline-color: rgba(10, 132, 255, 0.6);
+    outline-color: rgba(10, 132, 255, 0.4);
   }
 }
 .dark .apple-toolbar__button:focus-visible {
-  outline-color: rgba(10, 132, 255, 0.6);
+  outline-color: rgba(10, 132, 255, 0.4);
 }
 
 /* Active / pressed */
@@ -259,7 +260,7 @@ metadata:
 ```css
 /* Large title collapse on scroll (JS-driven) */
 .apple-toolbar--large[data-collapsed="true"] {
-  height: 44px;
+  height: 48px;
 }
 
 .apple-toolbar--large[data-collapsed="true"] .apple-toolbar__title {
@@ -285,7 +286,7 @@ metadata:
 - ARIA: `role="toolbar"`, `aria-label` describing toolbar purpose
 - Overflow: `aria-haspopup="menu"`, `aria-expanded` on more-actions button
 - Keyboard: Tab to enter toolbar; Arrow Left/Right between items; Enter/Space to activate
-- Focus: 4px solid `rgba(0,122,255,0.6)` outline, 1px offset
+- Focus: 4px solid `rgba(0,122,255,0.4)` outline, 1px offset
 - Touch target: 44x44px minimum for all buttons
 - Back button: Announced as "Go back" or "Back, [previous page]"
 

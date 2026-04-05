@@ -29,14 +29,14 @@ metadata:
   --apple-list-bg: #FFFFFF;
   --apple-list-grouped-bg: #F2F2F7;
   --apple-list-cell-bg: #FFFFFF;
-  --apple-list-text: #000000;
+  --apple-list-text: #1D1D1F;
   --apple-list-text-secondary: rgba(60, 60, 67, 0.6);
-  --apple-list-separator: rgba(60, 60, 67, 0.29);
+  --apple-list-separator: rgba(0, 0, 0, 0.1);
   --apple-list-blue: #007AFF;
   --apple-list-red: #FF3B30;
   --apple-list-chevron: rgba(60, 60, 67, 0.3);
   --apple-list-section-radius: 10px;
-  --apple-list-hover: rgba(0, 0, 0, 0.04);
+  --apple-list-hover: rgba(0, 0, 0, 0.03);
   --apple-list-active: rgba(0, 0, 0, 0.08);
 }
 
@@ -45,9 +45,9 @@ metadata:
     --apple-list-bg: #000000;
     --apple-list-grouped-bg: #000000;
     --apple-list-cell-bg: #1C1C1E;
-    --apple-list-text: #FFFFFF;
+    --apple-list-text: #F5F5F7;
     --apple-list-text-secondary: rgba(235, 235, 245, 0.6);
-    --apple-list-separator: rgba(84, 84, 88, 0.6);
+    --apple-list-separator: rgba(255, 255, 255, 0.1);
     --apple-list-blue: #0A84FF;
     --apple-list-red: #FF453A;
     --apple-list-chevron: rgba(235, 235, 245, 0.3);
@@ -60,9 +60,9 @@ metadata:
   --apple-list-bg: #000000;
   --apple-list-grouped-bg: #000000;
   --apple-list-cell-bg: #1C1C1E;
-  --apple-list-text: #FFFFFF;
+  --apple-list-text: #F5F5F7;
   --apple-list-text-secondary: rgba(235, 235, 245, 0.6);
-  --apple-list-separator: rgba(84, 84, 88, 0.6);
+  --apple-list-separator: rgba(255, 255, 255, 0.1);
   --apple-list-blue: #0A84FF;
   --apple-list-red: #FF453A;
   --apple-list-chevron: rgba(235, 235, 245, 0.3);
@@ -189,8 +189,12 @@ metadata:
 .apple-list__row--with-subtitle { min-height: 60px; }
 .apple-list__row:hover { background: var(--apple-list-hover); }
 .apple-list__row:active { background: var(--apple-list-active); }
+.apple-list__row--selected {
+  background: rgba(0, 122, 255, 0.08);
+  border-left: 3px solid var(--apple-list-blue);
+}
 .apple-list__row:focus-visible {
-  outline: 4px solid rgba(0, 122, 255, 0.6);
+  outline: 4px solid rgba(0, 122, 255, 0.4);
   outline-offset: -4px;
 }
 
@@ -263,10 +267,11 @@ metadata:
 
 | State | Background | Text | Cursor |
 |-------|-----------|------|--------|
-| Default | transparent | #000000 | pointer |
-| Hover | rgba(0,0,0,0.04) | #000000 | pointer |
-| Active/Pressed | rgba(0,0,0,0.08) | #000000 | pointer |
-| Focus | focus ring | #000000 | pointer |
+| Default | transparent | #1D1D1F | pointer |
+| Hover | rgba(0,0,0,0.03) | #1D1D1F | pointer |
+| Active/Pressed | rgba(0,0,0,0.08) | #1D1D1F | pointer |
+| Focus | focus ring | #1D1D1F | pointer |
+| Selected | rgba(0,122,255,0.08) + 3px blue left border | #007AFF | pointer |
 | Selected (sidebar) | rgba(0,122,255,0.1) | #007AFF | pointer |
 
 ## Animation & Motion
@@ -291,7 +296,7 @@ metadata:
 - Disclosure: chevron is decorative (`aria-hidden="true"`)
 - Swipe actions: must also be accessible via long-press or edit mode
 - Keyboard: Tab to focus rows, Enter/Space to activate, Arrow Up/Down to navigate
-- Focus: 4px solid rgba(0,122,255,0.6) outline
+- Focus: 4px solid rgba(0,122,255,0.4) outline
 - Touch target: 44px min height per row
 - Section headers: use `<header>` for semantic grouping, `aria-label` on section if needed
 - Screen reader: announce label, subtitle, and detail text

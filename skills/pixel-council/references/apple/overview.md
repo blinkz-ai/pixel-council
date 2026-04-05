@@ -50,14 +50,14 @@ Copy-paste this block as the starting point for any Apple-style web project.
   --apple-bg-grouped-tertiary: #F2F2F7;
 
   /* ===== LABELS (Light) ===== */
-  --apple-label-primary: #000000;
-  --apple-label-secondary: rgba(60, 60, 67, 0.6);
-  --apple-label-tertiary: rgba(60, 60, 67, 0.3);
-  --apple-label-quaternary: rgba(60, 60, 67, 0.18);
-  --apple-label-placeholder: rgba(60, 60, 67, 0.3);
+  --apple-label-primary: #1D1D1F;
+  --apple-label-secondary: #86868B;
+  --apple-label-tertiary: #AEAEB2;
+  --apple-label-quaternary: #C7C7CC;
+  --apple-label-placeholder: #C7C7CC;
 
   /* ===== SEPARATORS & FILLS (Light) ===== */
-  --apple-separator: rgba(60, 60, 67, 0.29);
+  --apple-separator: rgba(0, 0, 0, 0.12);
   --apple-separator-opaque: #C6C6C8;
   --apple-fill-primary: rgba(120, 120, 128, 0.2);
   --apple-fill-secondary: rgba(120, 120, 128, 0.16);
@@ -66,8 +66,8 @@ Copy-paste this block as the starting point for any Apple-style web project.
 
   /* ===== SHADOWS (5-level system) ===== */
   --apple-shadow-0: none;
-  --apple-shadow-1: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
-  --apple-shadow-2: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.06);
+  --apple-shadow-1: 0 2px 8px rgba(0,0,0,0.08), 0 0 1px rgba(0,0,0,0.12);
+  --apple-shadow-2: 0 4px 12px rgba(0,0,0,0.1), 0 0 1px rgba(0,0,0,0.12);
   --apple-shadow-3: 0 10px 15px rgba(0,0,0,0.08), 0 4px 6px rgba(0,0,0,0.05);
   --apple-shadow-4: 0 20px 25px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.04);
   --apple-shadow-5: 0 25px 50px rgba(0,0,0,0.15);
@@ -79,13 +79,13 @@ Copy-paste this block as the starting point for any Apple-style web project.
   /* ===== CORNER RADII ===== */
   --apple-radius-sm: 6px;
   --apple-radius-md: 10px;
-  --apple-radius-lg: 13px;
+  --apple-radius-lg: 12px;
   --apple-radius-xl: 16px;
   --apple-radius-2xl: 20px;
   --apple-radius-full: 9999px;
 
   /* ===== FOCUS RING ===== */
-  --apple-focus-ring: 4px solid rgba(0, 122, 255, 0.6);
+  --apple-focus-ring: 4px solid rgba(0, 122, 255, 0.4);
   --apple-focus-ring-offset: 1px;
 }
 
@@ -115,13 +115,13 @@ Copy-paste this block as the starting point for any Apple-style web project.
     --apple-bg-grouped-secondary: #1C1C1E;
     --apple-bg-grouped-tertiary: #2C2C2E;
 
-    --apple-label-primary: #FFFFFF;
-    --apple-label-secondary: rgba(235, 235, 245, 0.6);
-    --apple-label-tertiary: rgba(235, 235, 245, 0.3);
-    --apple-label-quaternary: rgba(235, 235, 245, 0.16);
-    --apple-label-placeholder: rgba(235, 235, 245, 0.3);
+    --apple-label-primary: #F5F5F7;
+    --apple-label-secondary: #A1A1A6;
+    --apple-label-tertiary: #636366;
+    --apple-label-quaternary: #48484A;
+    --apple-label-placeholder: #48484A;
 
-    --apple-separator: rgba(84, 84, 88, 0.6);
+    --apple-separator: rgba(255, 255, 255, 0.12);
     --apple-separator-opaque: #38383A;
     --apple-fill-primary: rgba(120, 120, 128, 0.36);
     --apple-fill-secondary: rgba(120, 120, 128, 0.32);
@@ -155,13 +155,13 @@ Copy-paste this block as the starting point for any Apple-style web project.
   --apple-bg-grouped-secondary: #1C1C1E;
   --apple-bg-grouped-tertiary: #2C2C2E;
 
-  --apple-label-primary: #FFFFFF;
-  --apple-label-secondary: rgba(235, 235, 245, 0.6);
-  --apple-label-tertiary: rgba(235, 235, 245, 0.3);
-  --apple-label-quaternary: rgba(235, 235, 245, 0.16);
-  --apple-label-placeholder: rgba(235, 235, 245, 0.3);
+  --apple-label-primary: #F5F5F7;
+  --apple-label-secondary: #A1A1A6;
+  --apple-label-tertiary: #636366;
+  --apple-label-quaternary: #48484A;
+  --apple-label-placeholder: #48484A;
 
-  --apple-separator: rgba(84, 84, 88, 0.6);
+  --apple-separator: rgba(255, 255, 255, 0.12);
   --apple-separator-opaque: #38383A;
   --apple-fill-primary: rgba(120, 120, 128, 0.36);
   --apple-fill-secondary: rgba(120, 120, 128, 0.32);
@@ -209,17 +209,17 @@ Copy-paste this block as the starting point for any Apple-style web project.
 
 | Token | Light | Dark |
 |-------|-------|------|
-| label | `#000000` | `#FFFFFF` |
-| secondaryLabel | `rgba(60,60,67,0.6)` | `rgba(235,235,245,0.6)` |
-| tertiaryLabel | `rgba(60,60,67,0.3)` | `rgba(235,235,245,0.3)` |
-| quaternaryLabel | `rgba(60,60,67,0.18)` | `rgba(235,235,245,0.16)` |
-| placeholderText | `rgba(60,60,67,0.3)` | `rgba(235,235,245,0.3)` |
+| label | `#1D1D1F` | `#F5F5F7` |
+| secondaryLabel | `#86868B` | `#A1A1A6` |
+| tertiaryLabel | `#AEAEB2` | `#636366` |
+| quaternaryLabel | `#C7C7CC` | `#48484A` |
+| placeholderText | `#C7C7CC` | `#48484A` |
 
 ### Separator & Fill Colors (Light / Dark)
 
 | Token | Light | Dark |
 |-------|-------|------|
-| separator | `rgba(60,60,67,0.29)` | `rgba(84,84,88,0.6)` |
+| separator | `rgba(0,0,0,0.12)` | `rgba(255,255,255,0.12)` |
 | opaqueSeparator | `#C6C6C8` | `#38383A` |
 | systemFill | `rgba(120,120,128,0.2)` | `rgba(120,120,128,0.36)` |
 | secondarySystemFill | `rgba(120,120,128,0.16)` | `rgba(120,120,128,0.32)` |
@@ -239,8 +239,8 @@ Copy-paste this block as the starting point for any Apple-style web project.
 | Level | CSS box-shadow | Use Case |
 |-------|---------------|----------|
 | 0 | `none` | Flat elements |
-| 1 | `0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06)` | Cards, subtle lift |
-| 2 | `0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.06)` | Raised cards |
+| 1 | `0 2px 8px rgba(0,0,0,0.08), 0 0 1px rgba(0,0,0,0.12)` | Cards, subtle lift |
+| 2 | `0 4px 12px rgba(0,0,0,0.1), 0 0 1px rgba(0,0,0,0.12)` | Raised cards |
 | 3 | `0 10px 15px rgba(0,0,0,0.08), 0 4px 6px rgba(0,0,0,0.05)` | Popovers |
 | 4 | `0 20px 25px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.04)` | Sheets |
 | 5 | `0 25px 50px rgba(0,0,0,0.15)` | Modals |
@@ -251,7 +251,7 @@ Copy-paste this block as the starting point for any Apple-style web project.
 
 ```css
 :focus-visible {
-  outline: 4px solid rgba(0, 122, 255, 0.6);
+  outline: 4px solid rgba(0, 122, 255, 0.4);
   outline-offset: 1px;
 }
 ```
@@ -266,7 +266,7 @@ Copy-paste this block as the starting point for any Apple-style web project.
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 0.5px solid rgba(255, 255, 255, 0.3);
-  border-radius: var(--apple-radius-lg, 13px);
+  border-radius: var(--apple-radius-lg, 12px);
 }
 
 @media (prefers-color-scheme: dark) {

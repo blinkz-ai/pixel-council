@@ -12,7 +12,7 @@ metadata:
 | Property | Value |
 |----------|-------|
 | Width | 240-320px (collapsible) |
-| Row height (macOS) | 28px |
+| Row height (macOS) | 32px |
 | Row height (iPad) | 44px |
 | Icon size | 18px (macOS) / 22px (iPad) |
 | Label font | SF Pro, 13px/18px (macOS), 17px/22px (iPad) |
@@ -26,13 +26,13 @@ metadata:
 :root {
   --apple-sidebar-bg: rgba(255, 255, 255, 0.72);
   --apple-sidebar-border: rgba(60, 60, 67, 0.29);
-  --apple-sidebar-active-bg: #007AFF;
-  --apple-sidebar-active-text: #FFFFFF;
-  --apple-sidebar-inactive-text: #000000;
-  --apple-sidebar-secondary-text: rgba(60, 60, 67, 0.6);
-  --apple-sidebar-section-header: rgba(60, 60, 67, 0.6);
+  --apple-sidebar-active-bg: rgba(0, 122, 255, 0.12);
+  --apple-sidebar-active-text: #007AFF;
+  --apple-sidebar-inactive-text: #1D1D1F;
+  --apple-sidebar-secondary-text: #86868B;
+  --apple-sidebar-section-header: #86868B;
   --apple-sidebar-icon: #007AFF;
-  --apple-sidebar-separator: rgba(60, 60, 67, 0.29);
+  --apple-sidebar-separator: rgba(0, 0, 0, 0.1);
   --apple-sidebar-hover-bg: rgba(0, 0, 0, 0.04);
 }
 
@@ -40,13 +40,13 @@ metadata:
   :root {
     --apple-sidebar-bg: rgba(30, 30, 30, 0.72);
     --apple-sidebar-border: rgba(84, 84, 88, 0.6);
-    --apple-sidebar-active-bg: #0A84FF;
-    --apple-sidebar-active-text: #FFFFFF;
-    --apple-sidebar-inactive-text: #FFFFFF;
-    --apple-sidebar-secondary-text: rgba(235, 235, 245, 0.6);
-    --apple-sidebar-section-header: rgba(235, 235, 245, 0.6);
+    --apple-sidebar-active-bg: rgba(10, 132, 255, 0.25);
+    --apple-sidebar-active-text: #0A84FF;
+    --apple-sidebar-inactive-text: #F5F5F7;
+    --apple-sidebar-secondary-text: #A1A1A6;
+    --apple-sidebar-section-header: #A1A1A6;
     --apple-sidebar-icon: #0A84FF;
-    --apple-sidebar-separator: rgba(84, 84, 88, 0.6);
+    --apple-sidebar-separator: rgba(255, 255, 255, 0.1);
     --apple-sidebar-hover-bg: rgba(255, 255, 255, 0.06);
   }
 }
@@ -54,13 +54,13 @@ metadata:
 .dark {
   --apple-sidebar-bg: rgba(30, 30, 30, 0.72);
   --apple-sidebar-border: rgba(84, 84, 88, 0.6);
-  --apple-sidebar-active-bg: #0A84FF;
-  --apple-sidebar-active-text: #FFFFFF;
-  --apple-sidebar-inactive-text: #FFFFFF;
-  --apple-sidebar-secondary-text: rgba(235, 235, 245, 0.6);
-  --apple-sidebar-section-header: rgba(235, 235, 245, 0.6);
+  --apple-sidebar-active-bg: rgba(10, 132, 255, 0.25);
+  --apple-sidebar-active-text: #0A84FF;
+  --apple-sidebar-inactive-text: #F5F5F7;
+  --apple-sidebar-secondary-text: #A1A1A6;
+  --apple-sidebar-section-header: #A1A1A6;
   --apple-sidebar-icon: #0A84FF;
-  --apple-sidebar-separator: rgba(84, 84, 88, 0.6);
+  --apple-sidebar-separator: rgba(255, 255, 255, 0.1);
   --apple-sidebar-hover-bg: rgba(255, 255, 255, 0.06);
 }
 ```
@@ -70,7 +70,7 @@ metadata:
 | Variant | Row Height | Platform |
 |---------|-----------|----------|
 | macOS (small) | 24px | Desktop |
-| macOS (medium) | 28px | Desktop (default) |
+| macOS (medium) | 32px | Desktop (default) |
 | macOS (large) | 32px | Desktop |
 | iPad | 44px | Tablet |
 
@@ -151,7 +151,7 @@ metadata:
   font-size: 11px;
   font-weight: 600;
   line-height: 13px;
-  letter-spacing: 0.07px;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--apple-sidebar-section-header);
   padding: 16px 8px 4px;
@@ -184,8 +184,8 @@ metadata:
 .apple-sidebar__item {
   display: flex;
   align-items: center;
-  height: 28px;
-  padding: 0 8px;
+  height: 32px;
+  padding: 6px 10px;
   gap: 6px;
   border-radius: 6px;
   text-decoration: none;
@@ -274,16 +274,16 @@ metadata:
 
 /* Focus */
 .apple-sidebar__item:focus-visible {
-  outline: 4px solid rgba(0, 122, 255, 0.6);
+  outline: 4px solid rgba(0, 122, 255, 0.4);
   outline-offset: 1px;
 }
 @media (prefers-color-scheme: dark) {
   .apple-sidebar__item:focus-visible {
-    outline-color: rgba(10, 132, 255, 0.6);
+    outline-color: rgba(10, 132, 255, 0.4);
   }
 }
 .dark .apple-sidebar__item:focus-visible {
-  outline-color: rgba(10, 132, 255, 0.6);
+  outline-color: rgba(10, 132, 255, 0.4);
 }
 
 /* Active / pressed */
@@ -297,10 +297,10 @@ metadata:
 
 | State | Background | Label Color | Icon Color | Cursor |
 |-------|-----------|-------------|------------|--------|
-| Inactive | transparent | #000000 | #007AFF | pointer |
-| Hover | rgba(0,0,0,0.04) | #000000 | #007AFF | pointer |
-| Active | #007AFF | #FFFFFF | #FFFFFF | pointer |
-| Pressed | rgba(0,0,0,0.04) | #000000 | #007AFF | pointer |
+| Inactive | transparent | #1D1D1F | #007AFF | pointer |
+| Hover | rgba(0,0,0,0.04) | #1D1D1F | #007AFF | pointer |
+| Active | rgba(0,122,255,0.12) | #007AFF | #007AFF | pointer |
+| Pressed | rgba(0,0,0,0.04) | #1D1D1F | #007AFF | pointer |
 | Focus | -- | -- | -- | pointer |
 
 ## Animation & Motion
@@ -329,7 +329,7 @@ metadata:
 - Collapsible sections: `aria-expanded` on section header buttons
 - Keyboard: Tab to navigate items; Enter/Space to activate; Arrow keys within sections
 - Focus: 4px solid `rgba(0,122,255,0.6)` outline, 1px offset
-- Touch target: 28px (macOS) / 44px (iPad) height, full sidebar width
+- Touch target: 32px (macOS) / 44px (iPad) height, full sidebar width
 - Screen reader: Count badges announced via `aria-label`
 
 ## Responsive
