@@ -28,9 +28,9 @@ metadata:
   --apple-seg-selected-bg: #FFFFFF;
   --apple-seg-selected-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
   --apple-seg-text: rgba(60, 60, 67, 0.6);
-  --apple-seg-selected-text: #000000;
+  --apple-seg-selected-text: #1D1D1F;
   --apple-seg-separator: rgba(60, 60, 67, 0.12);
-  --apple-seg-focus-ring: rgba(0, 122, 255, 0.6);
+  --apple-seg-focus-ring: rgba(0, 122, 255, 0.4);
   --apple-seg-hover-bg: rgba(0, 0, 0, 0.03);
 }
 
@@ -40,9 +40,9 @@ metadata:
     --apple-seg-selected-bg: rgba(99, 99, 102, 0.55);
     --apple-seg-selected-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.15);
     --apple-seg-text: rgba(235, 235, 245, 0.6);
-    --apple-seg-selected-text: #FFFFFF;
+    --apple-seg-selected-text: #F5F5F7;
     --apple-seg-separator: rgba(84, 84, 88, 0.3);
-    --apple-seg-focus-ring: rgba(10, 132, 255, 0.6);
+    --apple-seg-focus-ring: rgba(10, 132, 255, 0.4);
     --apple-seg-hover-bg: rgba(255, 255, 255, 0.05);
   }
 }
@@ -52,9 +52,9 @@ metadata:
   --apple-seg-selected-bg: rgba(99, 99, 102, 0.55);
   --apple-seg-selected-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.15);
   --apple-seg-text: rgba(235, 235, 245, 0.6);
-  --apple-seg-selected-text: #FFFFFF;
+  --apple-seg-selected-text: #F5F5F7;
   --apple-seg-separator: rgba(84, 84, 88, 0.3);
-  --apple-seg-focus-ring: rgba(10, 132, 255, 0.6);
+  --apple-seg-focus-ring: rgba(10, 132, 255, 0.4);
   --apple-seg-hover-bg: rgba(255, 255, 255, 0.05);
 }
 ```
@@ -236,7 +236,7 @@ metadata:
 | State | Background | Text | Shadow | Opacity | Cursor |
 |-------|-----------|------|--------|---------|--------|
 | Unselected | transparent | rgba(60,60,67,0.6) | none | 1 | pointer |
-| Selected | #FFFFFF | #000000 | level 1 | 1 | default |
+| Selected | #FFFFFF | #1D1D1F | level 1 | 1 | default |
 | Hover | rgba(0,0,0,0.03) | -- | -- | 1 | pointer |
 | Focus | -- | +4px blue ring | -- | 1 | pointer |
 | Pressed | -- | -- | -- | 0.7 | pointer |

@@ -27,8 +27,8 @@ metadata:
 :root {
   --apple-tf-bg: #FFFFFF;
   --apple-tf-border: #C7C7CC;
-  --apple-tf-label: #000000;
-  --apple-tf-input-color: #000000;
+  --apple-tf-label: #1D1D1F;
+  --apple-tf-input-color: #1D1D1F;
   --apple-tf-placeholder: rgba(60,60,67,0.3);
   --apple-tf-focus: #007AFF;
   --apple-tf-error: #FF3B30;
@@ -44,8 +44,8 @@ metadata:
   :root {
     --apple-tf-bg: #1C1C1E;
     --apple-tf-border: #48484A;
-    --apple-tf-label: #FFFFFF;
-    --apple-tf-input-color: #FFFFFF;
+    --apple-tf-label: #F5F5F7;
+    --apple-tf-input-color: #F5F5F7;
     --apple-tf-placeholder: rgba(235,235,245,0.3);
     --apple-tf-focus: #0A84FF;
     --apple-tf-error: #FF453A;
@@ -55,8 +55,8 @@ metadata:
 .dark {
   --apple-tf-bg: #1C1C1E;
   --apple-tf-border: #48484A;
-  --apple-tf-label: #FFFFFF;
-  --apple-tf-input-color: #FFFFFF;
+  --apple-tf-label: #F5F5F7;
+  --apple-tf-input-color: #F5F5F7;
   --apple-tf-placeholder: rgba(235,235,245,0.3);
   --apple-tf-focus: #0A84FF;
   --apple-tf-error: #FF453A;
@@ -232,10 +232,10 @@ metadata:
 
 | State | Border | Shadow | Label | Cursor |
 |-------|--------|--------|-------|--------|
-| Rest | 1px #C7C7CC | none | #000000 | text |
-| Hover | 1px #8E8E93 | none | #000000 | text |
-| Focused | 1px #007AFF | 0 0 0 3px blue 30% | #000000 | text |
-| Error | 1px #FF3B30 | 0 0 0 3px red 30% | #000000 | text |
+| Rest | 1px #C7C7CC | none | #1D1D1F | text |
+| Hover | 1px #8E8E93 | none | #1D1D1F | text |
+| Focused | 1px #007AFF | 0 0 0 3px blue 30% | #1D1D1F | text |
+| Error | 1px #FF3B30 | 0 0 0 3px red 30% | #1D1D1F | text |
 | Disabled | 1px #C7C7CC | none | 30% opacity | not-allowed |
 
 ## Animation & Motion

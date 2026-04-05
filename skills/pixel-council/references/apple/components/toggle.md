@@ -28,9 +28,9 @@ metadata:
   --apple-toggle-track-on: #34C759;
   --apple-toggle-handle: #FFFFFF;
   --apple-toggle-handle-shadow: 0 3px 8px rgba(0, 0, 0, 0.15), 0 1px 1px rgba(0, 0, 0, 0.16);
-  --apple-toggle-label: #000000;
+  --apple-toggle-label: #1D1D1F;
   --apple-toggle-secondary-label: rgba(60, 60, 67, 0.6);
-  --apple-toggle-focus-ring: rgba(0, 122, 255, 0.6);
+  --apple-toggle-focus-ring: rgba(0, 122, 255, 0.4);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -39,9 +39,9 @@ metadata:
     --apple-toggle-track-on: #30D158;
     --apple-toggle-handle: #FFFFFF;
     --apple-toggle-handle-shadow: 0 3px 8px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.3);
-    --apple-toggle-label: #FFFFFF;
+    --apple-toggle-label: #F5F5F7;
     --apple-toggle-secondary-label: rgba(235, 235, 245, 0.6);
-    --apple-toggle-focus-ring: rgba(10, 132, 255, 0.6);
+    --apple-toggle-focus-ring: rgba(10, 132, 255, 0.4);
   }
 }
 
@@ -50,9 +50,9 @@ metadata:
   --apple-toggle-track-on: #30D158;
   --apple-toggle-handle: #FFFFFF;
   --apple-toggle-handle-shadow: 0 3px 8px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.3);
-  --apple-toggle-label: #FFFFFF;
+  --apple-toggle-label: #F5F5F7;
   --apple-toggle-secondary-label: rgba(235, 235, 245, 0.6);
-  --apple-toggle-focus-ring: rgba(10, 132, 255, 0.6);
+  --apple-toggle-focus-ring: rgba(10, 132, 255, 0.4);
 }
 ```
 
@@ -221,11 +221,11 @@ metadata:
 
 /* Dark mode label overrides */
 @media (prefers-color-scheme: dark) {
-  .apple-toggle__label { color: #FFFFFF; }
+  .apple-toggle__label { color: #F5F5F7; }
   .apple-toggle__description { color: rgba(235, 235, 245, 0.6); }
 }
 
-.dark .apple-toggle__label { color: #FFFFFF; }
+.dark .apple-toggle__label { color: #F5F5F7; }
 .dark .apple-toggle__description { color: rgba(235, 235, 245, 0.6); }
 ```
 

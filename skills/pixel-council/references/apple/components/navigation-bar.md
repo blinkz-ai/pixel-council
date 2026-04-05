@@ -28,11 +28,11 @@ metadata:
 :root {
   --apple-navbar-bg: rgba(249, 249, 249, 0.94);
   --apple-navbar-tint: #007AFF;
-  --apple-navbar-title: #000000;
+  --apple-navbar-title: #1D1D1F;
   --apple-navbar-secondary: rgba(60, 60, 67, 0.6);
   --apple-navbar-separator: rgba(60, 60, 67, 0.29);
   --apple-navbar-fill: rgba(120, 120, 128, 0.16);
-  --apple-navbar-focus-ring: rgba(0, 122, 255, 0.6);
+  --apple-navbar-focus-ring: rgba(0, 122, 255, 0.4);
   --apple-navbar-font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
     'Helvetica Neue', Helvetica, Arial, sans-serif;
   --apple-navbar-transition: opacity 150ms ease-out, transform 150ms ease-out;
@@ -42,21 +42,21 @@ metadata:
   :root {
     --apple-navbar-bg: rgba(29, 29, 29, 0.94);
     --apple-navbar-tint: #0A84FF;
-    --apple-navbar-title: #FFFFFF;
+    --apple-navbar-title: #F5F5F7;
     --apple-navbar-secondary: rgba(235, 235, 245, 0.6);
     --apple-navbar-separator: rgba(84, 84, 88, 0.6);
     --apple-navbar-fill: rgba(120, 120, 128, 0.36);
-    --apple-navbar-focus-ring: rgba(10, 132, 255, 0.6);
+    --apple-navbar-focus-ring: rgba(10, 132, 255, 0.4);
   }
 }
 .dark {
   --apple-navbar-bg: rgba(29, 29, 29, 0.94);
   --apple-navbar-tint: #0A84FF;
-  --apple-navbar-title: #FFFFFF;
+  --apple-navbar-title: #F5F5F7;
   --apple-navbar-secondary: rgba(235, 235, 245, 0.6);
   --apple-navbar-separator: rgba(84, 84, 88, 0.6);
   --apple-navbar-fill: rgba(120, 120, 128, 0.36);
-  --apple-navbar-focus-ring: rgba(10, 132, 255, 0.6);
+  --apple-navbar-focus-ring: rgba(10, 132, 255, 0.4);
 }
 ```
 
@@ -301,7 +301,7 @@ metadata:
   .apple-navbar__back:focus-visible,
   .apple-navbar__action:focus-visible,
   .apple-navbar__icon-action:focus-visible {
-    outline-color: rgba(10, 132, 255, 0.6);
+    outline-color: rgba(10, 132, 255, 0.4);
   }
 }
 .dark .apple-navbar--glass {
@@ -311,7 +311,7 @@ metadata:
 .dark .apple-navbar__back:focus-visible,
 .dark .apple-navbar__action:focus-visible,
 .dark .apple-navbar__icon-action:focus-visible {
-  outline-color: rgba(10, 132, 255, 0.6);
+  outline-color: rgba(10, 132, 255, 0.4);
 }
 ```
 
@@ -361,7 +361,7 @@ metadata:
 
 - **ARIA**: `role="banner"` on header, `aria-label="Navigation"` on nav, `aria-label` on all buttons
 - **Keyboard**: Tab to focus each button, Enter/Space to activate
-- **Focus ring**: 4px solid blue at 60% opacity, 1px offset
+- **Focus ring**: 4px solid blue at 40% opacity, 1px offset
 - **Touch target**: All buttons minimum 44x44px
 - **Screen reader**: Back button announces "Back" or parent screen name
 - **Title hierarchy**: `<h1>` for page title in both large and inline variants

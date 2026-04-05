@@ -28,9 +28,9 @@ metadata:
 :root {
   --apple-ctx-bg: rgba(255, 255, 255, 0.72);
   --apple-ctx-bg-solid: #FFFFFF;
-  --apple-ctx-text: #000000;
+  --apple-ctx-text: #1D1D1F;
   --apple-ctx-text-secondary: rgba(60, 60, 67, 0.6);
-  --apple-ctx-icon: #000000;
+  --apple-ctx-icon: #1D1D1F;
   --apple-ctx-separator: rgba(60, 60, 67, 0.29);
   --apple-ctx-destructive: #FF3B30;
   --apple-ctx-hover: rgba(0, 0, 0, 0.06);
@@ -43,9 +43,9 @@ metadata:
   :root {
     --apple-ctx-bg: rgba(30, 30, 30, 0.72);
     --apple-ctx-bg-solid: #1C1C1E;
-    --apple-ctx-text: #FFFFFF;
+    --apple-ctx-text: #F5F5F7;
     --apple-ctx-text-secondary: rgba(235, 235, 245, 0.6);
-    --apple-ctx-icon: #FFFFFF;
+    --apple-ctx-icon: #F5F5F7;
     --apple-ctx-separator: rgba(84, 84, 88, 0.6);
     --apple-ctx-destructive: #FF453A;
     --apple-ctx-hover: rgba(255, 255, 255, 0.08);
@@ -58,9 +58,9 @@ metadata:
 .dark {
   --apple-ctx-bg: rgba(30, 30, 30, 0.72);
   --apple-ctx-bg-solid: #1C1C1E;
-  --apple-ctx-text: #FFFFFF;
+  --apple-ctx-text: #F5F5F7;
   --apple-ctx-text-secondary: rgba(235, 235, 245, 0.6);
-  --apple-ctx-icon: #FFFFFF;
+  --apple-ctx-icon: #F5F5F7;
   --apple-ctx-separator: rgba(84, 84, 88, 0.6);
   --apple-ctx-destructive: #FF453A;
   --apple-ctx-hover: rgba(255, 255, 255, 0.08);
@@ -256,8 +256,8 @@ metadata:
 
 | State | Background | Text | Icon | Cursor |
 |-------|-----------|------|------|--------|
-| Default | transparent | #000000 | #000000 | pointer |
-| Hover | rgba(0,0,0,0.06) | #000000 | #000000 | pointer |
+| Default | transparent | #1D1D1F | #1D1D1F | pointer |
+| Hover | rgba(0,0,0,0.06) | #1D1D1F | #1D1D1F | pointer |
 | Focus/Active | #007AFF | #FFFFFF | #FFFFFF | pointer |
 | Destructive | transparent | #FF3B30 | #FF3B30 | pointer |
 | Destructive active | #FF3B30 | #FFFFFF | #FFFFFF | pointer |

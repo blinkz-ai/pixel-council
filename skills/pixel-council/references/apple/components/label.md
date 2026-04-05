@@ -16,8 +16,8 @@ metadata:
 | Headline | 17px/22px, weight 600 |
 | Title 1 | 28px/34px, weight 400 |
 | Large Title | 34px/41px, weight 700 |
-| Primary color (light) | #000000 |
-| Primary color (dark) | #FFFFFF |
+| Primary color (light) | #1D1D1F |
+| Primary color (dark) | #F5F5F7 |
 | Secondary color (light) | rgba(60,60,67,0.6) |
 | Secondary color (dark) | rgba(235,235,245,0.6) |
 | CSS prefix | `.apple-label` |
@@ -26,7 +26,7 @@ metadata:
 
 ```css
 :root {
-  --apple-label-primary: #000000;
+  --apple-label-primary: #1D1D1F;
   --apple-label-secondary: rgba(60, 60, 67, 0.6);
   --apple-label-tertiary: rgba(60, 60, 67, 0.3);
   --apple-label-quaternary: rgba(60, 60, 67, 0.18);
@@ -42,7 +42,7 @@ metadata:
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --apple-label-primary: #FFFFFF;
+    --apple-label-primary: #F5F5F7;
     --apple-label-secondary: rgba(235, 235, 245, 0.6);
     --apple-label-tertiary: rgba(235, 235, 245, 0.3);
     --apple-label-quaternary: rgba(235, 235, 245, 0.16);
@@ -53,7 +53,7 @@ metadata:
   }
 }
 .dark {
-  --apple-label-primary: #FFFFFF;
+  --apple-label-primary: #F5F5F7;
   --apple-label-secondary: rgba(235, 235, 245, 0.6);
   --apple-label-tertiary: rgba(235, 235, 245, 0.3);
   --apple-label-quaternary: rgba(235, 235, 245, 0.16);
@@ -293,7 +293,7 @@ metadata:
 
 | Color Level | Light | Dark | Use Case |
 |------------|-------|------|----------|
-| Primary | #000000 | #FFFFFF | Titles, body text, primary info |
+| Primary | #1D1D1F | #F5F5F7 | Titles, body text, primary info |
 | Secondary | rgba(60,60,67,0.6) | rgba(235,235,245,0.6) | Subtitles, descriptions, timestamps |
 | Tertiary | rgba(60,60,67,0.3) | rgba(235,235,245,0.3) | Placeholder text, disabled labels |
 | Quaternary | rgba(60,60,67,0.18) | rgba(235,235,245,0.16) | Decorative text, watermarks |

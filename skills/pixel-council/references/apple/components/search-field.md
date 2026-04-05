@@ -27,7 +27,7 @@ metadata:
 ```css
 :root {
   --apple-search-bg: rgba(120, 120, 128, 0.12);
-  --apple-search-text: #000000;
+  --apple-search-text: #1D1D1F;
   --apple-search-placeholder: rgba(60, 60, 67, 0.3);
   --apple-search-icon: rgba(60, 60, 67, 0.6);
   --apple-search-tint: #007AFF;
@@ -35,7 +35,7 @@ metadata:
   --apple-search-scope-bg: rgba(120, 120, 128, 0.16);
   --apple-search-scope-selected-bg: #FFFFFF;
   --apple-search-separator: rgba(60, 60, 67, 0.29);
-  --apple-search-focus-ring: rgba(0, 122, 255, 0.6);
+  --apple-search-focus-ring: rgba(0, 122, 255, 0.4);
   --apple-search-clear-bg: rgba(60, 60, 67, 0.3);
   --apple-search-font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
     'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -44,7 +44,7 @@ metadata:
 @media (prefers-color-scheme: dark) {
   :root {
     --apple-search-bg: rgba(120, 120, 128, 0.24);
-    --apple-search-text: #FFFFFF;
+    --apple-search-text: #F5F5F7;
     --apple-search-placeholder: rgba(235, 235, 245, 0.3);
     --apple-search-icon: rgba(235, 235, 245, 0.6);
     --apple-search-tint: #0A84FF;
@@ -52,13 +52,13 @@ metadata:
     --apple-search-scope-bg: rgba(120, 120, 128, 0.36);
     --apple-search-scope-selected-bg: rgba(120, 120, 128, 0.36);
     --apple-search-separator: rgba(84, 84, 88, 0.6);
-    --apple-search-focus-ring: rgba(10, 132, 255, 0.6);
+    --apple-search-focus-ring: rgba(10, 132, 255, 0.4);
     --apple-search-clear-bg: rgba(235, 235, 245, 0.3);
   }
 }
 .dark {
   --apple-search-bg: rgba(120, 120, 128, 0.24);
-  --apple-search-text: #FFFFFF;
+  --apple-search-text: #F5F5F7;
   --apple-search-placeholder: rgba(235, 235, 245, 0.3);
   --apple-search-icon: rgba(235, 235, 245, 0.6);
   --apple-search-tint: #0A84FF;
@@ -66,7 +66,7 @@ metadata:
   --apple-search-scope-bg: rgba(120, 120, 128, 0.36);
   --apple-search-scope-selected-bg: rgba(120, 120, 128, 0.36);
   --apple-search-separator: rgba(84, 84, 88, 0.6);
-  --apple-search-focus-ring: rgba(10, 132, 255, 0.6);
+  --apple-search-focus-ring: rgba(10, 132, 255, 0.4);
   --apple-search-clear-bg: rgba(235, 235, 245, 0.3);
 }
 ```
@@ -331,14 +331,14 @@ metadata:
     background: #1C1C1E;
   }
   .apple-search__field:focus-within {
-    outline-color: rgba(10, 132, 255, 0.6);
+    outline-color: rgba(10, 132, 255, 0.4);
   }
 }
 .dark .apple-search__suggestions {
   background: #1C1C1E;
 }
 .dark .apple-search__field:focus-within {
-  outline-color: rgba(10, 132, 255, 0.6);
+  outline-color: rgba(10, 132, 255, 0.4);
 }
 ```
 
@@ -385,7 +385,7 @@ metadata:
 
 - **ARIA**: `role="search"` on container, `aria-label="Search"` on input, `aria-expanded` when suggestions visible, `aria-controls` linking input to suggestions, `role="listbox"` on suggestions
 - **Keyboard**: Tab to focus field, Escape to clear/dismiss, Up/Down arrows to navigate suggestions, Enter to select suggestion
-- **Focus ring**: 4px solid blue at 60% opacity on field container
+- **Focus ring**: 4px solid blue at 40% opacity on field container
 - **Touch target**: 36px field height with 8px vertical padding = 44px touch target
 - **Screen reader**: Search icon is `aria-hidden`, clear button has `aria-label="Clear search"`
 - **Autocomplete**: `autocomplete="off"` to prevent browser suggestions, custom suggestions via ARIA

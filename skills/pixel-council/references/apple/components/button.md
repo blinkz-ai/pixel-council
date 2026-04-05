@@ -25,7 +25,7 @@ metadata:
 :root {
   --apple-button-blue: #007AFF;
   --apple-button-red: #FF3B30;
-  --apple-button-label: #000000;
+  --apple-button-label: #1D1D1F;
   --apple-button-secondary-label: rgba(60,60,67,0.6);
   --apple-button-fill: rgba(120,120,128,0.16);
   --apple-button-bg: #FFFFFF;
@@ -41,7 +41,7 @@ metadata:
   :root {
     --apple-button-blue: #0A84FF;
     --apple-button-red: #FF453A;
-    --apple-button-label: #FFFFFF;
+    --apple-button-label: #F5F5F7;
     --apple-button-secondary-label: rgba(235,235,245,0.6);
     --apple-button-fill: rgba(120,120,128,0.36);
     --apple-button-bg: #000000;
@@ -52,7 +52,7 @@ metadata:
 .dark {
   --apple-button-blue: #0A84FF;
   --apple-button-red: #FF453A;
-  --apple-button-label: #FFFFFF;
+  --apple-button-label: #F5F5F7;
   --apple-button-secondary-label: rgba(235,235,245,0.6);
   --apple-button-fill: rgba(120,120,128,0.36);
   --apple-button-bg: #000000;
@@ -181,7 +181,7 @@ metadata:
 
 /* -- Focus -- */
 .apple-button:focus-visible {
-  outline: 4px solid rgba(0, 122, 255, 0.6);
+  outline: 4px solid rgba(0, 122, 255, 0.4);
   outline-offset: 1px;
 }
 
@@ -206,10 +206,10 @@ metadata:
 
 /* -- Dark mode -- */
 @media (prefers-color-scheme: dark) {
-  .apple-button:focus-visible { outline-color: rgba(10, 132, 255, 0.6); }
+  .apple-button:focus-visible { outline-color: rgba(10, 132, 255, 0.4); }
   .apple-button--destructive:hover { background: rgba(255,69,58,0.08); }
 }
-.dark .apple-button:focus-visible { outline-color: rgba(10, 132, 255, 0.6); }
+.dark .apple-button:focus-visible { outline-color: rgba(10, 132, 255, 0.4); }
 ```
 
 ## States Reference
@@ -239,7 +239,7 @@ metadata:
 
 - **ARIA**: implicit `role="button"` on `<button>`, `aria-disabled="true"` for disabled, `aria-busy="true"` for loading
 - **Keyboard**: Tab to focus, Enter/Space to activate, Return key activates primary role
-- **Focus ring**: 4px solid blue at 60% opacity, 1px offset
+- **Focus ring**: 4px solid blue at 40% opacity, 1px offset
 - **Touch target**: minimum 44x44px (iOS standard)
 - **Screen reader**: loading state announced via `aria-busy`
 

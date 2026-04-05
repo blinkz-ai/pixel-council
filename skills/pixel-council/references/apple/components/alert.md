@@ -25,7 +25,7 @@ metadata:
 ```css
 :root {
   --apple-alert-bg: rgba(255, 255, 255, 0.72);
-  --apple-alert-title: #000000;
+  --apple-alert-title: #1D1D1F;
   --apple-alert-message: rgba(60, 60, 67, 0.6);
   --apple-alert-separator: rgba(60, 60, 67, 0.29);
   --apple-alert-action-default: #007AFF;
@@ -36,7 +36,7 @@ metadata:
 @media (prefers-color-scheme: dark) {
   :root {
     --apple-alert-bg: rgba(30, 30, 30, 0.72);
-    --apple-alert-title: #FFFFFF;
+    --apple-alert-title: #F5F5F7;
     --apple-alert-message: rgba(235, 235, 245, 0.6);
     --apple-alert-separator: rgba(84, 84, 88, 0.6);
     --apple-alert-action-default: #0A84FF;
@@ -46,7 +46,7 @@ metadata:
 
 .dark {
   --apple-alert-bg: rgba(30, 30, 30, 0.72);
-  --apple-alert-title: #FFFFFF;
+  --apple-alert-title: #F5F5F7;
   --apple-alert-message: rgba(235, 235, 245, 0.6);
   --apple-alert-separator: rgba(84, 84, 88, 0.6);
   --apple-alert-action-default: #0A84FF;
@@ -207,7 +207,7 @@ metadata:
   background: rgba(0, 0, 0, 0.05);
 }
 .apple-alert__action:focus-visible {
-  outline: 4px solid rgba(0, 122, 255, 0.6);
+  outline: 4px solid rgba(0, 122, 255, 0.4);
   outline-offset: -4px;
 }
 

@@ -202,17 +202,17 @@ metadata:
 
 /* Focus */
 .apple-tab-bar__tab:focus-visible {
-  outline: 4px solid rgba(0, 122, 255, 0.6);
+  outline: 4px solid rgba(0, 122, 255, 0.4);
   outline-offset: 1px;
   border-radius: 4px;
 }
 @media (prefers-color-scheme: dark) {
   .apple-tab-bar__tab:focus-visible {
-    outline-color: rgba(10, 132, 255, 0.6);
+    outline-color: rgba(10, 132, 255, 0.4);
   }
 }
 .dark .apple-tab-bar__tab:focus-visible {
-  outline-color: rgba(10, 132, 255, 0.6);
+  outline-color: rgba(10, 132, 255, 0.4);
 }
 
 /* Active / pressed */
@@ -260,7 +260,7 @@ metadata:
 
 - ARIA: `role="tablist"`, `role="tab"`, `aria-selected`, `aria-current="page"` on active
 - Keyboard: Tab to enter bar; Arrow Left/Right between tabs; Enter/Space to activate
-- Focus: 4px solid `rgba(0,122,255,0.6)` outline, 1px offset
+- Focus: 4px solid `rgba(0,122,255,0.4)` outline, 1px offset
 - Touch target: Min 44x49px per tab
 - Screen reader: Badge counts via `aria-label` on badge element
 - Tab bar always visible -- never hidden during navigation

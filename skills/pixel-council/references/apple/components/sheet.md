@@ -29,7 +29,7 @@ metadata:
   --apple-sheet-grabber: rgba(60, 60, 67, 0.3);
   --apple-sheet-scrim: rgba(0, 0, 0, 0.4);
   --apple-sheet-separator: rgba(60, 60, 67, 0.29);
-  --apple-sheet-title: #000000;
+  --apple-sheet-title: #1D1D1F;
   --apple-sheet-radius: 10px;
 }
 
@@ -39,7 +39,7 @@ metadata:
     --apple-sheet-surface: #1C1C1E;
     --apple-sheet-grabber: rgba(235, 235, 245, 0.3);
     --apple-sheet-separator: rgba(84, 84, 88, 0.6);
-    --apple-sheet-title: #FFFFFF;
+    --apple-sheet-title: #F5F5F7;
   }
 }
 
@@ -48,7 +48,7 @@ metadata:
   --apple-sheet-surface: #1C1C1E;
   --apple-sheet-grabber: rgba(235, 235, 245, 0.3);
   --apple-sheet-separator: rgba(84, 84, 88, 0.6);
-  --apple-sheet-title: #FFFFFF;
+  --apple-sheet-title: #F5F5F7;
 }
 ```
 
@@ -181,7 +181,7 @@ metadata:
 .apple-sheet__done { font-weight: 600; justify-content: flex-end; }
 .apple-sheet__cancel:focus-visible,
 .apple-sheet__done:focus-visible {
-  outline: 4px solid rgba(0, 122, 255, 0.6);
+  outline: 4px solid rgba(0, 122, 255, 0.4);
   outline-offset: 1px;
   border-radius: 4px;
 }
