@@ -467,6 +467,121 @@ Apply these principles to every page — the difference between "technically cor
 
 As planned in Step 3.7, implement both light and dark themes — this is non-negotiable for production-grade output.
 
+### 4E. Production Code Standards
+
+These 10 rules separate "looks good" from "ships to production." The visual design can be perfect, but if the code has these issues, it's a prototype — not a product. Check each one before delivering.
+
+**1. One token set, one source of truth.**
+Copy the complete token block from the overview file (overview.md) into your `:root`. Never invent per-component token aliases (e.g., `--card-label`, `--type-label`) when a canonical token like `--label-primary` already exists in the overview. If a component file defines its own tokens, those are for reading context — use the canonical overview tokens in your output. This applies to ALL design systems: Apple (`--apple-*`), Google M3 (`--md-sys-*`), and any future system.
+
+**2. No inline styles.**
+Every `style="..."` attribute is a code smell. Define utility classes instead:
+```css
+.icon-sm { width: 18px; height: 18px; }
+.icon-md { width: 22px; height: 22px; }
+.icon-lg { width: 28px; height: 28px; }
+.text-success { color: var(--color-green); } /* use your locked system's token name */
+```
+Then use `class="icon-sm"` — never `style="width:18px;height:18px"`.
+
+**3. Deduplicate SVGs with `<symbol>` + `<use>`.**
+When the same icon appears more than once (checkmarks in lists, arrows in cards), define it once and reference it:
+```html
+<!-- Hidden SVG sprite at top of <body> -->
+<svg style="display:none">
+  <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 12.5l5 5 11-11"/>
+  </symbol>
+</svg>
+
+<!-- Use anywhere -->
+<svg width="20" height="20"><use href="#icon-check"/></svg>
+```
+
+**4. Organize CSS with `@layer`.**
+Structure your styles into layers for clear specificity:
+```css
+@layer tokens, reset, layout, components, utilities, themes;
+@layer tokens { :root { /* all design tokens */ } }
+@layer reset { *, *::before, *::after { box-sizing: border-box; margin: 0; } }
+@layer layout { /* page structure */ }
+@layer components { /* buttons, cards, nav, etc. */ }
+@layer utilities { /* .icon-sm, .text-success, .sr-only */ }
+@layer themes { /* dark mode overrides */ }
+```
+
+**5. Dark mode: define once, apply twice.**
+Never duplicate 100+ lines of dark tokens. Define them once, apply from both contexts:
+```css
+/* Define dark overrides once — use your locked system's token names */
+.dark {
+  --label-primary: /* dark value from overview.md */;
+  --bg-primary: /* dark value from overview.md */;
+  /* ... all dark tokens ... */
+}
+/* Auto-apply when system prefers dark */
+@media (prefers-color-scheme: dark) { :root:not(.light) { /* same values */ } }
+```
+Or simpler: define everything in `.dark`, then add a `<script>` in `<head>` that checks `matchMedia('(prefers-color-scheme: dark)')` and adds `.dark` to `<html>` before first paint.
+
+**6. Split files when output exceeds 500 lines.**
+A 1900-line single HTML file is a prototype. For production:
+- `index.html` — markup only
+- `styles.css` — all CSS (linked via `<link rel="stylesheet">`)
+- `script.js` — all JS (loaded with `defer`)
+
+Always offer multi-file output. If the user explicitly asks for a single file, that's fine — but default to separation.
+
+**7. Use event delegation for repeated elements.**
+Don't attach individual event listeners to every list item. Attach one listener on the parent:
+```js
+// Bad: N listeners
+items.forEach(item => item.addEventListener('click', handler));
+
+// Good: 1 listener
+list.addEventListener('click', (e) => {
+  const item = e.target.closest('.list-item');
+  if (item) handler(item);
+});
+```
+
+**8. Always include essential `<meta>` tags.**
+Every page must have:
+```html
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="...">
+```
+Landing pages also need Open Graph and Twitter Card tags:
+```html
+<meta property="og:title" content="...">
+<meta property="og:description" content="...">
+<meta property="og:image" content="...">
+<meta name="twitter:card" content="summary_large_image">
+```
+
+**9. Never render-block with scripts.**
+External scripts in `<head>` without `defer` block rendering. Always use:
+```html
+<script src="https://unpkg.com/lucide@latest" defer></script>
+```
+Or place scripts before `</body>`. Initialize CDN libraries in a `DOMContentLoaded` listener.
+
+**10. Landing pages need product imagery.**
+A text-only landing page reads as a template, not a product. Include visual anchors:
+- App screenshots in device bezels (CSS-drawn phone/laptop frames with gradient placeholder screens)
+- Illustrations or diagrams showing the product in action
+- Feature sections must have 50%+ imagery (not just icon + text)
+
+When no real images are available, create CSS-drawn device mockups:
+```html
+<div class="phone-bezel">
+  <div class="phone-screen" style="background: linear-gradient(135deg, var(--color-primary), var(--color-accent))">
+    <!-- Placeholder app UI can go here -->
+  </div>
+</div>
+```
+Use the primary/accent tokens from your locked design system (Apple: `--apple-color-blue`/`--apple-color-indigo`, Google: `--md-sys-color-primary`/`--md-sys-color-tertiary`).
+
 ---
 
 ## Step 5: Verify — Spec Accuracy + Composition Quality
@@ -505,6 +620,19 @@ See [Theme Implementation Reference](theme-implementation.md) for complete theme
 - [ ] **Component count** — used 8+ distinct components for a full page. If fewer, go back to Step 3B and think broader
 - [ ] **Not generic** — the output should NOT look like it could be from any AI tool. It should feel native to the chosen design system
 - [ ] **No cross-contamination** — every token, color, dimension, and CSS value traces back exclusively to `references/{chosen system}/` files. If any value came from another system's directory, replace it.
+
+### Production Code Checklist
+
+- [ ] **Single token source** — all CSS variables come from the overview.md token block, no ad-hoc per-component aliases
+- [ ] **No inline styles** — zero `style="..."` attributes in the HTML; all styling via classes
+- [ ] **SVGs deduplicated** — repeated icons use `<symbol>` + `<use>`, not copy-pasted markup
+- [ ] **CSS layered** — `@layer tokens, reset, layout, components, utilities, themes;`
+- [ ] **Dark mode DRY** — dark tokens defined once, not duplicated across `@media` and `.dark`
+- [ ] **Files separated** — output over 500 lines split into `.html` + `.css` + `.js`
+- [ ] **Event delegation** — one listener on parent containers, not individual listeners per child
+- [ ] **Meta tags present** — `color-scheme`, `description`, OG tags (landing pages)
+- [ ] **No render-blocking scripts** — external `<script>` tags use `defer`
+- [ ] **Product imagery** — landing pages include device mockups or screenshots, not text-only
 
 ### Common "AI-generated" mistakes to avoid
 
